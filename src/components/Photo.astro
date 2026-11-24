@@ -1,0 +1,43 @@
+---
+// Emplacement d'image. Tant que le fichier n'existe pas dans public/photos/, on affiche
+// un cadre gris légendé (« Photo à venir : … ») aux proportions prévues par la maquette.
+import fs from 'node:fs';
+import path from 'node:path';
+import { COMMUN } from '../i18n/commun';
+import type { Lang } from '../i18n/routes';
+
+interface Props {
+  fichier: string;          // ex. 'accueil-banniere.jpg', à déposer dans public/photos/
+  alt: string;
+  legende: string;          // ce que montrera la photo
+  ratio?: '4/3' | '16/9' | '4/5' | '1/1';
+  lang: Lang;
+  type?: 'photo' | 'illustration';
+  initiales?: string;       // affichées au centre du cadre (ex. « ATL »)
+  class?: string;
+}
+const { fichier, alt, legende, ratio = '4/3', lang, type = 'photo', initiales, class: classe } = Astro.props;
+const existe = fs.existsSync(path.join(process.cwd(), 'public', 'photos', fichier));
+const prefixe = type === 'photo' ? COMMUN[lang].photoAVenir : COMMUN[lang].illustrationAVenir;
+---
+{existe ? (
+  <img src={`/photos/${fichier}`} alt={alt} class:list={['photo', classe]} style={`aspect-ratio:${ratio}`} loading="lazy" decoding="async" />
+) : (
+  <div class:list={['photo', 'photo--attente', classe]} style={`aspect-ratio:${ratio}`} role="img" aria-label={alt}>
+    {initiales && <span class="photo__initiales" aria-hidden="true">{initiales}</span>}
+    <span class="photo__legende" aria-hidden="true">{prefixe} : {legende}</span>
+  </div>
+)}
+
+<style is:global>
+  .photo { width: 100%; object-fit: cover; }
+  .photo--attente {
+    background: var(--surface-appuyee); display: flex; flex-direction: column; justify-content: flex-end;
+    position: relative; padding: var(--e4); color: var(--secondaire);
+  }
+  .photo__legende { font-size: var(--t-petit); line-height: 1.4; }
+  .photo__initiales {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    font-family: var(--f-titre); font-weight: 700; font-size: clamp(48px, 6vw, 88px); color: var(--secondaire);
+  }
+</style>

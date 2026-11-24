@@ -1,0 +1,62 @@
+---
+import { COMMUN, CONTACT } from '../i18n/commun';
+import { url, type Lang } from '../i18n/routes';
+import SelecteurLangue from './SelecteurLangue.astro';
+
+interface Props { lang: Lang; autreLangue: string | null }
+const { lang, autreLangue } = Astro.props;
+const C = COMMUN[lang];
+---
+<footer class="pied">
+  <div class="pied__interieur">
+    <div class="pied__colonnes">
+      <div class="pied__marque">
+        <img src="/logos/es-logo-horizontal-negatif.svg" alt="Entrepreneuriat Sénégal" width="220" height="49" loading="lazy" />
+        <p>{C.signature}</p>
+      </div>
+      {C.footCols.map((col) => (
+        <div class="pied__col">
+          <h2>{col.titre}</h2>
+          <ul>{col.liens.map((l) => <li><a href={url(l.ref, lang)}>{l.label}</a></li>)}</ul>
+        </div>
+      ))}
+      <div class="pied__col">
+        <h2>{C.contactTitre}</h2>
+        <ul>
+          <li><a href={CONTACT.telLien}>{CONTACT.telAffiche}</a></li>
+          <li><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+          <li>{C.ville}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pied__bas">
+      <span>{C.copyright}</span>
+      {C.legal.map((l) => <a href={url(l.ref, lang)}>{l.label}</a>)}
+      <div class="pied__langues"><SelecteurLangue lang={lang} autreLangue={autreLangue} variante="pied" /></div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .pied { background: var(--encre); color: var(--sable); margin-top: var(--section); }
+  .pied__interieur {
+    max-width: 1440px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;
+    padding: clamp(32px, 4vw, 64px) var(--gouttiere) 24px;
+  }
+  .pied__colonnes { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .pied__marque { display: flex; flex-direction: column; gap: 16px; }
+  .pied__marque img { width: 220px; height: auto; }
+  .pied__marque p { font-size: 16px; line-height: 1.5; font-style: italic; max-width: 300px; }
+  .pied__col h2 {
+    font-size: 17px; line-height: 1.2; letter-spacing: 0; border-bottom: 2px solid var(--sable);
+    padding-bottom: 8px; margin-bottom: 10px;
+  }
+  .pied__col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.5; }
+  .pied a { color: var(--sable); text-decoration-color: var(--aide); }
+  .pied a:hover { color: var(--jaune); }
+  .pied__bas {
+    border-top: 1px solid var(--secondaire); padding-top: 16px;
+    display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 14px; align-items: center;
+  }
+  .pied__langues { margin-left: auto; }
+</style>

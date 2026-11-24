@@ -1,0 +1,51 @@
+/* Valeurs reprises telles quelles de design-tokens.json (direction 1b « Atelier »). */
+:root {
+  /* Couleurs de marque */
+  --vert-logo: #0B983A;      /* logo et décor uniquement, jamais en texte */
+  --jaune: #FFDD0E;          /* surlignage et fonds, jamais en texte */
+  --rouge-logo: #E30613;     /* logo uniquement */
+  --vert: #076A2A;           /* boutons, liens */
+  --vert-fonce: #065C25;     /* survol */
+  --vert-clair: #E7F4EA;     /* encadrés */
+  --jaune-clair: #FFF4B8;    /* astuce, étape en cours */
+  --jaune-fonce: #5C4500;    /* texte sur jaune clair */
+  --rouge: #C1050F;          /* erreur */
+  --rouge-clair: #FDE7E8;
+
+  /* Neutres */
+  --blanc: #FFFFFF;
+  --sable: #F7F3EA;          /* fond de page */
+  --surface: #EFE9DD;        /* cartes */
+  --surface-appuyee: #E8E3DA;/* image en attente */
+  --bordure: #D9D4CC;        /* champs, filets fins */
+  --aide: #6B655F;
+  --secondaire: #5E5852;
+  --encre: #201E1D;
+
+  /* Typographie */
+  --f-titre: 'League Spartan', Arial, sans-serif;
+  --f-texte: 'Source Sans 3', 'Noto Sans', Arial, sans-serif;
+  --t-h1: clamp(34px, 3.6vw, 52px);
+  --t-h2: clamp(28px, 2.65vw, 38px);
+  --t-h3: clamp(22px, 1.8vw, 26px);
+  --t-h4: clamp(19px, 1.4vw, 20px);
+  --t-chapeau: clamp(19px, 1.46vw, 21px);
+  --t-texte: clamp(17px, 1.25vw, 18px);
+  --t-petit: 15px;
+  --t-bouton: 17px;
+  --t-label: 15px;
+  --t-surtitre: 13px;
+
+  /* Espacements */
+  --e1: 4px; --e2: 8px; --e3: 12px; --e4: 16px; --e6: 24px; --e8: 32px; --e12: 48px; --e16: 64px; --e24: 96px;
+  --gouttiere: clamp(16px, 3.4vw, 48px);
+  --section: clamp(48px, 6.6vw, 96px);
+  --largeur-max: 1344px;
+  --largeur-texte: 68ch;
+
+  /* Formes */
+  --filet: 2px solid var(--encre);
+  --filet-fin: 1px solid var(--bordure);
+  --ombre-whatsapp: 0 4px 16px rgba(32, 30, 29, 0.24);
+  --hauteur-entete: 80px;
+}

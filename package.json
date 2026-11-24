@@ -1,0 +1,28 @@
+{
+  "name": "entrepreneuriat-sn",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "verifier": "node scripts/verifier-site.mjs",
+    "verifier:production": "node scripts/verifier-site.mjs --production"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.6",
+    "@fontsource/league-spartan": "^5.3.0",
+    "@fontsource/noto-sans": "^5.3.0",
+    "@fontsource/source-sans-3": "^5.3.1",
+    "astro": "^5.18.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,31 @@
+---
+import { COMMUN } from '../i18n/commun';
+import type { Lang } from '../i18n/routes';
+
+interface Props { lang: Lang; autreLangue: string | null; variante?: 'cadre' | 'pied' }
+const { lang, autreLangue, variante = 'cadre' } = Astro.props;
+const C = COMMUN[lang];
+const autre: Lang = lang === 'fr' ? 'en' : 'fr';
+---
+<div class:list={['langues', `langues--${variante}`]} role="group" aria-label={C.choixLangue}>
+  {(['fr', 'en'] as Lang[]).map((l) =>
+    l === lang ? (
+      <span class="langues__actif" aria-current="true" lang={l} title={COMMUN[l].nomLangue}>{l.toUpperCase()}</span>
+    ) : autreLangue ? (
+      <a href={autreLangue} hreflang={autre} lang={autre} title={COMMUN[autre].nomLangue}>{l.toUpperCase()}</a>
+    ) : null
+  )}
+</div>
+
+<style>
+  .langues { display: flex; font-weight: 700; }
+  .langues--cadre { border: 2px solid var(--encre); font-size: 14px; }
+  .langues--cadre > * { padding: 5px 8px; min-height: 32px; display: grid; place-items: center; text-decoration: none; color: var(--encre); }
+  .langues--cadre .langues__actif { background: var(--encre); color: var(--sable); }
+  .langues--cadre a:hover { background: var(--vert-clair); }
+  .langues--pied { gap: 8px; }
+  .langues--pied > * { color: var(--sable); text-decoration: none; }
+  .langues--pied .langues__actif { text-decoration: underline; text-underline-offset: 3px; }
+  .langues--pied > * + *::before { content: '|'; margin-right: 8px; text-decoration: none; display: inline-block; }
+  @media (min-width: 1024px) { .langues--cadre { font-size: 15px; } .langues--cadre > * { padding: 6px 10px; } }
+</style>
