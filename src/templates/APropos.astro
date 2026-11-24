@@ -1,0 +1,149 @@
+---
+import Page from '../layouts/Page.astro';
+import Bouton from '../components/Bouton.astro';
+import Icone from '../components/Icone.astro';
+import Photo from '../components/Photo.astro';
+import AP from '../content/a-propos.js';
+import { COMMUN } from '../i18n/commun';
+import { r, type Lang, type RouteId } from '../i18n/routes';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = AP[lang];
+const majuscule = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
+---
+<Page lang={lang} id="a-propos">
+  <section class="bloc">
+    <div class="bloc__in entete">
+      <div class="colonne" style="gap:20px">
+        <nav aria-label={COMMUN[lang].filAriane} class="ariane">
+          <ol><li><a href={r('accueil', lang)}>{T.ariane[0]}</a></li><li><span aria-current="page">{T.ariane[1]}</span></li></ol>
+        </nav>
+        <h1>{T.titre}</h1>
+      </div>
+      <div class="colonne" style="gap:12px;align-self:end">
+        {T.texte.map((p: string) => <p class="t18">{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile" style="gap:24px">
+      <h2>{T.modeleTitre}</h2>
+      <div class="deux-cartes">
+        {T.modele.map((m: any) => <div class="carte-verte"><h3>{m.t}</h3><p>{m.d}</p></div>)}
+      </div>
+      <p class="synthese"><span>{T.synthese}</span></p>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile" style="gap:36px">
+      <div class="vm">
+        <div><h2 class="h24">{T.visionTitre}</h2><p>{T.vision}</p></div>
+        <div><h2 class="h24">{T.missionTitre}</h2><p>{T.mission}</p></div>
+      </div>
+      <div class="colonne" style="gap:16px">
+        <h2>{T.valeursTitre}</h2>
+        <ul class="valeurs">
+          {T.valeurs.map((v: any) => (
+            <li>
+              <span class="pastille-icone" style="width:44px;height:44px"><Icone nom={v.icone} taille={24} /></span>
+              <div><h3>{v.t}</h3><p>{majuscule(v.d)}</p></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="engagement">
+        <h2 class="h24">{T.engagementTitre}</h2>
+        {T.engagement.map((p: string) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in fondateur">
+      <div class="colonne">
+        <Photo lang={lang} fichier="fondateur.jpg" ratio="4/5" initiales={T.initiales} class="fondateur__photo"
+          alt={T.fondateurNom}
+          legende={lang === 'fr' ? 'portrait du fondateur' : 'portrait of the founder'} />
+        <h2 class="fondateur__nom">{T.fondateurNom}</h2>
+        <p class="fondateur__titre">{T.fondateurTitre}</p>
+      </div>
+      <div class="colonne fondateur__texte" style="gap:16px">
+        <blockquote>{T.citation}</blockquote>
+        {T.bio.map((p: string) => <p>{p}</p>)}
+        <div class="colonne" style="gap:8px">
+          <h3 class="surtitre">{T.domainesTitre}</h3>
+          <ul class="etiquettes">{T.domaines.map((d: string) => <li>{d}</li>)}</ul>
+        </div>
+        <div class="demarche">
+          <h3>{T.demarcheTitre}</h3>
+          <p>{T.demarche}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc bloc--sans-filet">
+    <div class="bloc__in bloc__in--pile" style="gap:32px">
+      <div class="bloc__in--2" style="display:grid">
+        <h2>{T.reseauTitre}</h2>
+        <div class="colonne" style="gap:12px">{T.reseau.map((p: string) => <p class="t17">{p}</p>)}</div>
+      </div>
+      <div class="deux-cartes deux-cartes--large">
+        {T.cta.map((c: any) => (
+          <div class="carte-verte cta">
+            <p class="cta__t">{c.t}</p>
+            <Bouton href={r(c.id as RouteId, lang)} class="cta__b">{c.b}</Bouton>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .entete { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(20px, 4vw, 64px); padding-top: clamp(24px, 3.4vw, 48px); padding-bottom: clamp(40px, 5.5vw, 80px); }
+  .ariane ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 15px; color: var(--secondaire); }
+  .ariane li + li::before { content: '/'; margin-right: 8px; }
+  .ariane a { color: var(--vert); text-decoration: underline; text-underline-offset: 3px; }
+  .t18 { font-size: clamp(17px, 1.25vw, 18px); line-height: 1.55; }
+  .t17 { font-size: 17px; line-height: 1.55; }
+  .h24 { font-size: 24px; letter-spacing: 0; }
+
+  .deux-cartes { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); }
+  .deux-cartes--large { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+  .carte-verte { background: var(--surface); border-top: 4px solid var(--vert); padding: 20px 18px; display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.5; }
+  .carte-verte h3 { font-size: 22px; line-height: 1.15; }
+  .synthese { font-family: var(--f-titre); font-weight: 600; font-size: clamp(20px, 1.7vw, 24px); line-height: 1.3; max-width: 40ch; }
+  .synthese span { background: linear-gradient(transparent 62%, var(--jaune) 62%); }
+
+  .vm { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); border-top: var(--filet); }
+  .vm > div { padding: 18px 24px 18px 0; display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.55; }
+  .valeurs { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); border-top: var(--filet); }
+  .valeurs li { padding: 16px 16px 16px 0; border-bottom: var(--filet-fin); display: flex; gap: 14px; align-items: flex-start; }
+  .valeurs div { display: flex; flex-direction: column; gap: 4px; font-size: 16px; line-height: 1.5; }
+  .valeurs h3 { font-size: 20px; }
+  .engagement { background: var(--vert-clair); padding: 24px 20px; display: flex; flex-direction: column; gap: 10px; font-size: 17px; line-height: 1.55; }
+  .engagement p { max-width: 70ch; }
+
+  .fondateur { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+  @media (max-width: 1023px) { .fondateur { grid-template-columns: minmax(0, 1fr); } }
+  .fondateur :global(.fondateur__photo) { max-width: 420px; }
+  .fondateur__nom { font-size: 26px; line-height: 1.1; letter-spacing: 0; }
+  .fondateur__titre { font-size: 15px; line-height: 1.45; color: var(--secondaire); }
+  .fondateur__texte p { font-size: 17px; line-height: 1.55; max-width: 70ch; }
+  blockquote { margin: 0; font-family: var(--f-titre); font-weight: 700; font-size: clamp(24px, 2.3vw, 32px); line-height: 1.15; border-left: 6px solid var(--jaune); padding-left: 16px; }
+  .fondateur .surtitre { font-family: var(--f-texte); font-size: 13px; }
+  .etiquettes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .etiquettes li { padding: 6px 10px; background: var(--vert-clair); color: var(--vert-fonce); font-size: 15px; font-weight: 600; }
+  .demarche { background: var(--surface); padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .demarche h3 { font-size: 19px; }
+  .fondateur__texte .demarche p { font-size: 16px; }
+
+  .bloc--sans-filet { border-bottom: 0; }
+  .cta { gap: 14px; padding: 22px 18px; }
+  .cta__t { font-family: var(--f-titre); font-weight: 700; font-size: clamp(21px, 1.7vw, 24px); line-height: 1.2; }
+  .cta :global(.cta__b) { margin-top: auto; }
+</style>

@@ -22,24 +22,4 @@ const classes = ['bouton', `bouton--${variante}`, classe];
   </button>
 )}
 
-<style is:global>
-  .bouton {
-    display: inline-flex; align-items: center; justify-content: space-between; gap: var(--e6);
-    min-height: 44px; padding: 15px 16px 13px; border: 0; cursor: pointer; text-align: left;
-    font-family: var(--f-titre); font-weight: 700; font-size: var(--t-bouton); line-height: 1.1;
-    text-decoration: none; transition: background-color 0.15s;
-  }
-  .bouton--principal { background: var(--vert); color: var(--blanc); }
-  .bouton--principal:hover { background: var(--vert-fonce); color: var(--blanc); }
-  .bouton--secondaire { background: transparent; color: var(--vert); border: 2px solid var(--vert); padding: 13px 16px 11px; }
-  .bouton--secondaire:hover { background: var(--vert-clair); color: var(--vert); }
-  .bouton--sur-jaune { background: var(--encre); color: var(--blanc); }
-  .bouton--sur-jaune:hover { background: #000; color: var(--blanc); }
-  .bouton--sur-encre { background: var(--jaune); color: var(--encre); }
-  .bouton--sur-encre:hover { background: var(--jaune-clair); color: var(--encre); }
-  .bouton--lien {
-    background: none; color: var(--vert); padding: 4px 0; min-height: 0;
-    text-decoration: underline; text-underline-offset: 4px; justify-content: flex-start; gap: var(--e2);
-  }
-  .bouton[disabled], .bouton[aria-disabled='true'] { opacity: 0.45; cursor: not-allowed; }
-</style>
+<!-- Styles des boutons : src/styles/base.css (utilisés aussi hors de ce composant, ex. en-tête). -->

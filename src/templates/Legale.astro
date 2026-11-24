@@ -1,0 +1,96 @@
+---
+// Mentions légales et Politique de confidentialité (02-CONTENUS 13/14/15).
+// Les [À COMPLÉTER] sont surlignés ; `npm run verifier:production` bloque leur mise en ligne.
+import Base from '../layouts/Base.astro';
+import LEGAL from '../content/legal.js';
+import { SEO } from '../content/seo';
+import { COMMUN } from '../i18n/commun';
+import { r, type Lang, type RouteId } from '../i18n/routes';
+
+interface Props { lang: Lang; page: 'mentions' | 'confidentialite' }
+const { lang, page } = Astro.props;
+const P = LEGAL[page][lang];
+const seo = SEO[page as RouteId][lang];
+const ariane = P.ariane.split(' / ');
+const nPh = JSON.stringify(P).split('"ph":true').length - 1;
+const bandeau = lang === 'fr'
+  ? `Brouillon : ${nPh} information(s) surlignée(s) en jaune restent à compléter, puis la page sera relue par un juriste.`
+  : `Draft: ${nPh} item(s) highlighted in yellow still need to be completed, then the page will be reviewed by a lawyer.`;
+const sommaire = lang === 'fr' ? 'Sommaire' : 'Contents';
+const ancre = (i: number) => `${page}-${i + 1}`;
+type Run = { t: string; b?: boolean; ph?: boolean; link?: string };
+---
+<Base lang={lang} page={{ kind: 'route', id: page }} titre={seo.titre} description={seo.description}>
+  <div class="bloc__in legal">
+    <nav aria-label={COMMUN[lang].filAriane} class="ariane">
+      <ol><li><a href={r('accueil', lang)}>{ariane[0]}</a></li><li><span aria-current="page">{ariane[ariane.length - 1]}</span></li></ol>
+    </nav>
+    <header class="legal__tete">
+      <h1>{P.titre}</h1>
+      {P.maj.map((m: Run[]) => (
+        <p class="maj">{m.map((s) => s.ph ? <mark>{s.t}</mark> : s.t)}</p>
+      ))}
+    </header>
+    <div class="legal__corps">
+      <nav aria-label={sommaire} class="sommaire">
+        <ol>{P.sections.map((s: any, i: number) => <li><a href={`#${ancre(i)}`}>{s.h}</a></li>)}</ol>
+      </nav>
+      <div class="legal__texte">
+        {nPh > 0 && <p class="encadre encadre--jaune bandeau">{bandeau}</p>}
+        {P.sections.map((sec: any, i: number) => (
+          <section id={ancre(i)}>
+            <h2>{sec.h}</h2>
+            {sec.blocks.map((b: any) =>
+              b.sub ? <h3>{b.sub}</h3>
+              : b.p ? <p>{b.p.map((s: Run) => s.link ? <a href={r(s.link as RouteId, lang)}><strong>{s.t}</strong></a> : s.ph ? <mark>{s.t}</mark> : s.b ? <strong>{s.t}</strong> : s.t)}</p>
+              : b.list ? (b.ol
+                  ? <ol>{b.list.map((it: Run[]) => <li>{it.map((s) => s.link ? <a href={r(s.link as RouteId, lang)}><strong>{s.t}</strong></a> : s.ph ? <mark>{s.t}</mark> : s.b ? <strong>{s.t}</strong> : s.t)}</li>)}</ol>
+                  : <ul>{b.list.map((it: Run[]) => <li>{it.map((s) => s.link ? <a href={r(s.link as RouteId, lang)}><strong>{s.t}</strong></a> : s.ph ? <mark>{s.t}</mark> : s.b ? <strong>{s.t}</strong> : s.t)}</li>)}</ul>)
+              : b.table ? (
+                <div class="tableau" role="table">
+                  {b.table.map((row: Run[][], k: number) => (
+                    <div role="row" class:list={['tableau__ligne', { 'tableau__tete': k === 0 }]}>
+                      {row.map((cell) => <div role={k === 0 ? 'columnheader' : 'cell'}>{cell.map((s) => s.ph ? <mark>{s.t}</mark> : s.b ? <strong>{s.t}</strong> : s.t)}</div>)}
+                    </div>
+                  ))}
+                </div>
+              ) : null
+            )}
+          </section>
+        ))}
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .legal { display: flex; flex-direction: column; gap: 24px; padding-top: clamp(24px, 3.4vw, 48px); padding-bottom: 0; }
+  .ariane ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 15px; color: var(--secondaire); }
+  .ariane li + li::before { content: '/'; margin-right: 8px; }
+  .ariane a { color: var(--vert); text-decoration: underline; text-underline-offset: 3px; }
+  .legal__tete { display: flex; flex-direction: column; gap: 12px; border-bottom: var(--filet); padding-bottom: 20px; }
+  .maj { font-size: 15px; font-style: italic; color: var(--secondaire); }
+  mark { background: var(--jaune-clair); color: #5C4500; font-weight: 600; font-style: normal; padding: 0 4px; }
+  .legal__corps { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+  .sommaire { display: none; }
+  @media (min-width: 1024px) {
+    .legal__corps { grid-template-columns: 280px minmax(0, 1fr); }
+    .sommaire { display: block; position: sticky; top: 96px; }
+  }
+  .sommaire ol { list-style: none; margin: 0; padding: 0; border-top: var(--filet); }
+  .sommaire a { display: block; padding: 10px 4px; border-bottom: var(--filet-fin); font-size: 15px; line-height: 1.35; color: var(--encre); text-decoration: none; }
+  .sommaire a:hover { color: var(--vert); }
+  .legal__texte { display: flex; flex-direction: column; gap: 28px; max-width: 760px; }
+  .bandeau { margin: 0; font-size: 15px; }
+  section { display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 90px; }
+  h2 { font-size: clamp(21px, 1.7vw, 24px); line-height: 1.2; letter-spacing: 0; border-bottom: 1px solid var(--encre); padding-bottom: 8px; }
+  h3 { font-size: 18px; margin-top: 4px; }
+  p, ul, ol { font-size: 17px; line-height: 1.6; }
+  section ul, section ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+  section a { color: var(--vert); text-underline-offset: 3px; }
+  .tableau { border-top: var(--filet); }
+  .tableau__ligne { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px 16px; padding: 10px 0; border-bottom: var(--filet-fin); font-size: 15px; line-height: 1.5; }
+  @media (min-width: 1024px) { .tableau__ligne { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .tableau__tete { font-weight: 700; }
+  @media (max-width: 1023px) { .tableau__tete { display: none; } .tableau__ligne > div:first-child { font-weight: 700; } }
+</style>

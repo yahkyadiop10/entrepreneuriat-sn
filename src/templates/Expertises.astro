@@ -1,0 +1,102 @@
+---
+import Page from '../layouts/Page.astro';
+import EnTetePage from '../components/EnTetePage.astro';
+import Bouton from '../components/Bouton.astro';
+import Icone from '../components/Icone.astro';
+import EXP from '../content/expertises.js';
+import { r, type Lang, type RouteId } from '../i18n/routes';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = EXP[lang];
+const majuscule = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
+---
+<Page lang={lang} id="expertises">
+  <EnTetePage lang={lang} ariane={T.ariane} titre={T.titre} texte={[T.texte]}>
+    <ul class="sommaire">
+      {T.poles.map((p: any) => (
+        <li><a href={`#${p.ancre}`}><Icone nom={p.icone} taille={18} />{p.titre}</a></li>
+      ))}
+    </ul>
+  </EnTetePage>
+
+  {T.poles.map((p: any, i: number) => (
+    <section class="bloc pole" id={p.ancre}>
+      <div class="bloc__in bloc__in--2 pole__in">
+        <div class="colonne">
+          <div class="pole__tete">
+            <span class="pastille-icone pole__pastille"><Icone nom={p.icone} taille={28} /></span>
+            <span class="chiffre">{String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <h2>{p.titre}</h2>
+          <p class="pole__accroche"><span>{p.accroche}</span></p>
+          <p class="pole__texte">{p.texte}</p>
+          <p class="pole__pour"><strong>{T.pourQui}</strong> {p.pour}</p>
+          <ul class="pole__liens">
+            {p.liens.map((l: any) => <li><a href={r(l.id as RouteId, lang)}><span>{l.label}</span><span aria-hidden="true">→</span></a></li>)}
+          </ul>
+        </div>
+        <div class="colonne" style="gap:10px">
+          <h3 class="surtitre pole__ptitre">{T.prestationsTitre}</h3>
+          <ul class="pole__prestations">{p.prestations.map((x: string) => <li>{x}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="bloc bloc--vert">
+    <div class="bloc__in bloc__in--pile" style="gap:24px">
+      <h2 style="max-width:24ch">{T.faconTitre}</h2>
+      <ul class="facon">
+        {T.facon.map((f: any) => <li><span class="facon__t">{f.t}</span><span>{majuscule(f.d)}</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloc bloc--sans-filet">
+    <div class="bloc__in cta">
+      {T.cta.map((c: any) => (
+        <div class="cta__carte">
+          <h2 class="cta__titre">{c.titre}</h2>
+          <p>{c.texte}</p>
+          <Bouton href={r(c.id as RouteId, lang)} class="cta__bouton">{c.bouton}</Bouton>
+        </div>
+      ))}
+    </div>
+  </section>
+</Page>
+
+<style>
+  .sommaire { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .sommaire a {
+    display: flex; align-items: center; gap: 8px; padding: 9px 12px; min-height: 40px; background: var(--surface); color: var(--encre);
+    text-decoration: none; font-family: var(--f-titre); font-weight: 700; font-size: 15px;
+  }
+  .sommaire a :global(svg) { color: var(--vert); }
+  .sommaire a:hover { background: var(--vert-clair); color: var(--vert); }
+  .pole { scroll-margin-top: 80px; }
+  .pole__in { padding-block: clamp(40px, 5.5vw, 80px); }
+  .pole__tete { display: flex; align-items: center; gap: 14px; }
+  .pole__pastille { width: 52px; height: 52px; }
+  .pole__accroche { font-family: var(--f-titre); font-weight: 600; font-size: clamp(19px, 1.45vw, 21px); line-height: 1.3; }
+  .pole__accroche span { background: linear-gradient(transparent 62%, var(--jaune) 62%); }
+  .pole__texte { font-size: clamp(17px, 1.25vw, 18px); line-height: 1.55; }
+  .pole__pour { font-size: 16px; line-height: 1.5; }
+  .pole__liens { list-style: none; margin: 0; padding: 0; border-top: var(--filet-fin); }
+  .pole__liens a {
+    display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: var(--filet-fin);
+    color: var(--vert); text-decoration: none; font-family: var(--f-titre); font-weight: 700; font-size: 17px;
+  }
+  .pole__liens a:hover span:first-child { text-decoration: underline; }
+  .pole__ptitre { font-family: var(--f-texte); font-size: 13px; border-bottom: var(--filet); padding-bottom: 8px; }
+  .pole__prestations { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); column-gap: 20px; }
+  .pole__prestations li { padding: 10px 0; border-bottom: var(--filet-fin); font-size: 16px; line-height: 1.4; }
+  .facon { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); border-top: var(--filet); }
+  .facon li { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--encre); display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.5; }
+  .facon__t { font-family: var(--f-titre); font-weight: 700; font-size: 20px; }
+  .bloc--sans-filet { border-bottom: 0; }
+  .cta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; }
+  .cta__carte { background: var(--surface); border-top: 4px solid var(--vert); padding: 24px 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.5; }
+  .cta__titre { font-size: clamp(22px, 1.8vw, 26px); line-height: 1.15; letter-spacing: 0; }
+  .cta__carte :global(.cta__bouton) { margin-top: auto; }
+</style>

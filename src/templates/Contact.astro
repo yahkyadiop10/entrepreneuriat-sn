@@ -1,0 +1,97 @@
+---
+import Page from '../layouts/Page.astro';
+import EnTetePage from '../components/EnTetePage.astro';
+import Bouton from '../components/Bouton.astro';
+import Icone from '../components/Icone.astro';
+import CT from '../content/contact.js';
+import { CONTACT } from '../i18n/commun';
+import { r, type Lang, type RouteId } from '../i18n/routes';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = CT[lang];
+const lien = (id: string) => (id === 'ecrire' ? '#ecrire' : r(id as RouteId, lang));
+const hrefCoord = (c: any) => (c.icone === 'ui-telephone' ? CONTACT.telLien : c.icone === 'ui-email' ? `mailto:${CONTACT.email}` : null);
+---
+<Page lang={lang} id="contact">
+  <EnTetePage lang={lang} ariane={T.ariane} titre={T.titre} texte={[T.texte]} />
+
+  <section class="bloc">
+    <div class="bloc__in voies">
+      <div class="voie voie--part">
+        <h2 class="h-carte">{T.partTitre}</h2>
+        <p>{T.partIntro}</p>
+        <ul class="voie__liens">
+          {T.partListe.map((l: any) => (
+            <li><a href={lien(l.id)}><span><strong>{l.b}</strong>{l.d}</span><span aria-hidden="true">→</span></a></li>
+          ))}
+        </ul>
+        <p class="voie__note">{T.partNote}</p>
+      </div>
+      <div class="voie voie--org">
+        <h2 class="h-carte">{T.orgTitre}</h2>
+        <ul class="voie__liste">{T.orgListe.map((x: string) => <li>{x}</li>)}</ul>
+        <Bouton href={r('partenariat', lang)} variante="sur-encre" class="pousse">{T.orgBouton}</Bouton>
+        <p class="petit">{T.orgNote}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc bloc--sans-filet">
+    <div class="bloc__in coord-form">
+      <div class="colonne">
+        <h2 class="h2-moyen">{T.coordTitre}</h2>
+        <dl class="coord">
+          {T.coord.map((c: any) => (
+            <div>
+              <Icone nom={c.icone} taille={22} />
+              <dt>{c.k}</dt>
+              <dd>{hrefCoord(c) ? <a href={hrefCoord(c)}>{c.v}</a> : c.v}</dd>
+            </div>
+          ))}
+        </dl>
+        <a class="bouton bouton--principal" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">
+          <span>{T.waBouton}</span><Icone nom="reseau-whatsapp" taille={20} />
+        </a>
+      </div>
+      <div class="colonne" id="ecrire">
+        <h2 class="h2-moyen form__titre">{T.formTitre}</h2>
+        <p class="encadre encadre--jaune form__ferme">
+          <Icone nom="ui-email" taille={22} />
+          <span>{T.formFerme.replace(CONTACT.telAffiche, CONTACT.telAffiche.replace(/ /g, '\u00a0'))}</span>
+        </p>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .h-carte { font-size: clamp(22px, 1.8vw, 26px); letter-spacing: 0; }
+  .h2-moyen { font-size: clamp(26px, 2.4vw, 34px); }
+  .voies { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; padding-block: clamp(40px, 5.5vw, 80px); }
+  .voie { padding: 22px 18px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; }
+  .voie--part { background: var(--surface); border-top: 4px solid var(--vert); }
+  .voie--org { background: var(--encre); color: var(--sable); }
+  .voie__liens { list-style: none; margin: 0; padding: 0; border-top: var(--filet-fin); }
+  .voie__liens a { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: var(--filet-fin); color: var(--encre); text-decoration: none; line-height: 1.4; }
+  .voie__liens strong, .voie__liens a > span:last-child { color: var(--vert); }
+  .voie__liens a:hover strong { text-decoration: underline; }
+  .voie__note { font-size: 15px; line-height: 1.5; font-style: italic; color: var(--secondaire); }
+  .voie__liste { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--secondaire); }
+  .voie__liste li { padding: 11px 0; border-bottom: 1px solid var(--secondaire); }
+  .voie :global(.pousse) { margin-top: auto; }
+
+  .bloc--sans-filet { border-bottom: 0; }
+  .coord-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: clamp(28px, 4vw, 64px); align-items: start; padding-top: clamp(40px, 5.5vw, 80px); }
+  @media (max-width: 1023px) { .coord-form { grid-template-columns: minmax(0, 1fr); } }
+  .coord { margin: 0; border-top: var(--filet); }
+  .coord > div { display: grid; grid-template-columns: 22px 1fr; column-gap: 12px; padding: 12px 0; border-bottom: var(--filet-fin); }
+  .coord :global(svg) { grid-row: span 2; margin-top: 2px; color: var(--vert); }
+  .coord dt { font-size: 14px; color: var(--secondaire); }
+  .coord dd { margin: 0; font-size: 17px; font-weight: 600; }
+  .coord dd a { color: inherit; }
+  .form__titre { border-bottom: var(--filet); padding-bottom: 8px; }
+  #ecrire { scroll-margin-top: 90px; }
+  .form__ferme { margin: 0; font-size: 17px; }
+  .form__ferme :global(svg) { flex: none; margin-top: 2px; }
+</style>

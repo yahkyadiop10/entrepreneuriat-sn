@@ -1,0 +1,13 @@
+---
+// Raccourci pour une page simple : SEO tiré de content/seo.ts.
+import Base from './Base.astro';
+import { SEO } from '../content/seo';
+import type { Lang, RouteId } from '../i18n/routes';
+
+interface Props { lang: Lang; id: RouteId }
+const { lang, id } = Astro.props;
+const seo = SEO[id][lang];
+---
+<Base lang={lang} page={{ kind: 'route', id }} titre={seo.titre} description={seo.description}>
+  <slot />
+</Base>

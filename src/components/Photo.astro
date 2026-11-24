@@ -25,7 +25,7 @@ const prefixe = type === 'photo' ? COMMUN[lang].photoAVenir : COMMUN[lang].illus
 ) : (
   <div class:list={['photo', 'photo--attente', classe]} style={`aspect-ratio:${ratio}`} role="img" aria-label={alt}>
     {initiales && <span class="photo__initiales" aria-hidden="true">{initiales}</span>}
-    <span class="photo__legende" aria-hidden="true">{prefixe} : {legende}</span>
+    <span class="photo__legende" aria-hidden="true">{prefixe}{lang === 'fr' ? ' : ' : ': '}{legende}</span>
   </div>
 )}
 
