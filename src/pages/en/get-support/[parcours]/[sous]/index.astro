@@ -1,0 +1,18 @@
+---
+// Étapes (…/step-N/) et fiche finale (…/my-sheet/) des 4 parcours.
+import ParcoursEtape from '../../../../../templates/ParcoursEtape.astro';
+import ParcoursFiche from '../../../../../templates/ParcoursFiche.astro';
+import { PARCOURS, PARCOURS_IDS } from '../../../../../content/parcours';
+import { ROUTES, SOUS_PAGES } from '../../../../../i18n/routes';
+export function getStaticPaths() {
+  return PARCOURS_IDS.flatMap((id) => {
+    const parcours = ROUTES[id].en.split('/').filter(Boolean).pop();
+    return [
+      ...PARCOURS.en[id].etapes.map((e) => ({ params: { parcours, sous: `${SOUS_PAGES.etape.en}${e.n}` }, props: { id, n: e.n } })),
+      { params: { parcours, sous: SOUS_PAGES.fiche.en }, props: { id, n: 0 } },
+    ];
+  });
+}
+const { id, n } = Astro.props;
+---
+{n ? <ParcoursEtape lang="en" id={id} n={n} /> : <ParcoursFiche lang="en" id={id} />}

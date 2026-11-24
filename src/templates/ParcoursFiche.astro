@@ -1,0 +1,206 @@
+---
+// Fin de parcours : fiche personnelle pré-remplie, imprimable sur une page A4 (prototype « Fiche finale »).
+import Base from '../layouts/Base.astro';
+import Icone from '../components/Icone.astro';
+import TexteGras from '../components/TexteGras.astro';
+import AutoEvaluation from '../components/AutoEvaluation.astro';
+import '../styles/exercices.css';
+import { CALCULS, CLE_NOTES, FICHE, NOMS_RUBRIQUES, PARCOURS, RUBRIQUES, UI, cle, libelle, type ParcoursId } from '../content/parcours';
+import { COMMUN, CONTACT } from '../i18n/commun';
+import { r, url, type FicheId, type Lang, type RouteId } from '../i18n/routes';
+
+interface Props { lang: Lang; id: ParcoursId }
+const { lang, id } = Astro.props;
+const P = PARCOURS[lang][id];
+const U = UI[lang];
+const F = P.fin;
+const M = FICHE[id];
+const competences = id === 'competences';
+const noms = P.autoDepart?.competences.map((c) => c.nom) ?? [];
+const cles = competences ? `${cle(id)} ${CLE_NOTES}` : cle(id);
+const ref = { kind: 'ma-fiche', parcours: id } as const;
+const whatsapp = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(COMMUN[lang].whatsappMsg)}`;
+const lien = (ref: string) => {
+  if (ref === 'whatsapp') return whatsapp;
+  const [k, v] = ref.split(':');
+  return k === 'fiche' ? url({ kind: 'fiche', id: v as FicheId }, lang) : r(v as RouteId, lang);
+};
+// « Votre activité a démarré ? Passez au parcours **Je veux développer mon activité**. » : le gras devient le lien.
+const morceaux = (t: string) => {
+  const m = t.match(/^(.*?)\*\*(.+?)\*\*(.*)$/);
+  return m ? { avant: m[1], lien: m[2], apres: m[3] } : { avant: t, lien: '', apres: '' };
+};
+const etapesActions = (spec: string) => {
+  const v = spec.split(':')[1];
+  if (v === 'suivies') return { seulementSuivies: true, etapes: P.etapes };
+  const [a, b] = v.split('-').map(Number);
+  return { seulementSuivies: false, etapes: P.etapes.filter((e) => e.n >= a && e.n <= b) };
+};
+const modifier = url({ kind: 'etape', parcours: id, n: 1 }, lang);
+---
+<Base lang={lang} page={ref} titre={`${U.maFiche} · ${P.titre} | Entrepreneuriat Sénégal`} description={P.seoDescription} indexer={false}>
+  <div class="bloc__in fin" data-cle={cle(id)} data-cles={cles} data-cle-notes={competences ? CLE_NOTES : undefined}
+    data-confirm={U.effacerConfirm} data-lang={lang} data-vide={U.aCompleter} data-noms={JSON.stringify(noms)}
+    data-calculs={JSON.stringify((CALCULS[id] ?? []).map(({ cible, plus, moins }) => ({ cible, plus, moins })))}>
+    <nav aria-label={COMMUN[lang].filAriane} class="ariane">
+      <ol>
+        <li><a href={r('accueil', lang)}>{U.accueil}</a></li>
+        <li><a href={r('etre-accompagne', lang)}>{U.etreAccompagne}</a></li>
+        <li><a href={r(id, lang)}>{P.titre}</a></li>
+        <li><span aria-current="page">{U.maFiche}</span></li>
+      </ol>
+    </nav>
+
+    {competences && P.autoFin && (
+      <section class="auto-fin colonne" style="gap:14px">
+        <h1>{P.autoFin.titre}</h1>
+        <p class="t18">{P.autoFin.texte}</p>
+        <AutoEvaluation lang={lang} moment="fin" />
+      </section>
+    )}
+
+    <div class="fin__grille">
+      <div class="fin__gauche colonne" style="gap:20px">
+        {competences ? <h2 class="fin__titre">{F.titre}</h2> : <h1 class="fin__titre">{F.titre}</h1>}
+        <p class="t18">{F.texte}</p>
+        <div class="fin__boutons">
+          <button type="button" class="bouton bouton--principal imprimer"><span>{F.boutons[0]}</span><Icone nom="ui-imprimer" taille={20} /></button>
+          <a class="bouton bouton--secondaire" href={modifier}><span>{F.boutons[1]}</span></a>
+          <button type="button" class="effacer">{U.effacer}</button>
+        </div>
+
+        <section class="maintenant colonne" style="gap:8px">
+          <h2>{U.etMaintenant}</h2>
+          <ul>
+            {F.suite.map((s) => s.liens ? (
+              <li>
+                <p><TexteGras t={s.texte} /></p>
+                <ul class="maintenant__fiches">{s.liens.map((l) => <li><a href={lien(l.ref)}><span>{l.label}</span><span aria-hidden="true">→</span></a></li>)}</ul>
+              </li>
+            ) : (
+              <li><p>{morceaux(s.texte).avant}<a href={lien(s.ref!)} target={s.ref === 'whatsapp' ? '_blank' : undefined} rel={s.ref === 'whatsapp' ? 'noopener' : undefined}>{morceaux(s.texte).lien}</a>{morceaux(s.texte).apres}</p></li>
+            ))}
+          </ul>
+          <p class="rappel">{F.rappel}</p>
+        </section>
+      </div>
+
+      <section class="feuille" aria-label={U.maFiche}>
+        <header class="feuille__tete">
+          <div>
+            <p class="surtitre">{U.parcours} · {P.titre}</p>
+            <h2>{U.maFiche}</h2>
+          </div>
+          <p class="feuille__date" data-date></p>
+        </header>
+
+        {RUBRIQUES.map((rid) => (
+          <section class="rubrique">
+            <h3>{NOMS_RUBRIQUES[lang][rid]}</h3>
+            <dl>
+              {M[rid].map((item) => {
+                if (item === 'priorites') return <div class="ligne"><dt>{U.priorites}</dt><dd data-priorites></dd></div>;
+                if (item === 'notes') return (
+                  <div class="ligne">
+                    <table class="notes-tableau">
+                      <thead><tr><th scope="col"></th><th scope="col">{U.depart}</th><th scope="col">{U.fin}</th></tr></thead>
+                      <tbody>{noms.map((nom, i) => <tr><th scope="row">{nom}</th><td data-note={`depart:${i}`}>—</td><td data-note={`fin:${i}`}>—</td></tr>)}</tbody>
+                    </table>
+                  </div>
+                );
+                if (item.startsWith('libre:')) {
+                  const nom = item.slice(6);
+                  const aide = nom === 'ameliorer' ? U.ameliorerAide : U.approfondirAide;
+                  return (
+                    <div class="ligne">
+                      {nom === 'ameliorer' && <dt>{U.ameliorer}</dt>}
+                      <dd><textarea name={nom} rows="3" aria-label={nom === 'ameliorer' ? U.ameliorer : NOMS_RUBRIQUES[lang].approfondir} placeholder={aide}></textarea><div class="pour-impression"></div></dd>
+                    </div>
+                  );
+                }
+                if (item.startsWith('actions-etapes')) {
+                  const { seulementSuivies, etapes } = etapesActions(item);
+                  return (
+                    <div class="ligne">
+                      <ul class="actions-etapes">
+                        {etapes.map((e) => <li data-action-etape={e.n} data-seulement-suivies={seulementSuivies ? '' : undefined}><b>{U.etapeN(e.n)}</b> · <TexteGras t={e.action} /></li>)}
+                      </ul>
+                      <p class="vide actions-vide" hidden>{U.aCompleter}</p>
+                    </div>
+                  );
+                }
+                return <div class="ligne"><dt>{libelle(P, lang, item)}</dt><dd data-champ={item} class="vide">{U.aCompleter}</dd></div>;
+              })}
+            </dl>
+          </section>
+        ))}
+
+        <footer class="feuille__pied">
+          <img src="/logos/es-logo-horizontal-couleur.svg" alt="Entrepreneuriat Sénégal" width="140" height="31" />
+          <p>{F.pied}</p>
+        </footer>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { initFiche } from '../scripts/parcours';
+  document.querySelectorAll<HTMLElement>('.fin').forEach(initFiche);
+</script>
+
+<style>
+  .fin { display: flex; flex-direction: column; gap: 28px; padding-top: clamp(24px, 3.4vw, 48px); padding-bottom: clamp(48px, 6vw, 96px); }
+  .surtitre { font-family: var(--f-texte); font-size: 13px; letter-spacing: 0.1em; }
+  .auto-fin { max-width: 900px; padding-bottom: 28px; border-bottom: var(--filet); }
+  .fin__grille { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
+  @media (min-width: 1024px) { .fin__grille { grid-template-columns: minmax(300px, 5fr) 7fr; } }
+  .fin__titre { text-wrap: balance; }
+  h2.fin__titre { font-size: clamp(28px, 3vw, 40px); }
+  .fin__boutons { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+
+  .maintenant { border-top: var(--filet); padding-top: 16px; }
+  .maintenant h2 { font-size: 20px; letter-spacing: 0; }
+  .maintenant > ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .maintenant p { font-size: 16px; line-height: 1.5; }
+  .maintenant p a { color: var(--vert); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .maintenant__fiches { list-style: none; margin: 6px 0 0; padding: 0; border-top: var(--filet-fin); }
+  .maintenant__fiches a { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: var(--filet-fin); font-size: 15px; font-weight: 600; color: var(--vert); text-decoration: none; }
+  .maintenant__fiches a:hover span:first-child { text-decoration: underline; }
+  .rappel { font-size: 14px !important; color: var(--secondaire); }
+
+  .feuille { background: var(--blanc); border: 1px solid var(--bordure); padding: clamp(18px, 2.4vw, 32px); display: flex; flex-direction: column; gap: 18px; }
+  .feuille__tete { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; border-bottom: var(--filet); padding-bottom: 12px; }
+  .feuille__tete h2 { font-size: clamp(24px, 2.2vw, 30px); }
+  .feuille__date { font-size: 15px; color: var(--secondaire); }
+  .rubrique { display: flex; flex-direction: column; gap: 6px; }
+  .rubrique h3 { font-size: 17px; letter-spacing: 0; color: var(--vert); text-transform: none; border-bottom: var(--filet-fin); padding-bottom: 4px; }
+  .rubrique dl { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .ligne { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 2px 16px; font-size: 15px; line-height: 1.4; }
+  .ligne > :only-child, .ligne > dd:only-child { grid-column: 1 / -1; }
+  .ligne dt { color: var(--secondaire); }
+  .ligne dd { margin: 0; white-space: pre-line; overflow-wrap: anywhere; }
+  .vide { color: #8A8580; font-style: italic; }
+  @media (max-width: 560px) { .ligne { grid-template-columns: 1fr; } .ligne dd { padding-bottom: 4px; } }
+  .ligne textarea { width: 100%; font-size: 15px; min-height: 64px; }
+  .pour-impression { display: none; }
+  .actions-etapes { grid-column: 1 / -1; margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; }
+  .notes-tableau { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .notes-tableau th, .notes-tableau td { text-align: left; padding: 4px 8px 4px 0; border-bottom: var(--filet-fin); font-weight: 400; }
+  .notes-tableau thead th { font-weight: 600; color: var(--secondaire); }
+  .notes-tableau td { width: 72px; font-weight: 600; }
+  .feuille__pied { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border-top: var(--filet-fin); padding-top: 12px; font-size: 13px; color: var(--secondaire); }
+  .feuille__pied img { height: 28px; width: auto; }
+
+  /* Impression : la fiche seule, sur une page A4. */
+  @media print {
+    .ariane, .auto-fin, .fin__gauche { display: none !important; }
+    .fin { padding: 0; }
+    .fin__grille { display: block; }
+    .feuille { border: 0; padding: 0; gap: 10px; }
+    .rubrique { break-inside: avoid; }
+    .ligne { font-size: 11.5pt; grid-template-columns: 38% 62%; }
+    .ligne textarea { display: none; }
+    .pour-impression { display: block; white-space: pre-line; }
+  }
+</style>

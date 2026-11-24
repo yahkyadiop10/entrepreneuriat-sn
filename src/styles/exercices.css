@@ -1,0 +1,37 @@
+/* Exercices des fiches pratiques et des parcours : champs, calculs, encadré « Ma prochaine action ». */
+.ariane ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 15px; color: var(--secondaire); }
+.ariane li + li::before { content: '/'; margin-right: 8px; }
+.ariane a { color: var(--vert); text-decoration: underline; text-underline-offset: 3px; }
+.filet-titre { font-size: 22px; letter-spacing: 0; border-bottom: var(--filet); padding-bottom: 8px; }
+.t18 { font-size: clamp(17px, 1.25vw, 18px); line-height: 1.55; }
+.t17 { font-size: 17px; line-height: 1.5; }
+.liste { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+.champ { display: flex; flex-direction: column; gap: 6px; }
+.champ__label { font-size: 15px; font-weight: 600; line-height: 1.3; }
+textarea, .champ__nombre input {
+  font: inherit; font-size: 17px; line-height: 1.45; padding: 10px 12px; background: var(--blanc);
+  border: 1px solid var(--bordure); border-radius: 0; color: var(--encre);
+}
+textarea { resize: vertical; }
+textarea:focus, .champ__nombre input:focus { border-color: var(--vert); outline: 2px solid var(--vert); outline-offset: 0; }
+.champ__nombre { display: flex; align-items: center; gap: 8px; max-width: 280px; font-size: 15px; color: var(--secondaire); }
+.champ__nombre input { flex: 1; min-width: 0; }
+.champ__calcul { font-family: var(--f-titre); font-weight: 700; font-size: 22px; padding: 10px 12px; background: var(--jaune-clair); max-width: 280px; }
+.champ__calcul.negatif { color: var(--rouge); }
+.exercice__pied { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; }
+.enregistre { font-size: 14px; color: var(--vert); display: flex; gap: 6px; align-items: center; }
+.effacer { background: none; border: 0; padding: 6px 0; cursor: pointer; font: inherit; font-size: 14px; color: var(--secondaire); text-decoration: underline; text-underline-offset: 3px; }
+.effacer:hover { color: var(--encre); }
+.mon-action { background: var(--jaune-clair); padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; }
+.mon-action p { font-family: var(--f-titre); font-weight: 600; font-size: clamp(19px, 1.45vw, 21px); line-height: 1.3; }
+
+.champ__aide { font-size: 14px; font-style: italic; color: var(--secondaire); line-height: 1.4; }
+.cases { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.cases legend { padding: 0; margin-bottom: 6px; }
+.cases__liste { display: flex; flex-wrap: wrap; gap: 8px; }
+.cases label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--bordure); background: var(--blanc); font-size: 16px; cursor: pointer; }
+.cases label:has(input:checked) { border-color: var(--vert); background: var(--vert-clair); font-weight: 600; }
+.cases label:has(input:disabled) { opacity: .5; cursor: not-allowed; }
+.cases input { width: 18px; height: 18px; accent-color: var(--vert); margin: 0; }
+.cases label:has(input:focus-visible) { outline: 2px solid var(--vert); outline-offset: 2px; }
+.calcul-note { font-size: 14px; font-style: italic; color: var(--secondaire); }

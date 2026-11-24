@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import Icone from '../components/Icone.astro';
 import Photo from '../components/Photo.astro';
 import TexteGras from '../components/TexteGras.astro';
+import '../styles/exercices.css';
 import FICHES from '../content/fiches.js';
 import { COMMUN } from '../i18n/commun';
 import { r, url, type Lang, type FicheId, type RouteId } from '../i18n/routes';
@@ -146,44 +147,18 @@ const lien = (p: string) => {
 
 <style>
   .fiche { display: flex; flex-direction: column; gap: 28px; padding-top: clamp(24px, 3.4vw, 48px); padding-bottom: 0; }
-  .ariane ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 15px; color: var(--secondaire); }
-  .ariane li + li::before { content: '/'; margin-right: 8px; }
-  .ariane a { color: var(--vert); text-decoration: underline; text-underline-offset: 3px; }
   .fiche__tete { display: flex; flex-direction: column; gap: 14px; max-width: 860px; }
   .fiche__tete h1 { text-wrap: balance; }
   .surtitre { font-family: var(--f-texte); font-size: 13px; letter-spacing: 0.1em; }
   .en-bref { background: var(--jaune-clair); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
   .en-bref p { font-size: clamp(17px, 1.45vw, 20px); line-height: 1.5; }
   .fiche__corps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(28px, 4vw, 56px); align-items: start; }
-  .filet-titre { font-size: 22px; letter-spacing: 0; border-bottom: var(--filet); padding-bottom: 8px; }
-  .t18 { font-size: clamp(17px, 1.25vw, 18px); line-height: 1.55; }
-  .t17 { font-size: 17px; line-height: 1.5; }
-  .liste { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
   .exemple { background: var(--vert-clair); display: flex; flex-direction: column; }
   .exemple__texte { padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; }
   .exemple h2 { font-size: 19px; letter-spacing: 0; }
   .exemple h2 span { font-family: var(--f-texte); font-weight: 400; font-style: italic; font-size: 15px; }
   .exemple p { font-size: 17px; line-height: 1.55; }
 
-  .champ { display: flex; flex-direction: column; gap: 6px; }
-  .champ__label { font-size: 15px; font-weight: 600; line-height: 1.3; }
-  textarea, .champ__nombre input {
-    font: inherit; font-size: 17px; line-height: 1.45; padding: 10px 12px; background: var(--blanc);
-    border: 1px solid var(--bordure); border-radius: 0; color: var(--encre);
-  }
-  textarea { resize: vertical; }
-  textarea:focus, .champ__nombre input:focus { border-color: var(--vert); outline: 2px solid var(--vert); outline-offset: 0; }
-  .champ__nombre { display: flex; align-items: center; gap: 8px; max-width: 280px; font-size: 15px; color: var(--secondaire); }
-  .champ__nombre input { flex: 1; min-width: 0; }
-  .champ__calcul { font-family: var(--f-titre); font-weight: 700; font-size: 22px; padding: 10px 12px; background: var(--jaune-clair); max-width: 280px; }
-  .champ__calcul.negatif { color: var(--rouge); }
-  .exercice__pied { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; }
-  .enregistre { font-size: 14px; color: var(--vert); display: flex; gap: 6px; align-items: center; }
-  .effacer { background: none; border: 0; padding: 6px 0; cursor: pointer; font: inherit; font-size: 14px; color: var(--secondaire); text-decoration: underline; text-underline-offset: 3px; }
-  .effacer:hover { color: var(--encre); }
-
-  .mon-action { background: var(--jaune-clair); padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; }
-  .mon-action p { font-family: var(--f-titre); font-weight: 600; font-size: clamp(19px, 1.45vw, 21px); line-height: 1.3; }
   .plus h2 { font-size: 19px; letter-spacing: 0; }
   .plus ul { list-style: none; margin: 0; padding: 0; border-top: var(--filet-fin); }
   .plus a { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: var(--filet-fin); font-size: 16px; font-weight: 600; color: var(--vert); text-decoration: none; }

@@ -1,0 +1,10 @@
+---
+import ParcoursIntro from '../../../../templates/ParcoursIntro.astro';
+import { PARCOURS_IDS } from '../../../../content/parcours';
+import { ROUTES } from '../../../../i18n/routes';
+export function getStaticPaths() {
+  return PARCOURS_IDS.map((id) => ({ params: { parcours: ROUTES[id].en.split('/').filter(Boolean).pop() }, props: { id } }));
+}
+const { id } = Astro.props;
+---
+<ParcoursIntro lang="en" id={id} />
