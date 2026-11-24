@@ -4,6 +4,7 @@ import Bouton from '../components/Bouton.astro';
 import Photo from '../components/Photo.astro';
 import Icone from '../components/Icone.astro';
 import ACCUEIL from '../content/accueil.js';
+import EXP from '../content/expertises.js';
 import { r, url, type Lang, type FicheId, type RouteId } from '../i18n/routes';
 
 interface Props { lang: Lang }
@@ -11,6 +12,7 @@ const { lang } = Astro.props;
 const T = ACCUEIL[lang];
 const mots = T.heroTitre.split(' ');
 const dernier = mots.pop();
+const ancre = (icone: string) => r('expertises', lang) + '#' + (EXP[lang].poles.find((p: any) => p.icone === icone)?.ancre ?? '');
 const fiches: FicheId[] = ['trouver-une-idee', 'fixer-son-prix', 'prise-de-parole'];
 ---
 <Page lang={lang} id="accueil">
@@ -48,7 +50,7 @@ const fiches: FicheId[] = ['trouver-une-idee', 'fixer-son-prix', 'prise-de-parol
         {T.poles.map((p: any) => (
           <li>
             <span class="pastille-icone"><Icone nom={p.icone} taille={26} /></span>
-            <h3>{p.titre}</h3>
+            <h3><a href={ancre(p.icone)}>{p.titre}</a></h3>
             <p>{p.texte}</p>
           </li>
         ))}
@@ -148,6 +150,8 @@ const fiches: FicheId[] = ['trouver-une-idee', 'fixer-son-prix', 'prise-de-parol
   .poles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); border-top: var(--filet); }
   .poles li { padding: 20px 16px 20px 0; margin-right: 16px; border-bottom: var(--filet-fin); display: flex; flex-direction: column; gap: 12px; }
   .poles h3 { font-size: clamp(19px, 1.45vw, 21px); line-height: 1.2; }
+  .poles h3 a { color: inherit; text-decoration: none; }
+  .poles h3 a:hover { color: var(--vert); text-decoration: underline; }
   .poles p { font-size: 16px; line-height: 1.5; }
   .cartes-parcours { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); }
   .cartes-parcours .carte { height: 100%; padding: 18px 16px; gap: 10px; }
