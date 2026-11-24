@@ -1,4 +1,6 @@
 ---
+import Formulaire from '../components/Formulaire.astro';
+import { FORMULAIRES } from '../config';
 import Page from '../layouts/Page.astro';
 import EnTetePage from '../components/EnTetePage.astro';
 import Bouton from '../components/Bouton.astro';
@@ -56,10 +58,12 @@ const hrefCoord = (c: any) => (c.icone === 'ui-telephone' ? CONTACT.telLien : c.
       </div>
       <div class="colonne" id="ecrire">
         <h2 class="h2-moyen form__titre">{T.formTitre}</h2>
-        <p class="encadre encadre--jaune form__ferme">
-          <Icone nom="ui-email" taille={22} />
-          <span>{T.formFerme.replace(CONTACT.telAffiche, CONTACT.telAffiche.replace(/ /g, '\u00a0'))}</span>
-        </p>
+        {FORMULAIRES === 'ferme' ? (
+          <p class="encadre encadre--jaune form__ferme">
+            <Icone nom="ui-email" taille={22} />
+            <span>{T.formFerme.replace(CONTACT.telAffiche, CONTACT.telAffiche.replace(/ /g, '\u00a0'))}</span>
+          </p>
+        ) : <Formulaire lang={lang} type="contact" />}
       </div>
     </div>
   </section>

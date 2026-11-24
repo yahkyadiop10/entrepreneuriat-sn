@@ -3,7 +3,9 @@ name: Mise en ligne (LWS)
 # À chaque fusion dans main : construction, contrôles de production, puis envoi FTPS sur LWS.
 # Les identifiants sont saisis par le propriétaire dans Settings → Secrets and variables → Actions :
 #   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD, FTP_SERVER_DIR
-# Tant qu'ils sont absents, l'envoi est sauté (le reste tourne quand même).
+#   NEON_DATABASE_URL (formulaires, facultatif tant qu'ils sont fermés)
+# Variable (onglet Variables) : FORMULAIRES = ouvert, une fois la déclaration CDP faite. Voir docs/formulaires.md.
+# Tant que les secrets FTP sont absents, l'envoi est sauté (le reste tourne quand même).
 
 on:
   push:
@@ -28,6 +30,15 @@ jobs:
       - run: npm ci
       - run: npm run check
       - run: npm run build
+        env:
+          PUBLIC_FORMULAIRES: ${{ vars.FORMULAIRES }}
+
+      - name: Réglages des formulaires (api/_config.php)
+        env:
+          PUBLIC_FORMULAIRES: ${{ vars.FORMULAIRES }}
+          NEON_DATABASE_URL: ${{ secrets.NEON_DATABASE_URL }}
+          FORMULAIRES_SEL: ${{ secrets.FORMULAIRES_SEL }}
+        run: node scripts/config-php.mjs
 
       - name: Contrôles de production (liens, crochets [À COMPLÉTER])
         id: controles
@@ -63,3 +74,4 @@ jobs:
           exclude: |
             **/.git*
             **/.git*/**
+            api/_stock/**

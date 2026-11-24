@@ -1,6 +1,6 @@
 // 02-CONTENUS : 12-contact.md (FR) / 12-contact.md (EN, à relire D9).
 // formFerme : texte validé par Yahya le 24/11/2026, affiché tant que le formulaire est fermé (déclaration CDP).
-// Le formulaire lui-même arrive au lot 5.
+// Les champs et messages du formulaire sont dans formulaires.ts (lot 5).
 export default {
   "fr": {
     "ariane": [
@@ -63,60 +63,6 @@ export default {
     ],
     "waBouton": "Nous écrire sur WhatsApp",
     "formTitre": "Écrivez-nous",
-    "champs": [
-      {
-        "id": "nom",
-        "label": "Nom et prénom",
-        "type": "text",
-        "req": true
-      },
-      {
-        "id": "org",
-        "label": "Organisation",
-        "type": "text"
-      },
-      {
-        "id": "email",
-        "label": "Adresse e-mail",
-        "type": "email",
-        "req": true
-      },
-      {
-        "id": "tel",
-        "label": "Téléphone (WhatsApp de préférence)",
-        "type": "tel"
-      },
-      {
-        "id": "objet",
-        "label": "Objet de votre demande",
-        "type": "select",
-        "req": true,
-        "options": [
-          "Question sur un parcours ou une ressource",
-          "Besoin d'orientation",
-          "Formation ou accompagnement pour une organisation",
-          "Proposition de partenariat",
-          "Autre"
-        ]
-      },
-      {
-        "id": "message",
-        "label": "Message",
-        "type": "textarea",
-        "req": true,
-        "max": 1000
-      }
-    ],
-    "renvoi": "Pour une demande plus complète, utilisez notre formulaire de partenariat",
-    "consentement": "J'accepte que mes informations soient utilisées pour répondre à ma demande.",
-    "politique": "Politique de confidentialité",
-    "envoyer": "Envoyer",
-    "choisir": "Choisir…",
-    "erreurs": {
-      "req": "Ce champ est obligatoire.",
-      "email": "Vérifiez votre adresse e-mail, par exemple nom@exemple.com."
-    },
-    "merci": "Merci, votre message a bien été envoyé. Nous vous répondrons dès que possible.",
     "formFerme": "Le formulaire en ligne arrive bientôt. En attendant, écrivez-nous sur WhatsApp au +221 77 788 01 82 ou par e-mail à contact@entrepreneuriat.sn."
   },
   "en": {
@@ -180,7 +126,6 @@ export default {
     ],
     "waBouton": "Message us on WhatsApp",
     "formTitre": "Write to us",
-    "formFerme": "The online form is coming soon. In the meantime, message us on WhatsApp at +221 77 788 01 82 or email contact@entrepreneuriat.sn.",
-    "form": null
+    "formFerme": "The online form is coming soon. In the meantime, message us on WhatsApp at +221 77 788 01 82 or email contact@entrepreneuriat.sn."
   }
 };
