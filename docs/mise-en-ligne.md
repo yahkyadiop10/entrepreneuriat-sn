@@ -26,7 +26,7 @@ Ces identifiants ne doivent jamais être écrits dans le code, ni envoyés dans 
 
 ## Aperçus Vercel
 
-Importer le dépôt dans Vercel (framework : Astro, commande `npm run build`, dossier `dist`). Vercel ne sert qu'aux aperçus : la production reste sur LWS.
+Le projet Vercel `entrepreneuriat-sn` (équipe Digitalab) est relié au dépôt depuis le 24/11/2026 : framework Astro, commande `npm run build`, dossier `dist`, Node 22. Chaque branche poussée reçoit une adresse d'aperçu, affichée dans la demande de fusion. Les aperçus sont protégés : il faut être connecté à Vercel avec un compte de l'équipe pour les ouvrir. Vercel ne sert qu'aux aperçus : la production reste sur LWS.
 
 ## Le fichier .htaccess
 
