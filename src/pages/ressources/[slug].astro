@@ -1,0 +1,9 @@
+---
+import Fiche from '../../templates/Fiche.astro';
+import { FICHES, type FicheId } from '../../i18n/routes';
+export function getStaticPaths() {
+  return Object.entries(FICHES).map(([id, s]) => ({ params: { slug: s.fr }, props: { id: id as FicheId } }));
+}
+const { id } = Astro.props;
+---
+<Fiche lang="fr" id={id} />

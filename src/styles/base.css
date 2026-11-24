@@ -114,3 +114,11 @@ main > .bloc--encre:last-child { border-bottom: 1px solid var(--secondaire); }
   text-decoration: underline; text-underline-offset: 4px; justify-content: flex-start; gap: var(--e2);
 }
 .bouton[disabled], .bouton[aria-disabled='true'] { opacity: 0.45; cursor: not-allowed; }
+
+/* Impression : seul le contenu de la page (fiches pratiques, fiche personnelle des parcours). */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  .entete, .pied, .whatsapp, .lien-evitement { display: none !important; }
+  body { background: #fff; }
+  a { color: inherit; }
+}
