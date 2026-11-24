@@ -1,0 +1,102 @@
+---
+import Page from '../layouts/Page.astro';
+import EnTetePage from '../components/EnTetePage.astro';
+import Bouton from '../components/Bouton.astro';
+import Icone from '../components/Icone.astro';
+import RES from '../content/ressources.js';
+import FICHES from '../content/fiches.js';
+import { CONTACT } from '../i18n/commun';
+import { r, url, type Lang, type FicheId } from '../i18n/routes';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = RES[lang];
+const fiches = Object.values(FICHES[lang]) as any[];
+// D3 : seules les rubriques qui ont au moins une fiche, dans l'ordre d'apparition.
+const rubriques: { nom: string; n: number }[] = [];
+for (const f of fiches) {
+  const x = rubriques.find((r) => r.nom === f.rubrique);
+  x ? x.n++ : rubriques.push({ nom: f.rubrique, n: 1 });
+}
+const cle = (nom: string) => nom.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const suggestionHref = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(T.suggestionMsg)}`;
+---
+<Page lang={lang} id="ressources">
+  <EnTetePage lang={lang} ariane={T.ariane} titre={T.titre} texte={T.texte} />
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile liste" style="gap:24px">
+      <div class="filtres" role="group" aria-label={lang === 'fr' ? 'Filtrer par rubrique' : 'Filter by category'} hidden>
+        <button type="button" aria-pressed="true" data-filtre="">{T.toutes} ({fiches.length})</button>
+        {rubriques.map((rb) => <button type="button" aria-pressed="false" data-filtre={cle(rb.nom)}>{rb.nom} ({rb.n})</button>)}
+      </div>
+      <ul class="cartes">
+        {fiches.map((f) => (
+          <li data-rubrique={cle(f.rubrique)}>
+            <article class="carte-fiche">
+              <p class="carte-fiche__meta"><span>{f.rubrique}</span><span>{f.lecture}</span></p>
+              <h2>{f.titre}</h2>
+              <p>{f.resume}</p>
+              <a class="bouton bouton--lien carte-fiche__lien" href={url({ kind: 'fiche', id: f.id as FicheId }, lang)}>
+                <span>{T.lire}<span class="visuellement-cache"> : {f.titre}</span></span><span class="bouton__fleche" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloc bloc--sans-filet">
+    <div class="bloc__in encarts">
+      <div class="encart encart--vert">
+        <h2 class="encart__titre">{T.parcoursTitre}</h2>
+        <p>{T.parcoursTexte}</p>
+        <Bouton href={r('etre-accompagne', lang)} class="encart__bouton">{T.parcoursBouton}</Bouton>
+      </div>
+      <div class="encart">
+        <p class="encart__titre">{T.suggestion}</p>
+        <a class="bouton bouton--secondaire encart__bouton" href={suggestionHref} target="_blank" rel="noopener">
+          <span>{T.suggestionBouton}</span><Icone nom="reseau-whatsapp" taille={20} />
+        </a>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<script>
+  // Filtres par rubrique : sans JavaScript, toutes les fiches restent visibles.
+  const groupe = document.querySelector<HTMLElement>('.filtres');
+  if (groupe) {
+    groupe.hidden = false;
+    const boutons = [...groupe.querySelectorAll<HTMLButtonElement>('button')];
+    const cartes = [...document.querySelectorAll<HTMLElement>('.cartes > li')];
+    boutons.forEach((b) => b.addEventListener('click', () => {
+      const f = b.dataset.filtre;
+      boutons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      cartes.forEach((c) => { c.hidden = !!f && c.dataset.rubrique !== f; });
+    }));
+  }
+</script>
+
+<style>
+  .liste { padding-top: clamp(28px, 3.4vw, 48px); }
+  .filtres { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filtres[hidden] { display: none; }
+  .filtres button { padding: 9px 12px; min-height: 44px; border: 2px solid var(--encre); background: transparent; color: var(--encre); cursor: pointer; font: inherit; font-size: 15px; font-weight: 600; }
+  .filtres button[aria-pressed='true'] { background: var(--encre); color: var(--sable); }
+  .filtres button:hover:not([aria-pressed='true']) { background: var(--surface); }
+  .cartes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+  .cartes > li[hidden] { display: none; }
+  .carte-fiche { height: 100%; background: var(--surface); border-top: 4px solid var(--vert); padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.5; }
+  .carte-fiche__meta { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--secondaire); }
+  .carte-fiche__meta span:last-child { flex: none; }
+  .carte-fiche h2 { font-size: 21px; line-height: 1.15; letter-spacing: 0; }
+  .carte-fiche__lien { margin-top: auto; align-self: flex-start; }
+  .bloc--sans-filet { border-bottom: 0; }
+  .encarts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px; }
+  .encart { background: var(--surface); padding: 24px 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.5; }
+  .encart--vert { background: var(--vert-clair); }
+  .encart__titre { font-family: var(--f-titre); font-weight: 700; font-size: clamp(20px, 1.7vw, 26px); line-height: 1.15; letter-spacing: 0; }
+  .encart :global(.encart__bouton) { margin-top: auto; align-self: flex-start; min-width: min(100%, 280px); }
+</style>

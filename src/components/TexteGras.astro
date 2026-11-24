@@ -1,0 +1,6 @@
+---
+// Affiche un texte où **…** marque le gras (format des fichiers 02-CONTENUS).
+interface Props { t: string }
+const morceaux = Astro.props.t.split(/\*\*(.+?)\*\*/g);
+---
+{morceaux.map((m, i) => (i % 2 ? <strong>{m}</strong> : m))}

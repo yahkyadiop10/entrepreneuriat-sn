@@ -1,0 +1,203 @@
+---
+// Fiche pratique (02-CONTENUS 10). Réponses gardées dans le navigateur (D2), clé es-fiche-<id>.
+import Base from '../layouts/Base.astro';
+import Icone from '../components/Icone.astro';
+import Photo from '../components/Photo.astro';
+import TexteGras from '../components/TexteGras.astro';
+import FICHES from '../content/fiches.js';
+import { COMMUN } from '../i18n/commun';
+import { r, url, type Lang, type FicheId, type RouteId } from '../i18n/routes';
+
+interface Props { lang: Lang; id: FicheId }
+const { lang, id } = Astro.props;
+const U = FICHES.ui[lang];
+const F = FICHES[lang][id];
+const ref = { kind: 'fiche', id } as const;
+const adresse = new URL(url(ref, lang), 'https://entrepreneuriat.sn').href;
+const partage = `https://wa.me/?text=${encodeURIComponent(`${F.titre} · ${adresse}`)}`;
+const lien = (p: string) => {
+  const [k, v] = p.split(':');
+  return k === 'fiche' ? url({ kind: 'fiche', id: v as FicheId }, lang) : r(v as RouteId, lang);
+};
+---
+<Base lang={lang} page={ref} titre={`${F.titre} | Entrepreneuriat Sénégal`} description={F.description}>
+  <article class="bloc__in fiche" data-cle={`es-fiche-${id}`} data-confirm={U.effacerConfirm} data-lang={lang}>
+    <nav aria-label={COMMUN[lang].filAriane} class="ariane">
+      <ol>
+        <li><a href={r('accueil', lang)}>{U.ariane[0]}</a></li>
+        <li><a href={r('ressources', lang)}>{U.ariane[1]}</a></li>
+        <li><span aria-current="page">{F.titre}</span></li>
+      </ol>
+    </nav>
+
+    <header class="fiche__tete">
+      <p class="surtitre">{F.rubrique} · {F.lecture}</p>
+      <h1>{F.titre}</h1>
+      <div class="en-bref">
+        <h2 class="surtitre">{U.enBref}</h2>
+        <p>{F.enBref}</p>
+      </div>
+    </header>
+
+    <div class="fiche__corps">
+      <div class="colonne" style="gap:24px">
+        <section class="colonne" style="gap:12px">
+          <h2 class="filet-titre">{U.essentiel}</h2>
+          {F.essentiel.map((b: any) =>
+            b.p ? <p class="t18"><TexteGras t={b.p} /></p>
+            : b.ol ? <ol class="liste t18">{b.ol.map((x: string) => <li><TexteGras t={x} /></li>)}</ol>
+            : <ul class="liste t18">{b.ul.map((x: string) => <li><TexteGras t={x} /></li>)}</ul>
+          )}
+        </section>
+        <section class="exemple">
+          <Photo lang={lang} type="illustration" fichier={`fiche-${id}.jpg`} ratio="16/9" alt=""
+            legende={lang === 'fr' ? 'personnage fictif de la fiche' : 'the fictional character in this guide'} />
+          <div class="exemple__texte">
+            <h2>{U.exemple} <span>({U.exempleNote})</span></h2>
+            <p><TexteGras t={F.exemple} /></p>
+          </div>
+        </section>
+      </div>
+
+      <div class="colonne" style="gap:20px">
+        <section class="colonne exercice" style="gap:14px">
+          <h2 class="filet-titre">{U.exercice}</h2>
+          {F.exerciceIntro && <p class="t17"><TexteGras t={F.exerciceIntro} /></p>}
+          {F.champs.map((c: any) => c.calcul ? (
+            <div class="champ">
+              <span class="champ__label" id={`l-${c.id}`}>{c.label}</span>
+              <output class="champ__calcul" data-calcul={c.calcul} aria-labelledby={`l-${c.id}`} aria-live="polite">—</output>
+            </div>
+          ) : (
+            <label class="champ">
+              <span class="champ__label">{c.label}</span>
+              {c.nombre
+                ? <span class="champ__nombre"><input type="text" inputmode="numeric" autocomplete="off" name={c.id} data-nombre /><span aria-hidden="true">{U.fcfa}</span></span>
+                : <textarea name={c.id} rows="2"></textarea>}
+            </label>
+          ))}
+          <div class="exercice__pied">
+            <p class="enregistre"><Icone nom="ui-valide" taille={16} />{U.enregistre}</p>
+            <button type="button" class="effacer">{U.effacer}</button>
+          </div>
+        </section>
+
+        <div class="mon-action">
+          <h2 class="surtitre">{U.action}</h2>
+          <p>{F.action}</p>
+        </div>
+
+        <section class="colonne plus" style="gap:8px">
+          <h2>{U.plus}</h2>
+          <ul>{F.plus.map((p: any) => <li><a href={lien(p.ref)}><span>{p.label}</span><span aria-hidden="true">→</span></a></li>)}</ul>
+        </section>
+
+        <div class="actions">
+          <a class="bouton bouton--principal" href={partage} target="_blank" rel="noopener"><span>{U.partager}</span><Icone nom="reseau-whatsapp" taille={20} /></a>
+          <button type="button" class="bouton bouton--secondaire imprimer"><span>{U.imprimer}</span><Icone nom="ui-imprimer" taille={20} /></button>
+        </div>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<script>
+  const fiche = document.querySelector<HTMLElement>('.fiche');
+  if (fiche) {
+    const cle = fiche.dataset.cle!;
+    const fr = fiche.dataset.lang === 'fr';
+    const champs = [...fiche.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[name]')];
+    const lire = (): Record<string, string> => { try { return JSON.parse(localStorage.getItem(cle) || '{}'); } catch { return {}; } };
+    const ecrire = (v: Record<string, string>) => { try { localStorage.setItem(cle, JSON.stringify(v)); } catch { /* stockage indisponible */ } };
+    const nombre = (s: string) => { const n = parseFloat((s || '').replace(/[^\d,.-]/g, '').replace(',', '.')); return Number.isFinite(n) ? n : null; };
+    // Groupes de milliers écrits à la main : « 1 500 FCFA » (comme dans les textes), « 1,500 CFA francs ».
+    const format = (n: number) => {
+      const s = Math.abs(Math.round(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, fr ? '\u00a0' : ',');
+      return (n < 0 ? '−' : '') + s + (fr ? '\u00a0FCFA' : ' CFA francs');
+    };
+
+    const calculer = () => {
+      const v = Object.fromEntries(champs.map((c) => [c.name, nombre(c.value)]));
+      const complet = v.couts != null || v.temps != null ? (v.couts ?? 0) + (v.temps ?? 0) : null;
+      const res: Record<string, number | null> = { complet, marge: complet != null && v.prix != null ? v.prix - complet : null };
+      fiche.querySelectorAll<HTMLOutputElement>('[data-calcul]').forEach((o) => {
+        const n = res[o.dataset.calcul!];
+        o.textContent = n == null ? '—' : format(n);
+        o.classList.toggle('negatif', n != null && n < 0);
+      });
+    };
+
+    const v = lire();
+    champs.forEach((c) => {
+      if (v[c.name]) c.value = v[c.name];
+      c.addEventListener('input', () => { const w = lire(); w[c.name] = c.value; ecrire(w); calculer(); });
+    });
+    calculer();
+
+    fiche.querySelector('.effacer')?.addEventListener('click', () => {
+      if (!window.confirm(fiche.dataset.confirm)) return;
+      try { localStorage.removeItem(cle); } catch { /* rien */ }
+      champs.forEach((c) => { c.value = ''; });
+      calculer();
+    });
+    fiche.querySelector('.imprimer')?.addEventListener('click', () => window.print());
+  }
+</script>
+
+<style>
+  .fiche { display: flex; flex-direction: column; gap: 28px; padding-top: clamp(24px, 3.4vw, 48px); padding-bottom: 0; }
+  .ariane ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 15px; color: var(--secondaire); }
+  .ariane li + li::before { content: '/'; margin-right: 8px; }
+  .ariane a { color: var(--vert); text-decoration: underline; text-underline-offset: 3px; }
+  .fiche__tete { display: flex; flex-direction: column; gap: 14px; max-width: 860px; }
+  .fiche__tete h1 { text-wrap: balance; }
+  .surtitre { font-family: var(--f-texte); font-size: 13px; letter-spacing: 0.1em; }
+  .en-bref { background: var(--jaune-clair); padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+  .en-bref p { font-size: clamp(17px, 1.45vw, 20px); line-height: 1.5; }
+  .fiche__corps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(28px, 4vw, 56px); align-items: start; }
+  .filet-titre { font-size: 22px; letter-spacing: 0; border-bottom: var(--filet); padding-bottom: 8px; }
+  .t18 { font-size: clamp(17px, 1.25vw, 18px); line-height: 1.55; }
+  .t17 { font-size: 17px; line-height: 1.5; }
+  .liste { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+  .exemple { background: var(--vert-clair); display: flex; flex-direction: column; }
+  .exemple__texte { padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .exemple h2 { font-size: 19px; letter-spacing: 0; }
+  .exemple h2 span { font-family: var(--f-texte); font-weight: 400; font-style: italic; font-size: 15px; }
+  .exemple p { font-size: 17px; line-height: 1.55; }
+
+  .champ { display: flex; flex-direction: column; gap: 6px; }
+  .champ__label { font-size: 15px; font-weight: 600; line-height: 1.3; }
+  textarea, .champ__nombre input {
+    font: inherit; font-size: 17px; line-height: 1.45; padding: 10px 12px; background: var(--blanc);
+    border: 1px solid var(--bordure); border-radius: 0; color: var(--encre);
+  }
+  textarea { resize: vertical; }
+  textarea:focus, .champ__nombre input:focus { border-color: var(--vert); outline: 2px solid var(--vert); outline-offset: 0; }
+  .champ__nombre { display: flex; align-items: center; gap: 8px; max-width: 280px; font-size: 15px; color: var(--secondaire); }
+  .champ__nombre input { flex: 1; min-width: 0; }
+  .champ__calcul { font-family: var(--f-titre); font-weight: 700; font-size: 22px; padding: 10px 12px; background: var(--jaune-clair); max-width: 280px; }
+  .champ__calcul.negatif { color: var(--rouge); }
+  .exercice__pied { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; }
+  .enregistre { font-size: 14px; color: var(--vert); display: flex; gap: 6px; align-items: center; }
+  .effacer { background: none; border: 0; padding: 6px 0; cursor: pointer; font: inherit; font-size: 14px; color: var(--secondaire); text-decoration: underline; text-underline-offset: 3px; }
+  .effacer:hover { color: var(--encre); }
+
+  .mon-action { background: var(--jaune-clair); padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .mon-action p { font-family: var(--f-titre); font-weight: 600; font-size: clamp(19px, 1.45vw, 21px); line-height: 1.3; }
+  .plus h2 { font-size: 19px; letter-spacing: 0; }
+  .plus ul { list-style: none; margin: 0; padding: 0; border-top: var(--filet-fin); }
+  .plus a { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: var(--filet-fin); font-size: 16px; font-weight: 600; color: var(--vert); text-decoration: none; }
+  .plus a:hover span:first-child { text-decoration: underline; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .actions > .bouton { flex: 1 1 220px; }
+
+  @media print {
+    .ariane, .actions, .effacer, .enregistre, .exemple :global(.photo) { display: none !important; }
+    .fiche { padding: 0; gap: 12px; }
+    .fiche__corps { display: block; }
+    .fiche__corps > * + * { margin-top: 16px; }
+    textarea, .champ__nombre input { border: 1px solid #999; min-height: 3em; }
+    textarea { resize: none; }
+    .en-bref, .mon-action, .exemple, .champ__calcul { background: none !important; border: 1px solid #999; }
+  }
+</style>
