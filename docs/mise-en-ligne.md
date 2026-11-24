@@ -21,6 +21,9 @@ Dans GitHub : dépôt → **Settings** → **Secrets and variables** → **Actio
 | `FTP_USERNAME` | identifiant FTP |
 | `FTP_PASSWORD` | mot de passe FTP |
 | `FTP_SERVER_DIR` | dossier web, par exemple `/htdocs/` (avec la barre finale) |
+| `NEON_DATABASE_URL` | chaîne de connexion Neon, pour les formulaires (voir `docs/formulaires.md`) |
+
+Les formulaires restent fermés tant que la variable GitHub `FORMULAIRES` ne vaut pas `ouvert` (déclaration CDP d'abord).
 
 Ces identifiants ne doivent jamais être écrits dans le code, ni envoyés dans une conversation. Tant qu'ils sont absents, l'envoi vers LWS est simplement sauté.
 

@@ -1,0 +1,44 @@
+---
+// Demande de partenariat (02-CONTENUS 08, partie 2). Tant que les formulaires sont fermés (déclaration CDP),
+// la page affiche le même encadré que la page Contact, avec WhatsApp et e-mail.
+import Page from '../layouts/Page.astro';
+import EnTetePage from '../components/EnTetePage.astro';
+import Formulaire from '../components/Formulaire.astro';
+import Icone from '../components/Icone.astro';
+import CT from '../content/contact.js';
+import { TEXTES } from '../content/formulaires';
+import { FORMULAIRES } from '../config';
+import { CONTACT } from '../i18n/commun';
+import { r, type Lang } from '../i18n/routes';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = TEXTES[lang].partenariat;
+const ferme = FORMULAIRES === 'ferme';
+---
+<Page lang={lang} id="partenariat">
+  <EnTetePage lang={lang} ariane={T.ariane} liens={[r('organisations', lang)]} titre={T.titre} texte={ferme ? [] : [T.texte]} />
+  <section class="bloc">
+    <div class="bloc__in partenariat">
+      {ferme ? (
+        <div class="colonne" style="gap:16px">
+          <p class="encadre encadre--jaune ferme">
+            <Icone nom="ui-email" taille={22} />
+            <span>{CT[lang].formFerme.replace(CONTACT.telAffiche, CONTACT.telAffiche.replace(/ /g, ' '))}</span>
+          </p>
+          <p class="boutons">
+            <a class="bouton bouton--principal" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener"><span>{CT[lang].waBouton}</span><Icone nom="reseau-whatsapp" taille={20} /></a>
+            <a class="bouton bouton--secondaire" href={`mailto:${CONTACT.email}`}><span>{CONTACT.email}</span><Icone nom="ui-email" taille={20} /></a>
+          </p>
+        </div>
+      ) : <Formulaire lang={lang} type="partenariat" />}
+    </div>
+  </section>
+</Page>
+
+<style>
+  .partenariat { max-width: 820px; padding-top: clamp(32px, 4vw, 56px); }
+  .ferme { margin: 0; font-size: 17px; }
+  .ferme :global(svg) { flex: none; margin-top: 2px; }
+  .boutons { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>

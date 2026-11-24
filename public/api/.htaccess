@@ -1,0 +1,6 @@
+# Seul envoyer.php est accessible ; réglages et dépôts restent privés.
+Options -Indexes
+<FilesMatch "^(_config\.php|.*\.json)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 ^/api/_stock(/|$)

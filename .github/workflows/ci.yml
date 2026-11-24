@@ -26,3 +26,5 @@ jobs:
         run: npm run build
       - name: Contrôles du site (langues, liens, titres)
         run: npm run verifier
+      - name: Syntaxe PHP (formulaires)
+        run: php -l public/api/envoyer.php
