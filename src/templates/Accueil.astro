@@ -1,0 +1,181 @@
+---
+import Page from '../layouts/Page.astro';
+import Bouton from '../components/Bouton.astro';
+import Photo from '../components/Photo.astro';
+import Icone from '../components/Icone.astro';
+import ACCUEIL from '../content/accueil.js';
+import { r, url, type Lang, type FicheId, type RouteId } from '../i18n/routes';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = ACCUEIL[lang];
+const mots = T.heroTitre.split(' ');
+const dernier = mots.pop();
+const fiches: FicheId[] = ['trouver-une-idee', 'fixer-son-prix', 'prise-de-parole'];
+---
+<Page lang={lang} id="accueil">
+  <section class="bloc">
+    <div class="bloc__in bloc__in--2 banniere">
+      <div class="colonne" style="gap:20px">
+        <h1 class="equilibre">{mots.join(' ')} <span class="surligne">{dernier}</span></h1>
+        <p class="chapeau" style="max-width:60ch">{T.heroTexte}</p>
+        <div class="boutons-flex">
+          <Bouton href={r('etre-accompagne', lang)}>{T.heroB1}</Bouton>
+          <Bouton href={r('organisations', lang)} variante="secondaire">{T.heroB2}</Bouton>
+        </div>
+        <p class="petit secondaire">{T.heroMention}</p>
+      </div>
+      <Photo lang={lang} fichier="accueil-banniere.jpg" ratio="4/3"
+        alt={lang === 'fr' ? 'Une entrepreneure sénégalaise dans son activité' : 'A Senegalese woman entrepreneur at work'}
+        legende={lang === 'fr' ? 'une femme entrepreneure sénégalaise en tenue traditionnelle, dans son activité, regard confiant' : 'a Senegalese woman entrepreneur in traditional dress, at work, looking confident'} />
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--2">
+      <h2 class="equilibre">{T.presTitre}</h2>
+      <div class="paragraphes">{T.presTexte.map((p: string) => <p>{p}</p>)}</div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile">
+      <div class="colonne" style="gap:10px">
+        <h2>{T.polesTitre}</h2>
+        <p>{T.polesIntro}</p>
+      </div>
+      <ul class="poles">
+        {T.poles.map((p: any) => (
+          <li>
+            <span class="pastille-icone"><Icone nom={p.icone} taille={26} /></span>
+            <h3>{p.titre}</h3>
+            <p>{p.texte}</p>
+          </li>
+        ))}
+      </ul>
+      <Bouton href={r('expertises', lang)} variante="lien" class="debut">{T.polesBouton}</Bouton>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile">
+      <div class="bloc__in--2" style="display:grid">
+        <h2 class="equilibre">{T.partTitre}</h2>
+        <div class="paragraphes" style="gap:12px">{T.partTexte.map((p: string) => <p>{p}</p>)}</div>
+      </div>
+      <ul class="cartes-parcours">
+        {T.parcours.map((c: any) => (
+          <li>
+            <a class="carte" href={r(c.id as RouteId, lang)}>
+              <span class="carte__icone"><Icone nom={c.icone} taille={36} /></span>
+              <span class="carte__titre">{c.titre}</span>
+              <span class="carte__texte">{c.texte}</span>
+              <span class="carte__fleche" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <Bouton href={r('etre-accompagne', lang)} class="debut large">{T.partBouton}</Bouton>
+    </div>
+  </section>
+
+  <section class="bloc bloc--vert">
+    <div class="bloc__in bloc__in--2">
+      <div class="colonne">
+        <h2 class="equilibre">{T.orgTitre}</h2>
+        {T.orgTexte.map((p: string) => <p style="max-width:60ch">{p}</p>)}
+      </div>
+      <div class="colonne" style="gap:20px">
+        <ol class="liste-numerotee">
+          {T.orgListe.map((t: string, i: number) => <li><span>{String(i + 1).padStart(2, '0')}</span>{t}</li>)}
+        </ol>
+        <Bouton href={r('organisations', lang)} variante="secondaire" class="debut">{T.orgBouton}</Bouton>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile">
+      <h2>{T.approcheTitre}</h2>
+      <ol class="etapes">
+        {T.etapes.map((e: any, i: number) => (
+          <li>
+            <span class="chiffre">{i + 1}</span>
+            <span class="etapes__titre">{e.titre}</span>
+            <span class="etapes__texte">{e.texte.charAt(0).toUpperCase() + e.texte.slice(1)}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--2">
+      <div class="colonne">
+        <h2>{T.ressTitre}</h2>
+        <p style="max-width:60ch">{T.ressTexte}</p>
+      </div>
+      <div class="colonne" style="gap:20px">
+        <ul class="liens-fiches">
+          {T.fiches.map((t: string, i: number) => (
+            <li><a href={url({ kind: 'fiche', id: fiches[i] }, lang)}><span>{t}</span><span aria-hidden="true">→</span></a></li>
+          ))}
+        </ul>
+        <Bouton href={r('ressources', lang)} variante="lien" class="debut">{T.ressBouton}</Bouton>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc bloc--jaune">
+    <div class="bloc__in bloc__in--2" style="align-items:end">
+      <div class="colonne">
+        <h2 class="titre-fin equilibre">{T.finTitre}</h2>
+        <p style="max-width:60ch">{T.finTexte}</p>
+      </div>
+      <div class="colonne" style="gap:10px">
+        <Bouton href={r('etre-accompagne', lang)} variante="sur-jaune">{T.finB1}</Bouton>
+        <Bouton href={r('partenariat', lang)} variante="secondaire" class="secondaire-encre">{T.finB2}</Bouton>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .equilibre { text-wrap: balance; }
+  .banniere { padding-block: clamp(28px, 5vw, 80px); align-items: center; }
+  .boutons-flex { display: flex; flex-wrap: wrap; gap: 10px; }
+  .boutons-flex :global(.bouton) { flex: 1 1 260px; }
+  .poles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); border-top: var(--filet); }
+  .poles li { padding: 20px 16px 20px 0; margin-right: 16px; border-bottom: var(--filet-fin); display: flex; flex-direction: column; gap: 12px; }
+  .poles h3 { font-size: clamp(19px, 1.45vw, 21px); line-height: 1.2; }
+  .poles p { font-size: 16px; line-height: 1.5; }
+  .cartes-parcours { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); }
+  .cartes-parcours .carte { height: 100%; padding: 18px 16px; gap: 10px; }
+  .carte__icone { color: var(--vert); }
+  .carte__titre { font-family: var(--f-titre); font-weight: 700; font-size: 21px; line-height: 1.15; }
+  .carte__texte { font-size: 16px; line-height: 1.5; }
+  .carte__fleche { font-family: var(--f-titre); font-weight: 700; font-size: 20px; color: var(--vert); margin-top: auto; }
+  :global(.large) { min-width: min(100%, 320px); }
+  .liste-numerotee { margin: 0; padding: 0; list-style: none; border-top: var(--filet); }
+  .liste-numerotee li {
+    display: flex; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--encre);
+    font-family: var(--f-titre); font-weight: 700; font-size: clamp(19px, 1.45vw, 21px);
+  }
+  .liste-numerotee span { color: var(--vert); min-width: 28px; }
+  .bloc--vert :global(.bouton--secondaire:hover) { background: var(--blanc); }
+  .etapes { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); border-top: var(--filet); }
+  .etapes li { padding: 18px 16px 18px 0; border-bottom: var(--filet-fin); display: flex; flex-direction: column; gap: 8px; }
+  .etapes__titre { font-family: var(--f-titre); font-weight: 700; font-size: 19px; line-height: 1.2; }
+  .etapes__texte { font-size: 16px; line-height: 1.5; }
+  .liens-fiches { list-style: none; margin: 0; padding: 0; border-top: var(--filet); }
+  .liens-fiches a {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0;
+    border-bottom: var(--filet-fin); text-decoration: none; color: var(--encre);
+    font-family: var(--f-titre); font-weight: 700; font-size: clamp(18px, 1.4vw, 20px); line-height: 1.25;
+  }
+  .liens-fiches a:hover { color: var(--vert); }
+  .liens-fiches a span:last-child { color: var(--vert); }
+  .titre-fin { font-size: clamp(30px, 3.3vw, 48px); line-height: 1.02; }
+  :global(.secondaire-encre) { color: var(--encre) !important; border-color: var(--encre) !important; }
+  :global(.secondaire-encre:hover) { background: var(--jaune-clair) !important; }
+</style>

@@ -61,3 +61,31 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* ---------- Mise en page des sections (prototype Claude Design) ---------- */
+.bloc { border-bottom: var(--filet); }
+.bloc__in {
+  max-width: var(--largeur-max); margin: 0 auto;
+  padding: var(--section) var(--gouttiere);
+}
+.bloc__in--2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(24px, 4vw, 64px); }
+.bloc__in--pile { display: flex; flex-direction: column; gap: 28px; }
+.bloc--vert { background: var(--vert-clair); }
+.bloc--jaune { background: var(--jaune); }
+.bloc--encre { background: var(--encre); color: var(--sable); }
+.colonne { display: flex; flex-direction: column; gap: 14px; }
+.paragraphes { display: flex; flex-direction: column; gap: 14px; max-width: 68ch; }
+.debut { align-self: flex-start; }
+.liste-filets { margin: 0; padding: 0; list-style: none; border-top: var(--filet); }
+.liste-filets > li { border-bottom: var(--filet-fin); }
+.chiffre { font-family: var(--f-titre); font-weight: 700; font-size: 40px; line-height: 1; color: var(--vert); }
+.pastille-icone { width: 48px; height: 48px; display: grid; place-items: center; background: var(--vert-clair); color: var(--vert); flex: none; }
+.carte {
+  background: var(--surface); border-top: 4px solid var(--vert); padding: 20px 16px;
+  display: flex; flex-direction: column; gap: 12px; color: var(--encre);
+}
+a.carte { text-decoration: none; }
+a.carte:hover { background: var(--vert-clair); color: var(--encre); }
+.encadre { padding: 14px 16px; font-size: 16px; line-height: 1.5; display: flex; gap: 12px; align-items: flex-start; }
+.encadre--jaune { background: var(--jaune-clair); }
+.encadre--vert { background: var(--vert-clair); }
