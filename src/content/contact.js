@@ -1,5 +1,5 @@
 // 02-CONTENUS : 12-contact.md (FR) / 12-contact.md (EN, à relire D9).
-// formFerme : texte provisoire (non validé) affiché tant que le formulaire est fermé (déclaration CDP).
+// formFerme : texte validé par Yahya le 24/11/2026, affiché tant que le formulaire est fermé (déclaration CDP).
 // Le formulaire lui-même arrive au lot 5.
 export default {
   "fr": {
