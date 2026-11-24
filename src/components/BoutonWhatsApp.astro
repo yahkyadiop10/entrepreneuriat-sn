@@ -1,0 +1,22 @@
+---
+import { COMMUN, CONTACT } from '../i18n/commun';
+import type { Lang } from '../i18n/routes';
+import Icone from './Icone.astro';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const C = COMMUN[lang];
+const href = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(C.whatsappMsg)}`;
+---
+<a class="whatsapp" href={href} target="_blank" rel="noopener" aria-label={C.whatsappLabel} title={C.whatsappLabel}>
+  <Icone nom="reseau-whatsapp" taille={28} />
+</a>
+
+<style>
+  .whatsapp {
+    position: fixed; right: 16px; bottom: 16px; z-index: 30; width: 56px; height: 56px;
+    display: grid; place-items: center; background: var(--vert); color: var(--blanc);
+    box-shadow: var(--ombre-whatsapp);
+  }
+  .whatsapp:hover { background: var(--vert-fonce); color: var(--blanc); }
+</style>

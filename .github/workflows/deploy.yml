@@ -1,0 +1,65 @@
+name: Mise en ligne (LWS)
+
+# À chaque fusion dans main : construction, contrôles de production, puis envoi FTPS sur LWS.
+# Les identifiants sont saisis par le propriétaire dans Settings → Secrets and variables → Actions :
+#   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD, FTP_SERVER_DIR
+# Tant qu'ils sont absents, l'envoi est sauté (le reste tourne quand même).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploiement-lws
+  cancel-in-progress: false
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build
+
+      - name: Contrôles de production (liens, crochets [À COMPLÉTER])
+        id: controles
+        continue-on-error: true
+        run: npm run verifier:production
+
+      - name: Secrets LWS présents ?
+        id: secrets
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          if [ -n "$FTP_SERVER" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Secrets FTP absents : envoi vers LWS sauté."
+          fi
+
+      - name: Envoi bloqué
+        if: steps.controles.outcome == 'failure' && steps.secrets.outputs.ok == 'true'
+        run: |
+          echo "::error::Le site n'est pas prêt pour la production (voir l'étape des contrôles). Rien n'a été envoyé sur LWS."
+          exit 1
+
+      - name: Envoi FTPS vers LWS
+        if: steps.controles.outcome == 'success' && steps.secrets.outputs.ok == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**

@@ -1,0 +1,106 @@
+---
+import { COMMUN } from '../i18n/commun';
+import { url, r, rubrique, type Lang, type PageRef } from '../i18n/routes';
+import SelecteurLangue from './SelecteurLangue.astro';
+
+interface Props { lang: Lang; page: PageRef; autreLangue: string | null }
+const { lang, page, autreLangue } = Astro.props;
+const C = COMMUN[lang];
+const actif = rubrique(page);
+---
+<header class="entete">
+  <div class="entete__barre">
+    <a href={r('accueil', lang)} class="entete__logo">
+      <img src="/logos/es-logo-horizontal-couleur.svg" alt="Entrepreneuriat Sénégal" width="196" height="44" />
+    </a>
+    <nav class="entete__nav" aria-label={C.navPrincipale}>
+      <ul>
+        {C.nav.map((n) => {
+          const id = n.ref.kind === 'route' ? n.ref.id : null;
+          return <li><a href={url(n.ref, lang)} aria-current={id === actif ? 'page' : undefined}>{n.label}</a></li>;
+        })}
+      </ul>
+    </nav>
+    <SelecteurLangue lang={lang} autreLangue={autreLangue} />
+    <a class="bouton bouton--principal entete__cta" href={r('etre-accompagne', lang)}><span>{C.cta}</span><span aria-hidden="true">→</span></a>
+    <button class="entete__menu" type="button" aria-expanded="false" aria-controls="menu-mobile" data-ouvrir={C.menu} data-fermer={C.fermer} aria-label={C.menu}>
+      <svg class="icone-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg class="icone-fermer" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav id="menu-mobile" class="menu-mobile" aria-label={C.navPrincipale} hidden>
+    <ul>
+      {C.nav.map((n) => {
+        const id = n.ref.kind === 'route' ? n.ref.id : null;
+        return <li><a href={url(n.ref, lang)} aria-current={id === actif ? 'page' : undefined}><span>{n.label}</span><span aria-hidden="true">→</span></a></li>;
+      })}
+    </ul>
+    <a class="bouton bouton--principal" href={r('etre-accompagne', lang)}><span>{C.cta}</span><span aria-hidden="true">→</span></a>
+  </nav>
+</header>
+
+<script>
+  const bouton = document.querySelector<HTMLButtonElement>('.entete__menu');
+  const menu = document.getElementById('menu-mobile');
+  if (bouton && menu) {
+    const basculer = (ouvert: boolean) => {
+      bouton.setAttribute('aria-expanded', String(ouvert));
+      bouton.setAttribute('aria-label', (ouvert ? bouton.dataset.fermer : bouton.dataset.ouvrir) ?? '');
+      menu.hidden = !ouvert;
+    };
+    bouton.addEventListener('click', () => basculer(bouton.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) { basculer(false); bouton.focus(); } });
+    matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) basculer(false); });
+  }
+</script>
+
+<style>
+  .entete { position: sticky; top: 0; z-index: 20; background: var(--sable); border-bottom: var(--filet); }
+  .entete__barre {
+    display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+    max-width: 1440px; margin: 0 auto;
+  }
+  .entete__logo { display: flex; margin-right: auto; }
+  .entete__logo img { height: 32px; width: auto; }
+  .entete__nav, .entete__cta { display: none; }
+  .entete__menu {
+    width: 44px; height: 44px; display: grid; place-items: center; padding: 0;
+    background: none; border: 2px solid var(--encre); cursor: pointer; color: var(--encre);
+  }
+  .entete__menu .icone-fermer { display: none; }
+  .entete__menu[aria-expanded='true'] .icone-menu { display: none; }
+  .entete__menu[aria-expanded='true'] .icone-fermer { display: block; }
+
+  .menu-mobile { border-top: var(--filet); padding: 8px 16px 20px; display: flex; flex-direction: column; }
+  .menu-mobile[hidden] { display: none; }
+  .menu-mobile ul { list-style: none; margin: 0; padding: 0; }
+  .menu-mobile li a {
+    display: flex; justify-content: space-between; align-items: center; padding: 14px 0;
+    border-bottom: var(--filet-fin); text-decoration: none; color: var(--encre);
+    font-family: var(--f-titre); font-weight: 700; font-size: 20px;
+  }
+  .menu-mobile li a[aria-current='page'] { color: var(--vert); }
+  .menu-mobile .bouton { margin-top: 16px; }
+
+  @media (min-width: 1024px) {
+    .entete__barre { gap: 28px; padding: 14px 48px; }
+    .entete__logo { margin-right: 0; }
+    .entete__logo img { height: 44px; }
+    .entete__nav { display: block; margin-left: auto; }
+    .entete__nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+    .entete__nav a {
+      display: block; padding: 6px 0; border-bottom: 3px solid transparent; text-decoration: none; color: var(--encre);
+      font-family: var(--f-titre); font-weight: 700; font-size: 16px;
+    }
+    .entete__nav a:hover { color: var(--vert); }
+    .entete__nav a[aria-current='page'] { border-bottom-color: var(--jaune); }
+    .entete__cta { display: inline-flex; font-size: 16px; padding: 13px 16px 11px; gap: 12px; }
+    .entete__menu, .menu-mobile { display: none !important; }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .entete__barre { gap: 18px; padding-inline: 24px; }
+    .entete__nav ul { gap: 14px; }
+    .entete__nav a { font-size: 15px; }
+    .entete__cta { display: none; }
+  }
+</style>

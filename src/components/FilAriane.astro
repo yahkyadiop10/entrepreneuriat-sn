@@ -1,0 +1,27 @@
+---
+import { COMMUN } from '../i18n/commun';
+import type { Lang } from '../i18n/routes';
+
+interface Props {
+  lang: Lang;
+  items: { label: string; href?: string }[]; // le dernier = page en cours
+}
+const { lang, items } = Astro.props;
+---
+<nav class="ariane conteneur" aria-label={COMMUN[lang].filAriane}>
+  <ol>
+    {items.map((it, i) => (
+      <li>
+        {it.href && i < items.length - 1 ? <a href={it.href}>{it.label}</a> : <span aria-current="page">{it.label}</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .ariane { padding-top: var(--e4); }
+  ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: var(--t-petit); }
+  li + li::before { content: '/'; margin-right: 8px; color: var(--aide); }
+  a { color: var(--vert); text-decoration: underline; }
+  span { color: var(--secondaire); }
+</style>
