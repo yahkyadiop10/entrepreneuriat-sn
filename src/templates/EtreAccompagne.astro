@@ -1,0 +1,144 @@
+---
+import Page from '../layouts/Page.astro';
+import EnTetePage from '../components/EnTetePage.astro';
+import Bouton from '../components/Bouton.astro';
+import Icone from '../components/Icone.astro';
+import EA from '../content/etre-accompagne.js';
+import { CONTACT } from '../i18n/commun';
+import { r, type Lang, type RouteId } from '../i18n/routes';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = EA[lang];
+const kicker = lang === 'fr' ? 'Parcours' : 'Pathway';
+---
+<Page lang={lang} id="etre-accompagne">
+  <EnTetePage lang={lang} ariane={T.ariane} titre={T.titre} texte={T.texte} />
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile" style="gap:24px">
+      <h2>{T.commentTitre}</h2>
+      <ol class="etapes">
+        {T.comment.map((c: any, i: number) => (
+          <li>
+            <span class="chiffre">{i + 1}</span>
+            <span class="etapes__titre">{c.titre}</span>
+            <span class="etapes__texte">{c.texte}</span>
+          </li>
+        ))}
+      </ol>
+      <p class="encadre encadre--jaune confidentialite">
+        <Icone nom="valeur-responsabilite" taille={22} />
+        <span>{T.confidentialite}</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile" style="gap:24px">
+      <h2>{T.parcoursTitre}</h2>
+      <div class="parcours">
+        {T.parcours.map((c: any) => (
+          <article class="parcours__carte">
+            <div class="parcours__tete">
+              <span class="parcours__icone"><Icone nom={c.icone} taille={40} /></span>
+              <span class="surtitre secondaire">{kicker} {c.lettre}</span>
+            </div>
+            <h3>{c.titre}</h3>
+            <p><strong>{T.pourQui}</strong> {c.pour}</p>
+            <div>
+              <p class="parcours__intro">{c.intro}</p>
+              <ul>{c.liste.map((li: string) => <li>{li}</li>)}</ul>
+            </div>
+            <Bouton href={r(c.id as RouteId, lang)} class="parcours__bouton">{T.bouton}</Bouton>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--2">
+      <h2>{T.hesiteTitre}</h2>
+      <ul class="liste-filets hesite">
+        {T.hesite.map((h: any) => (
+          <li>{h.avant}<a href={r(h.id as RouteId, lang)}>{h.lien}</a>.</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile" style="gap:24px">
+      <h2>{T.plusTitre}</h2>
+      <div class="plus">
+        <div class="plus__carte">
+          <p>{T.ressTexte}</p>
+          <Bouton href={r('ressources', lang)} variante="lien" class="debut pousse">{T.ressBouton}</Bouton>
+        </div>
+        <div class="plus__carte">
+          <p>{T.contactTexte}</p>
+          <div class="plus__boutons pousse">
+            <a class="bouton bouton--principal" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">
+              <span>{T.waBouton}</span><Icone nom="reseau-whatsapp" taille={20} />
+            </a>
+            <Bouton href={r('contact', lang)} variante="secondaire">{T.contactBouton}</Bouton>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc bloc--sans-filet">
+    <div class="bloc__in bloc__in--2">
+      <h2>{T.faqTitre}</h2>
+      <div class="faq">
+        {T.faq.map((f: any, i: number) => (
+          <details open={i === 0} name="faq">
+            <summary>{f.q}<span class="faq__signe" aria-hidden="true"></span></summary>
+            <p>{f.r}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .etapes { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); border-top: var(--filet); }
+  .etapes li { padding: 18px 20px 18px 0; border-bottom: var(--filet-fin); display: flex; flex-direction: column; gap: 8px; }
+  .etapes__titre { font-family: var(--f-titre); font-weight: 700; font-size: 21px; line-height: 1.2; }
+  .etapes__texte { font-size: 16px; line-height: 1.5; }
+  .confidentialite { max-width: 760px; margin: 0; }
+  .confidentialite :global(svg) { flex: none; margin-top: 1px; }
+
+  .parcours { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .parcours__carte { background: var(--surface); border-top: 4px solid var(--vert); padding: 20px 16px; display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.5; }
+  .parcours__tete { display: flex; align-items: center; gap: 12px; }
+  .parcours__icone { color: var(--vert); display: flex; }
+  .parcours__carte h3 { font-size: clamp(21px, 1.6vw, 24px); line-height: 1.15; }
+  .parcours__intro { font-weight: 600; }
+  .parcours__carte ul { margin: 6px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px; }
+  .parcours__carte :global(.parcours__bouton) { margin-top: auto; }
+
+  .hesite li { padding: 14px 0; font-size: 17px; line-height: 1.5; }
+  .hesite a { color: var(--vert); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+  .plus { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+  .plus__carte { background: var(--surface); padding: 20px 16px; display: flex; flex-direction: column; gap: 14px; font-size: 17px; line-height: 1.5; }
+  .plus__carte :global(.pousse) { margin-top: auto; }
+  .plus__boutons { display: flex; flex-wrap: wrap; gap: 10px; }
+  .plus__boutons > :global(.bouton) { flex: 1 1 200px; }
+
+  .bloc--sans-filet { border-bottom: 0; }
+  .faq { border-top: var(--filet); }
+  details { border-bottom: var(--filet-fin); }
+  summary {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; cursor: pointer; list-style: none;
+    font-family: var(--f-titre); font-weight: 700; font-size: clamp(18px, 1.4vw, 20px); line-height: 1.25;
+  }
+  summary::-webkit-details-marker { display: none; }
+  .faq__signe::before { content: '+'; font-size: 24px; color: var(--vert); }
+  details[open] .faq__signe::before { content: '−'; }
+  details p { margin: 0 0 16px; font-size: 17px; line-height: 1.55; max-width: 64ch; }
+</style>

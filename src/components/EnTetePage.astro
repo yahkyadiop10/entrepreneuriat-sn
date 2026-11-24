@@ -1,0 +1,38 @@
+---
+// En-tête des pages intérieures : fil d'Ariane, titre, chapeau (prototype « Page … · En-tête »).
+import { COMMUN } from '../i18n/commun';
+import { r, type Lang } from '../i18n/routes';
+
+interface Props {
+  lang: Lang;
+  ariane: string[];            // libellés ; le premier mène à l'accueil, le dernier = page en cours
+  liens?: (string | undefined)[]; // adresses des niveaux intermédiaires, dans l'ordre
+  titre: string;
+  texte?: string[];
+}
+const { lang, ariane, liens = [], titre, texte = [] } = Astro.props;
+const hrefs = [r('accueil', lang), ...liens];
+---
+<section class="bloc">
+  <div class="bloc__in entete">
+    <nav aria-label={COMMUN[lang].filAriane}>
+      <ol>
+        {ariane.map((label, i) => (
+          <li>{i < ariane.length - 1 && hrefs[i] ? <a href={hrefs[i]}>{label}</a> : <span aria-current="page">{label}</span>}</li>
+        ))}
+      </ol>
+    </nav>
+    <h1>{titre}</h1>
+    {texte.length > 0 && <div class="entete__texte">{texte.map((p) => <p>{p}</p>)}</div>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .entete { display: flex; flex-direction: column; gap: 20px; padding-top: clamp(24px, 3.4vw, 48px); padding-bottom: clamp(40px, 5.5vw, 80px); }
+  ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 15px; color: var(--secondaire); }
+  li + li::before { content: '/'; margin-right: 8px; }
+  a { color: var(--vert); text-decoration: underline; text-underline-offset: 3px; }
+  h1 { max-width: 22ch; text-wrap: balance; }
+  .entete__texte { display: flex; flex-direction: column; gap: 10px; font-size: var(--t-chapeau); line-height: 1.5; max-width: 64ch; }
+</style>
