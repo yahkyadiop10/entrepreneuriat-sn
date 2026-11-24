@@ -1,0 +1,78 @@
+---
+// Auto-évaluation du parcours Compétences : 7 notes de 1 à 5, au départ ou à la fin.
+import { CLE_NOTES, PARCOURS, UI } from '../content/parcours';
+import { url, type Lang } from '../i18n/routes';
+
+interface Props { lang: Lang; moment: 'depart' | 'fin' }
+const { lang, moment } = Astro.props;
+const P = PARCOURS[lang].competences;
+const A = P.autoDepart!;
+const U = UI[lang];
+const noms = A.competences.map((c) => c.nom);
+const urls = A.competences.map((_, i) => url({ kind: 'etape', parcours: 'competences', n: i + 1 }, lang));
+const milieu = A.message.match(/\]\*\*(.*?)\*\*\[/)?.[1] ?? ' ';
+const fin = A.message.split(']**').pop();
+---
+<div class="auto" data-cle-notes={CLE_NOTES} data-moment={moment} data-total={noms.length}
+  data-noms={JSON.stringify(noms)} data-urls={JSON.stringify(urls)}>
+  <p class="auto__echelle">{A.echelle}</p>
+  <ol class="auto__liste">
+    {A.competences.map((c, i) => (
+      <li class="auto__ligne" data-ecart={moment === 'fin' ? i : undefined}>
+        <div class="auto__nom" id={`c-${moment}-${i}`}><strong>{c.nom}</strong> <span>{c.desc}</span></div>
+        <div class="auto__droite">
+          <div class="notes" role="radiogroup" aria-labelledby={`c-${moment}-${i}`}>
+            {[1, 2, 3, 4, 5].map((n) => (
+              <label><input type="radio" name={`${moment}-${i}`} value={n} data-i={i} /><span>{n}</span></label>
+            ))}
+          </div>
+          {moment === 'fin' && (
+            <p class="auto__rappel"><span>{U.depart} : <b class="note-depart">—</b></span><span class="note-ecart"></span></p>
+          )}
+        </div>
+      </li>
+    ))}
+  </ol>
+  {moment === 'depart' && (
+    <div class="suggestion" hidden aria-live="polite">
+      <p>{A.message.split('**[')[0]}<strong class="prio-1"></strong>{milieu}<strong class="prio-2"></strong>{fin}</p>
+      <div class="suggestion__boutons">
+        <a class="bouton bouton--principal prio-lien" href={urls[0]}><span>{A.boutons[0]}</span><span aria-hidden="true">→</span></a>
+        <a class="bouton bouton--secondaire" href={urls[0]}><span>{A.boutons[1]}</span></a>
+      </div>
+    </div>
+  )}
+</div>
+
+<script>
+  import { initAutoEvaluation } from '../scripts/parcours';
+  document.querySelectorAll<HTMLElement>('.auto').forEach(initAutoEvaluation);
+</script>
+
+<style>
+  .auto { display: flex; flex-direction: column; gap: 16px; }
+  .auto__echelle { font-size: 15px; font-style: italic; color: var(--secondaire); }
+  .auto__liste { list-style: none; margin: 0; padding: 0; border-top: var(--filet-fin); }
+  .auto__ligne { display: grid; grid-template-columns: 1fr auto; gap: 10px 24px; align-items: center; padding: 14px 0; border-bottom: var(--filet-fin); }
+  .auto__nom { font-size: 16px; line-height: 1.4; }
+  .auto__nom span { color: var(--secondaire); }
+  .auto__nom strong { display: block; font-size: 17px; }
+  .auto__droite { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+  .notes { display: flex; border: 2px solid var(--encre); width: max-content; }
+  .notes label { position: relative; display: block; }
+  .notes label + label { border-left: 1px solid var(--encre); }
+  .notes input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .notes span { display: grid; place-items: center; width: 48px; height: 44px; font-family: var(--f-titre); font-weight: 700; font-size: 18px; background: var(--blanc); }
+  .notes input:checked + span { background: var(--vert); color: var(--blanc); }
+  .notes input:focus-visible + span { outline: 3px solid var(--jaune); outline-offset: -3px; }
+  .auto__rappel { display: flex; gap: 12px; font-size: 14px; color: var(--secondaire); }
+  .note-ecart { font-weight: 700; }
+  .note-ecart--plus { color: var(--vert); }
+  .suggestion { background: var(--jaune-clair); padding: 18px 16px; display: flex; flex-direction: column; gap: 14px; }
+  .suggestion p { font-size: 18px; line-height: 1.45; }
+  .suggestion__boutons { display: flex; flex-wrap: wrap; gap: 10px; }
+  @media (max-width: 640px) {
+    .auto__ligne { grid-template-columns: 1fr; }
+    .auto__droite { align-items: flex-start; }
+  }
+</style>

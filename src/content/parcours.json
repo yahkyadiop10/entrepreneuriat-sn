@@ -1,0 +1,3390 @@
+{
+ "fr": {
+  "entreprendre": {
+   "id": "entreprendre",
+   "etapes": [
+    {
+     "n": 1,
+     "titre": "Comprendre ce qu'entreprendre veut dire",
+     "essentiel": [
+      {
+       "p": "Entreprendre, ce n'est pas forcément créer une grande entreprise ni avoir beaucoup d'argent au départ. C'est **apporter une solution utile à des personnes prêtes à payer pour elle**, et l'organiser pour qu'elle dure."
+      },
+      {
+       "p": "Une petite activité de quartier, un service rendu depuis chez soi, un produit vendu sur les réseaux sociaux : tout cela, c'est entreprendre."
+      },
+      {
+       "p": "Trois idées reçues à oublier :"
+      },
+      {
+       "ul": [
+        "« Il faut une idée géniale. » Le plus souvent, une idée simple et bien faite suffit.",
+        "« Il faut d'abord trouver un financement. » Beaucoup d'activités commencent petit, avec les moyens du bord, et grandissent ensuite.",
+        "« Entreprendre, c'est pour les autres. » Chacun a des compétences, un réseau et une connaissance de son environnement qui peuvent servir de point de départ."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Awa pensait qu'il lui fallait un local et un prêt pour se lancer. Elle découvre qu'elle peut commencer par tester une petite activité depuis chez elle, avec ce qu'elle a déjà."
+      }
+     ],
+     "exercice": "Pourquoi voulez-vous entreprendre ?",
+     "champs": [
+      {
+       "id": "s1_1",
+       "type": "texte",
+       "label": "Ce qui me donne envie d'entreprendre",
+       "hint": "ex. : gagner un revenu, être autonome, aider ma communauté, faire ce que j'aime"
+      },
+      {
+       "id": "s1_2",
+       "type": "texte",
+       "label": "Ce que j'aimerais que mon activité m'apporte dans un an"
+      },
+      {
+       "id": "s1_3",
+       "type": "texte",
+       "label": "Ce qui me fait peur ou me freine aujourd'hui"
+      }
+     ],
+     "action": "Parlez de votre envie d'entreprendre à une personne de confiance, et notez sa réaction."
+    },
+    {
+     "n": 2,
+     "titre": "Repérer un problème autour de vous",
+     "essentiel": [
+      {
+       "p": "Les meilleures idées naissent souvent d'un **problème réel** que vous observez autour de vous : quelque chose qui manque, qui prend trop de temps, qui coûte trop cher ou qui est mal fait."
+      },
+      {
+       "p": "Pour les repérer, écoutez les plaintes du quotidien : « on ne trouve jamais… », « c'est trop loin… », « personne ne fait… »."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Awa remarque que plusieurs voisines qui travaillent n'ont plus le temps de préparer l'arraw et le thiakry pour leur famille. Elles les achètent parfois au marché, mais se plaignent de la qualité irrégulière et du manque d'hygiène de certains produits."
+      }
+     ],
+     "exercice": "Ma liste de problèmes",
+     "champs": [
+      {
+       "type": "consigne",
+       "t": "Pendant quelques jours, notez les problèmes que vous entendez ou que vous vivez :"
+      },
+      {
+       "id": "s2_1",
+       "type": "texte",
+       "label": "Problème 1 — qui est concerné ?"
+      },
+      {
+       "id": "s2_2",
+       "type": "texte",
+       "label": "Problème 2 — qui est concerné ?"
+      },
+      {
+       "id": "s2_3",
+       "type": "texte",
+       "label": "Problème 3 — qui est concerné ?"
+      },
+      {
+       "type": "consigne",
+       "t": "Puis entourez celui qui revient le plus souvent ou qui semble le plus gênant :"
+      },
+      {
+       "id": "s2_4",
+       "type": "texte",
+       "label": "Le problème que je retiens"
+      }
+     ],
+     "action": "Demandez à trois personnes de votre entourage quel est le problème du quotidien qui les agace le plus."
+    },
+    {
+     "n": 3,
+     "titre": "Trouver ou clarifier votre idée",
+     "essentiel": [
+      {
+       "p": "Une bonne idée d'activité se trouve au croisement de trois choses :"
+      },
+      {
+       "ol": [
+        "**un problème réel** (étape 2) ;",
+        "**ce que vous savez faire** ou pouvez apprendre ;",
+        "**les ressources auxquelles vous avez accès** : matériel, lieu, réseau, temps, petite épargne."
+       ]
+      },
+      {
+       "p": "Inutile de chercher dix idées. Cherchez **une ou deux pistes** qui réunissent les trois."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Awa sait cuisiner, elle a appris auprès de sa mère. Sa tante possède un moulin dans le quartier. Elle a un peu de temps libre. Sa piste : **préparer de l'arraw et du thiakry de qualité, en sachets propres et bien fermés, pour les femmes actives de son quartier.**"
+      }
+     ],
+     "exercice": "Mes trois cercles",
+     "champs": [
+      {
+       "id": "s3_1",
+       "type": "texte",
+       "label": "Le problème retenu (repris de l'étape 2)"
+      },
+      {
+       "id": "s3_2",
+       "type": "texte",
+       "label": "Ce que je sais faire, ou que je peux apprendre rapidement"
+      },
+      {
+       "id": "s3_3",
+       "type": "texte",
+       "label": "Les ressources dont je dispose : matériel, lieu, contacts, temps, épargne"
+      },
+      {
+       "id": "s3_4",
+       "type": "texte",
+       "label": "Ma piste d'activité, en une phrase"
+      }
+     ],
+     "action": "Écrivez votre piste en une phrase simple, puis lisez-la à voix haute. Si elle n'est pas claire pour vous, elle ne le sera pas pour vos clients : retravaillez-la."
+    },
+    {
+     "n": 4,
+     "titre": "Identifier vos clients",
+     "essentiel": [
+      {
+       "p": "Votre activité ne s'adresse pas à « tout le monde ». Plus vous connaissez précisément **qui va acheter**, plus il est facile de les trouver et de leur parler."
+      },
+      {
+       "p": "Posez-vous ces questions : qui a ce problème ? Où vivent ces personnes ? Comment achètent-elles aujourd'hui ? Combien sont-elles prêtes à payer ?"
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Les clientes d'Awa : des femmes de 25 à 50 ans, qui travaillent, vivent dans son quartier et dans les quartiers voisins, et achètent souvent par téléphone ou par WhatsApp auprès de personnes qu'elles connaissent."
+      }
+     ],
+     "exercice": "Le portrait de mon client",
+     "champs": [
+      {
+       "id": "s4_1",
+       "type": "texte",
+       "label": "Qui est-il ou qui est-elle ? (âge, situation, lieu)"
+      },
+      {
+       "id": "s4_2",
+       "type": "texte",
+       "label": "Quel problème a-t-il ou a-t-elle, exactement ?"
+      },
+      {
+       "id": "s4_3",
+       "type": "texte",
+       "label": "Comment fait-il ou fait-elle aujourd'hui pour s'en sortir ?"
+      },
+      {
+       "id": "s4_4",
+       "type": "texte",
+       "label": "Où et comment puis-je le ou la rencontrer ?"
+      }
+     ],
+     "action": "Parlez à **cinq clients possibles**. Ne vendez rien : posez des questions sur leur problème et écoutez."
+    },
+    {
+     "n": 5,
+     "titre": "Étudier votre marché",
+     "essentiel": [
+      {
+       "p": "Étudier son marché, ce n'est pas forcément une grande étude chiffrée. C'est d'abord **observer** :"
+      },
+      {
+       "ul": [
+        "qui vend déjà quelque chose de semblable (vos concurrents) ;",
+        "à quel prix ;",
+        "ce que les clients apprécient ou regrettent chez eux."
+       ]
+      },
+      {
+       "p": "Ces observations vous montrent où vous pouvez faire mieux ou différemment."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Awa fait le tour du marché central et de deux boutiques. Elle trouve de l'arraw vendu en vrac, rarement en sachet fermé. Les clientes qu'elle interroge disent qu'elles paieraient un peu plus cher pour un produit propre, régulier et livré."
+      }
+     ],
+     "exercice": "Mon tour du marché",
+     "champs": [
+      {
+       "id": "s5_1",
+       "type": "texte",
+       "label": "Concurrent 1 — ce qu'il vend, son prix, ses points forts et faibles"
+      },
+      {
+       "id": "s5_2",
+       "type": "texte",
+       "label": "Concurrent 2 — ce qu'il vend, son prix, ses points forts et faibles"
+      },
+      {
+       "id": "s5_3",
+       "type": "texte",
+       "label": "Ce que les clients regrettent dans ce qui existe"
+      },
+      {
+       "id": "s5_4",
+       "type": "texte",
+       "label": "Ce que je pourrais faire mieux ou différemment"
+      }
+     ],
+     "action": "Visitez au moins deux endroits où votre produit ou service est déjà vendu, et notez les prix pratiqués."
+    },
+    {
+     "n": 6,
+     "titre": "Définir votre proposition de valeur et votre modèle économique",
+     "essentiel": [
+      {
+       "p": "Votre **proposition de valeur** répond en une phrase à la question du client : « Pourquoi acheter chez vous plutôt qu'ailleurs ? »"
+      },
+      {
+       "p": "Votre **modèle économique** explique comment votre activité gagne de l'argent. Pour commencer, trois questions suffisent :"
+      },
+      {
+       "ol": [
+        "**Qu'est-ce que je vends, et à quel prix ?**",
+        "**Combien me coûte chaque vente ?** (matières premières, emballage, transport…)",
+        "**Combien me reste-t-il ?** Le prix de vente moins le coût, c'est votre **marge**. Elle doit couvrir vos autres dépenses et votre travail."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "*Proposition de valeur* : « De l'arraw et du thiakry préparés avec soin, en sachets propres, livrés chez vous dans le quartier. »"
+      },
+      {
+       "p": "*Modèle économique (chiffres d'illustration)* : si un sachet lui coûte 600 FCFA à produire et qu'elle le vend 1 000 FCFA, il lui reste 400 FCFA par sachet pour payer la livraison, son temps et le reste."
+      }
+     ],
+     "exercice": "Mon offre en chiffres",
+     "champs": [
+      {
+       "id": "s6_1",
+       "type": "texte",
+       "label": "Ma proposition de valeur, en une phrase"
+      },
+      {
+       "id": "s6_2",
+       "type": "texte",
+       "label": "Ce que je vends (produit ou service)"
+      },
+      {
+       "id": "s6_3",
+       "type": "texte",
+       "label": "Mon prix de vente envisagé"
+      },
+      {
+       "id": "s6_4",
+       "type": "texte",
+       "label": "Mon coût pour une vente"
+      },
+      {
+       "id": "s6_5",
+       "type": "texte",
+       "label": "Ce qu'il me reste par vente"
+      },
+      {
+       "type": "calcul",
+       "label": "Calcul automatique proposé à l'écran : prix − coût = marge.",
+       "apres": true
+      }
+     ],
+     "action": "Vérifiez votre prix auprès de trois clients possibles : « À ce prix, est-ce que vous achèteriez ? »"
+    },
+    {
+     "n": 7,
+     "titre": "Préparer vos premières actions",
+     "essentiel": [
+      {
+       "p": "Avant d'investir, **testez en petit**. Une première série réduite, quelques clients, un mois d'essai : vous apprendrez plus en vendant dix fois qu'en réfléchissant des semaines."
+      },
+      {
+       "p": "Fixez-vous **trois actions précises**, avec une date, pour les quatre prochaines semaines."
+      },
+      {
+       "p": "Si vous souhaitez formaliser votre activité (enregistrement, statut), renseignez-vous auprès des structures officielles compétentes : les démarches dépendent de votre situation et de votre activité."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Les trois actions d'Awa :"
+      },
+      {
+       "ol": [
+        "préparer 20 sachets d'essai d'ici la fin de la semaine ;",
+        "les proposer à 10 voisines et collègues par WhatsApp ;",
+        "noter les remarques et les ventes pendant un mois, puis ajuster le prix et la recette."
+       ]
+      }
+     ],
+     "exercice": "Mes 3 premières actions",
+     "champs": [
+      {
+       "id": "s7_1",
+       "type": "texte",
+       "label": "Action 1 — d'ici le (date)"
+      },
+      {
+       "id": "s7_2",
+       "type": "texte",
+       "label": "Action 2 — d'ici le (date)"
+      },
+      {
+       "id": "s7_3",
+       "type": "texte",
+       "label": "Action 3 — d'ici le (date)"
+      },
+      {
+       "id": "s7_4",
+       "type": "texte",
+       "label": "De quoi ou de qui ai-je besoin pour y arriver ?"
+      }
+     ],
+     "action": "Choisissez l'action n° 1 et faites-la dans les 7 jours."
+    }
+   ],
+   "seoTitre": "Je veux entreprendre · Parcours gratuit en 7 étapes | Entrepreneuriat Sénégal",
+   "seoDescription": "Vous voulez créer votre activité mais ne savez pas par où commencer ? Un parcours gratuit en 7 étapes pour trouver votre idée, connaître vos clients et préparer vos premières actions.",
+   "titre": "Je veux entreprendre",
+   "sousTitre": "De l'envie à la première action, en 7 étapes.",
+   "texte": [
+    "Vous avez envie de créer votre activité, mais vous ne savez pas encore quoi faire, ou vous avez une idée qui reste floue ? Ce parcours vous aide à réfléchir, pas à copier une idée toute faite.",
+    "À chaque étape : une explication, l'exemple d'Awa, un exercice et une action concrète. À la fin, vous repartez avec votre fiche personnelle et vos prochaines actions."
+   ],
+   "reperes": [
+    "7 étapes",
+    "Environ 15 à 20 minutes par étape. Vous pouvez faire une pause entre les étapes.",
+    "Gratuit, sans inscription. Vos réponses restent sur votre appareil."
+   ],
+   "persoTitre": "Présentation d'Awa",
+   "perso": "Awa a 26 ans et vit à Kaolack. Elle a un diplôme en gestion et cherche du travail depuis un an. Elle aimerait gagner sa vie par elle-même, mais ne sait pas par où commencer. Awa est un personnage fictif : son parcours illustre les étapes, il ne décrit pas une situation réelle.",
+   "persoNote": null,
+   "commencer": "Commencer l'étape 1",
+   "fin": {
+    "titre": "Bravo, vous avez terminé le parcours !",
+    "texte": "Voici votre fiche personnelle. Elle reprend vos réponses : relisez-la, complétez-la si besoin, puis imprimez-la ou enregistrez-la en PDF. Gardez-la sous la main pour suivre vos progrès.",
+    "pied": "Parcours Je veux entreprendre — entrepreneuriat.sn",
+    "boutons": [
+     "Imprimer ou enregistrer en PDF",
+     "Modifier mes réponses"
+    ],
+    "suite": [
+     {
+      "texte": "Pour approfondir : **Fiches pratiques**",
+      "liens": [
+       {
+        "label": "Trouver une idée à partir d'un problème autour de soi",
+        "ref": "fiche:trouver-une-idee"
+       },
+       {
+        "label": "Qui sont mes clients ?",
+        "ref": "fiche:mes-clients"
+       },
+       {
+        "label": "Ma proposition de valeur en une phrase",
+        "ref": "fiche:proposition-de-valeur"
+       },
+       {
+        "label": "Fixer son prix",
+        "ref": "fiche:fixer-son-prix"
+       }
+      ]
+     },
+     {
+      "texte": "Votre activité a démarré ? Passez au parcours **Je veux développer mon activité**.",
+      "ref": "route:activite"
+     },
+     {
+      "texte": "Une question ? **Écrivez-nous sur WhatsApp.**",
+      "ref": "whatsapp"
+     }
+    ],
+    "rappel": "Ce parcours vous aide à clarifier votre projet. Il ne garantit ni un financement ni la réussite de l'activité, et ne remplace pas les démarches auprès des structures officielles."
+   }
+  },
+  "activite": {
+   "id": "activite",
+   "etapes": [
+    {
+     "n": 1,
+     "titre": "Comprendre vos ventes et vos dépenses",
+     "essentiel": [
+      {
+       "p": "Pour développer une activité, il faut d'abord savoir **où va l'argent**. Beaucoup de petites activités vendent bien, mais perdent de l'argent sans s'en rendre compte."
+      },
+      {
+       "p": "Deux habitudes simples changent tout :"
+      },
+      {
+       "ol": [
+        "**Séparer l'argent de l'activité de l'argent de la maison.** Une caisse, une enveloppe ou un compte à part suffit.",
+        "**Noter chaque jour ce qui entre et ce qui sort.** Un cahier ou une note sur le téléphone fait l'affaire."
+       ]
+      },
+      {
+       "p": "À la fin du mois : **ventes − dépenses = résultat**. Si le résultat est positif, l'activité gagne de l'argent."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Awa prenait l'argent des ventes pour les dépenses de la maison, et achetait le mil avec son argent personnel. Elle commence un cahier de caisse et range l'argent de l'activité dans une boîte à part. Au bout d'un mois, elle découvre que les livraisons lui coûtent beaucoup plus cher qu'elle ne le pensait."
+      }
+     ],
+     "exercice": "Mon mois en chiffres",
+     "exerciceNote": "estimez si vous n'avez pas de notes précises",
+     "champs": [
+      {
+       "id": "s1_1",
+       "type": "texte",
+       "label": "Mes ventes du mois dernier (FCFA)"
+      },
+      {
+       "id": "s1_2",
+       "type": "texte",
+       "label": "Mes achats de matières premières ou de marchandises (FCFA)"
+      },
+      {
+       "id": "s1_3",
+       "type": "texte",
+       "label": "Mes autres dépenses : transport, emballage, loyer, téléphone… (FCFA)"
+      },
+      {
+       "type": "calcul",
+       "label": "Calcul automatique : ventes − dépenses = résultat du mois"
+      },
+      {
+       "id": "s1_4",
+       "type": "texte",
+       "label": "Ce qui me surprend dans ce résultat"
+      }
+     ],
+     "action": "À partir de demain, notez chaque vente et chaque dépense pendant 30 jours, et gardez l'argent de l'activité à part."
+    },
+    {
+     "n": 2,
+     "titre": "Connaître vos clients",
+     "essentiel": [
+      {
+       "p": "Tous vos clients ne se ressemblent pas. Certains achètent souvent, d'autres rarement. Certains vous recommandent à leur entourage, d'autres jamais. Savoir **qui sont vos meilleurs clients** vous aide à concentrer vos efforts au bon endroit."
+      },
+      {
+       "p": "Posez-vous ces questions : qui achète le plus souvent ? Pourquoi ? Comment m'a-t-il connu ? Qu'est-ce qui pourrait le faire acheter plus, ou recommander à d'autres ?"
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "En relisant son cahier, Awa voit que la moitié de ses ventes vient d'une dizaine de clientes, presque toutes des employées de bureau qui commandent chaque semaine par WhatsApp. Plusieurs lui ont été envoyées par une même collègue."
+      }
+     ],
+     "exercice": "Mes meilleurs clients",
+     "champs": [
+      {
+       "id": "s2_1",
+       "type": "texte",
+       "label": "Mes 3 types de clients principaux"
+      },
+      {
+       "id": "s2_2",
+       "type": "texte",
+       "label": "Ceux qui achètent le plus souvent, et pourquoi"
+      },
+      {
+       "id": "s2_3",
+       "type": "texte",
+       "label": "Comment mes clients me découvrent (bouche-à-oreille, réseaux sociaux, passage…)"
+      },
+      {
+       "id": "s2_4",
+       "type": "texte",
+       "label": "Un type de client que je ne touche pas encore"
+      }
+     ],
+     "action": "Appelez ou écrivez à trois bons clients pour leur demander ce qu'ils apprécient le plus chez vous, et ce que vous pourriez améliorer."
+    },
+    {
+     "n": 3,
+     "titre": "Améliorer la relation avec vos clients",
+     "essentiel": [
+      {
+       "p": "Garder un client coûte moins d'effort que d'en trouver un nouveau. Un client satisfait revient, et en parle autour de lui."
+      },
+      {
+       "p": "Quelques gestes qui comptent :"
+      },
+      {
+       "ul": [
+        "**tenir ses promesses** : délais, qualité, prix annoncé ;",
+        "**répondre vite et poliment**, même en cas de réclamation ;",
+        "**remercier et rester en contact** : un message après l'achat, une nouveauté annoncée ;",
+        "**écouter les remarques** et montrer qu'on en tient compte."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Une cliente se plaint d'un sachet mal fermé. Awa le remplace le jour même et s'excuse. Elle crée ensuite une liste de diffusion WhatsApp pour annoncer chaque semaine les jours de livraison. Les commandes deviennent plus régulières."
+      }
+     ],
+     "exercice": "Mon service client",
+     "champs": [
+      {
+       "id": "s3_1",
+       "type": "texte",
+       "label": "Ce que mes clients apprécient le plus chez moi"
+      },
+      {
+       "id": "s3_2",
+       "type": "texte",
+       "label": "La plainte ou le problème qui revient le plus souvent"
+      },
+      {
+       "id": "s3_3",
+       "type": "texte",
+       "label": "Ce que je vais changer pour y répondre"
+      },
+      {
+       "id": "s3_4",
+       "type": "texte",
+       "label": "Un geste simple pour rester en contact avec mes clients"
+      }
+     ],
+     "action": "Mettez en place ce geste simple dès cette semaine (message de remerciement, liste de diffusion, carte de fidélité…)."
+    },
+    {
+     "n": 4,
+     "titre": "Organiser votre activité",
+     "essentiel": [
+      {
+       "p": "Quand l'activité grandit, on manque de temps. S'organiser, c'est **savoir ce qu'on fait, quand, et ce qu'on peut confier à d'autres**."
+      },
+      {
+       "p": "Trois outils simples :"
+      },
+      {
+       "ul": [
+        "**un planning de la semaine** : production, livraisons, achats, comptes ;",
+        "**une liste des tâches répétitives** : celles qu'on pourrait regrouper ou confier ;",
+        "**un petit stock suivi** : savoir ce qu'il reste pour ne jamais manquer, ni trop acheter."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Awa préparait un peu chaque jour et livrait à la demande, à toute heure. Elle regroupe maintenant la production le lundi et le jeudi, et les livraisons le mardi et le vendredi. Une jeune cousine l'aide pour l'emballage, payée à la tâche. Awa gagne deux journées par semaine."
+      }
+     ],
+     "exercice": "Ma semaine type",
+     "champs": [
+      {
+       "id": "s4_1",
+       "type": "texte",
+       "label": "Les tâches qui me prennent le plus de temps"
+      },
+      {
+       "id": "s4_2",
+       "type": "texte",
+       "label": "Ce que je pourrais regrouper sur certains jours"
+      },
+      {
+       "id": "s4_3",
+       "type": "texte",
+       "label": "Ce que je pourrais confier à quelqu'un d'autre"
+      },
+      {
+       "id": "s4_4",
+       "type": "texte",
+       "label": "Ma nouvelle organisation de la semaine"
+      }
+     ],
+     "action": "Testez votre nouvelle organisation pendant deux semaines, puis notez ce qui a marché."
+    },
+    {
+     "n": 5,
+     "titre": "Fixer vos prix",
+     "essentiel": [
+      {
+       "p": "Un bon prix tient compte de trois choses :"
+      },
+      {
+       "ol": [
+        "**vos coûts** : le prix doit couvrir tout ce que coûte chaque vente, y compris le transport, l'emballage et votre temps ;",
+        "**le marché** : ce que pratiquent les autres, et ce que vos clients acceptent de payer ;",
+        "**la valeur perçue** : ce que votre produit ou service apporte de plus (qualité, propreté, livraison, confiance)."
+       ]
+      },
+      {
+       "p": "Vendre moins cher que tout le monde n'est pas toujours une bonne stratégie : vous pouvez travailler beaucoup sans rien gagner."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa (chiffres d'illustration)",
+     "exemple": [
+      {
+       "p": "En recalculant, Awa voit que chaque sachet lui coûte maintenant 700 FCFA avec la livraison, et non 600 FCFA. Vendu 1 000 FCFA, il ne lui reste que 300 FCFA. Elle passe à 1 100 FCFA avec la livraison comprise, et crée un sachet familial plus grand, plus avantageux pour ses clientes régulières. Aucune cliente n'est partie."
+      }
+     ],
+     "exercice": "Mon prix juste",
+     "champs": [
+      {
+       "id": "s5_1",
+       "type": "texte",
+       "label": "Mon produit ou service principal"
+      },
+      {
+       "id": "s5_2",
+       "type": "texte",
+       "label": "Son coût complet pour une vente, transport et emballage compris (FCFA)"
+      },
+      {
+       "id": "s5_3",
+       "type": "texte",
+       "label": "Mon prix actuel (FCFA)"
+      },
+      {
+       "type": "calcul",
+       "label": "Calcul automatique : prix − coût complet = marge par vente"
+      },
+      {
+       "id": "s5_4",
+       "type": "texte",
+       "label": "Les prix pratiqués par les autres"
+      },
+      {
+       "id": "s5_5",
+       "type": "texte",
+       "label": "Ce qui justifie mon prix aux yeux de mes clients"
+      },
+      {
+       "id": "s5_6",
+       "type": "texte",
+       "label": "Mon nouveau prix, si je décide de le changer"
+      }
+     ],
+     "action": "Recalculez le coût complet de vos trois produits ou services principaux, et vérifiez que chacun vous laisse une marge."
+    },
+    {
+     "n": 6,
+     "titre": "Développer votre visibilité",
+     "essentiel": [
+      {
+       "p": "Pour vendre plus, il faut que **les bonnes personnes vous connaissent**. Pas besoin d'un gros budget : la régularité compte plus que les moyens."
+      },
+      {
+       "p": "Quelques leviers accessibles :"
+      },
+      {
+       "ul": [
+        "**le bouche-à-oreille** : demandez à vos clients satisfaits de vous recommander ;",
+        "**WhatsApp** : statut, liste de diffusion, catalogue WhatsApp Business ;",
+        "**les réseaux sociaux** : quelques photos soignées de vos produits, publiées régulièrement ;",
+        "**votre présence physique** : enseigne, emballage avec votre nom et votre numéro, présence sur les marchés et les foires."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Awa fait imprimer des étiquettes avec son nom et son numéro sur chaque sachet. Elle publie chaque semaine une photo de ses produits sur son statut WhatsApp et sur Facebook. Elle offre un sachet à toute cliente qui lui amène une nouvelle cliente."
+      }
+     ],
+     "exercice": "Mon plan de visibilité",
+     "champs": [
+      {
+       "id": "s6_1",
+       "type": "texte",
+       "label": "Comment les gens me découvrent aujourd'hui"
+      },
+      {
+       "id": "s6_2",
+       "type": "texte",
+       "label": "Les 2 canaux sur lesquels je vais me concentrer"
+      },
+      {
+       "id": "s6_3",
+       "type": "texte",
+       "label": "Ce que je vais publier ou faire, et à quelle fréquence"
+      },
+      {
+       "id": "s6_4",
+       "type": "texte",
+       "label": "Une idée pour encourager le bouche-à-oreille"
+      }
+     ],
+     "action": "Publiez une première photo de votre produit ou service cette semaine, avec votre numéro et une phrase qui donne envie."
+    },
+    {
+     "n": 7,
+     "titre": "Identifier vos pistes de croissance",
+     "essentiel": [
+      {
+       "p": "Grandir ne veut pas forcément dire tout changer. Il existe plusieurs façons de se développer :"
+      },
+      {
+       "ol": [
+        "**vendre plus aux clients actuels** : nouveaux formats, commandes régulières ;",
+        "**trouver de nouveaux clients** : un nouveau quartier, une nouvelle ville, les entreprises ou les boutiques ;",
+        "**proposer un nouveau produit ou service**, proche de ce que vous savez déjà faire ;",
+        "**s'associer** avec d'autres : regrouper des achats, partager un local, vendre ensemble."
+       ]
+      },
+      {
+       "p": "Choisissez **une seule piste** à tester d'abord, puis fixez-vous trois actions précises avec une date."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Awa",
+     "exemple": [
+      {
+       "p": "Awa choisit la piste n° 2 : proposer ses sachets à deux boutiques de quartier et à une cantine d'entreprise. Ses trois actions : préparer un petit tarif pour les revendeurs, visiter les boutiques avec des échantillons, puis faire le point sur les commandes après un mois."
+      },
+      {
+       "p": "*Si un financement devient nécessaire, renseignez-vous auprès des structures officielles et des institutions financières : les conditions dépendent de votre situation.*"
+      }
+     ],
+     "exercice": "Ma piste de croissance",
+     "champs": [
+      {
+       "id": "s7_1",
+       "type": "texte",
+       "label": "La piste que je choisis de tester en premier"
+      },
+      {
+       "id": "s7_2",
+       "type": "texte",
+       "label": "Pourquoi celle-ci"
+      },
+      {
+       "id": "s7_3",
+       "type": "texte",
+       "label": "Action 1 — d'ici le (date)"
+      },
+      {
+       "id": "s7_4",
+       "type": "texte",
+       "label": "Action 2 — d'ici le (date)"
+      },
+      {
+       "id": "s7_5",
+       "type": "texte",
+       "label": "Action 3 — d'ici le (date)"
+      },
+      {
+       "id": "s7_6",
+       "type": "texte",
+       "label": "De quoi ou de qui ai-je besoin pour y arriver ?"
+      }
+     ],
+     "action": "Lancez l'action n° 1 dans les 7 jours."
+    }
+   ],
+   "seoTitre": "Développer mon activité · Parcours gratuit en 7 étapes | Entrepreneuriat Sénégal",
+   "seoDescription": "Vous avez déjà une activité ? Suivez vos ventes et dépenses, fidélisez vos clients, fixez vos prix et trouvez vos pistes de croissance, avec un parcours gratuit en 7 étapes.",
+   "titre": "Je veux développer mon activité",
+   "sousTitre": "Mieux piloter votre activité pour la faire grandir, en 7 étapes.",
+   "texte": [
+    "Votre activité a démarré, même petite ou informelle ? Ce parcours vous aide à prendre du recul : savoir ce que vous gagnez réellement, mieux connaître vos clients, gagner du temps et choisir comment grandir.",
+    "À chaque étape : une explication, l'exemple d'Awa, un exercice et une action concrète. À la fin, vous repartez avec votre fiche personnelle et votre plan d'action."
+   ],
+   "reperes": [
+    "7 étapes",
+    "Environ 15 à 20 minutes par étape. Gardez sous la main vos notes de ventes et de dépenses, même incomplètes.",
+    "Gratuit, sans inscription. Vos réponses restent sur votre appareil."
+   ],
+   "persoTitre": "Où en est Awa ?",
+   "perso": "Huit mois après ses débuts, Awa vend de l'arraw et du thiakry en sachets à une trentaine de clientes régulières à Kaolack. Elle travaille beaucoup, mais à la fin du mois, elle ne sait jamais vraiment combien elle a gagné. Awa est un personnage fictif.",
+   "persoNote": "Vous n'avez pas suivi le parcours « Je veux entreprendre » ? Ce n'est pas grave : ce parcours se suit seul.",
+   "commencer": "Commencer l'étape 1",
+   "fin": {
+    "titre": "Bravo, vous avez terminé le parcours !",
+    "texte": "Voici votre fiche personnelle. Elle reprend vos réponses : relisez-la, complétez-la si besoin, puis imprimez-la ou enregistrez-la en PDF. Refaites le point dans trois mois pour mesurer vos progrès.",
+    "pied": "Parcours Je veux développer mon activité — entrepreneuriat.sn",
+    "boutons": [
+     "Imprimer ou enregistrer en PDF",
+     "Modifier mes réponses"
+    ],
+    "suite": [
+     {
+      "texte": "Pour approfondir : **Fiches pratiques**",
+      "liens": [
+       {
+        "label": "Séparer l'argent de l'activité et l'argent de la maison",
+        "ref": "fiche:separer-argent"
+       },
+       {
+        "label": "Fixer son prix : coûts, marché, valeur",
+        "ref": "fiche:proposition-de-valeur"
+       }
+      ]
+     },
+     {
+      "texte": "Envie de renforcer votre aisance à l'oral ou votre organisation ? Suivez le parcours **Je veux développer mes compétences**.",
+      "ref": "route:competences"
+     },
+     {
+      "texte": "Une question ? **Écrivez-nous sur WhatsApp.**",
+      "ref": "whatsapp"
+     }
+    ],
+    "rappel": "Ce parcours vous aide à mieux piloter votre activité. Il ne garantit pas de résultats, ne remplace pas un conseil comptable, fiscal ou juridique, ni les démarches auprès des structures officielles."
+   }
+  },
+  "orientation": {
+   "id": "orientation",
+   "etapes": [
+    {
+     "n": 1,
+     "titre": "Identifier ce qui vous intéresse",
+     "essentiel": [
+      {
+       "p": "Vos **intérêts**, ce sont les activités, les sujets et les situations qui vous attirent, vous donnent de l'énergie, et vers lesquels vous revenez naturellement."
+      },
+      {
+       "p": "Ils donnent souvent de bonnes indications sur les métiers où vous vous sentirez bien. On peut les regrouper en grandes familles :"
+      },
+      {
+       "ul": [
+        "**faire de ses mains** : fabriquer, réparer, cultiver, cuisiner ;",
+        "**comprendre et analyser** : chercher, calculer, résoudre des problèmes ;",
+        "**créer** : dessiner, écrire, imaginer, décorer ;",
+        "**aider les autres** : soigner, enseigner, conseiller, accompagner ;",
+        "**convaincre et diriger** : vendre, organiser, négocier, lancer des projets ;",
+        "**organiser et gérer** : classer, planifier, tenir des comptes."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple d'Ibrahima",
+     "exemple": [
+      {
+       "p": "Ibrahima se rend compte qu'il oublie l'heure quand il démonte un moteur avec son oncle. Il aime aussi expliquer aux clients ce qui ne va pas sur leur voiture. En revanche, rester assis longtemps devant des livres l'ennuie."
+      }
+     ],
+     "exercice": "Ce qui m'attire",
+     "champs": [
+      {
+       "id": "s1_1",
+       "type": "cases",
+       "label": "Les familles qui me ressemblent le plus (2 ou 3)",
+       "options": [
+        "faire de ses mains",
+        "comprendre et analyser",
+        "créer",
+        "aider les autres",
+        "convaincre et diriger",
+        "organiser et gérer"
+       ],
+       "max": 3
+      },
+      {
+       "id": "s1_2",
+       "type": "texte",
+       "label": "Les activités pendant lesquelles je ne vois pas le temps passer"
+      },
+      {
+       "id": "s1_3",
+       "type": "texte",
+       "label": "Les sujets dont j'aime parler ou sur lesquels je me renseigne"
+      },
+      {
+       "id": "s1_4",
+       "type": "texte",
+       "label": "Ce que je n'aime pas du tout faire"
+      }
+     ],
+     "action": "Pendant une semaine, notez chaque soir le moment de la journée où vous vous êtes senti le plus motivé, et pourquoi."
+    },
+    {
+     "n": 2,
+     "titre": "Découvrir vos aptitudes",
+     "essentiel": [
+      {
+       "p": "Vos **aptitudes**, ce sont vos facilités naturelles : ce que vous apprenez vite, ce que vous faites bien sans trop d'effort. Elles ne viennent pas seulement de l'école : on les montre aussi à la maison, dans le quartier, dans les associations ou dans le sport."
+      },
+      {
+       "p": "Pour les repérer, observez **ce que les autres vous demandent souvent** et **les compliments que vous recevez**."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Ibrahima",
+     "exemple": [
+      {
+       "p": "Ses amis l'appellent dès qu'un téléphone ou une moto tombe en panne. Son oncle dit qu'il repère vite les problèmes. Au lycée, il était bon en sciences physiques, et c'est lui qui organisait les sorties de sa classe."
+      }
+     ],
+     "exercice": "Mes facilités",
+     "champs": [
+      {
+       "id": "s2_1",
+       "type": "texte",
+       "label": "Ce que les autres me demandent souvent de faire"
+      },
+      {
+       "id": "s2_2",
+       "type": "texte",
+       "label": "Les compliments que j'entends le plus souvent"
+      },
+      {
+       "id": "s2_3",
+       "type": "texte",
+       "label": "Ce que j'apprends plus vite que les autres"
+      },
+      {
+       "id": "s2_4",
+       "type": "texte",
+       "label": "Une personne de confiance à qui je vais demander : « Selon toi, dans quoi suis-je doué ? »"
+      }
+     ],
+     "action": "Posez la question à deux personnes qui vous connaissent bien, et comparez leurs réponses avec les vôtres."
+    },
+    {
+     "n": 3,
+     "titre": "Reconnaître vos compétences",
+     "essentiel": [
+      {
+       "p": "Une **compétence**, c'est ce que vous savez faire grâce à l'expérience ou à l'apprentissage. Vous en avez sûrement plus que vous ne le pensez : un petit boulot, une activité familiale, une responsabilité dans une association, un service rendu aux voisins, tout cela développe des compétences."
+      },
+      {
+       "p": "On distingue :"
+      },
+      {
+       "ul": [
+        "les **compétences techniques** : réparer, cuisiner, coudre, utiliser un logiciel, parler une langue ;",
+        "les **compétences comportementales** (ou soft skills) : être ponctuel, travailler en équipe, communiquer, gérer un imprévu, prendre des initiatives."
+       ]
+      },
+      {
+       "p": "Les employeurs et les clients regardent souvent autant les secondes que les premières."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Ibrahima",
+     "exemple": [
+      {
+       "p": "En listant ce qu'il fait au garage, Ibrahima découvre qu'il sait diagnostiquer une panne simple, changer des pièces, accueillir un client, lui expliquer un devis et tenir le carnet des réparations. Il réalise qu'il a déjà une vraie expérience."
+      }
+     ],
+     "exercice": "Mon bilan de compétences",
+     "champs": [
+      {
+       "id": "s3_1",
+       "type": "texte",
+       "label": "Mes expériences : études, stages, petits boulots, aide familiale, associations, bénévolat"
+      },
+      {
+       "id": "s3_2",
+       "type": "texte",
+       "label": "Les compétences techniques que j'en tire"
+      },
+      {
+       "id": "s3_3",
+       "type": "texte",
+       "label": "Les compétences comportementales que j'en tire"
+      },
+      {
+       "id": "s3_4",
+       "type": "texte",
+       "label": "Une situation dont je suis fier ou fière, et ce qu'elle montre de moi"
+      }
+     ],
+     "action": "Écrivez une phrase qui vous présente à partir de vos trois meilleures compétences. Vous pourrez la réutiliser dans un CV ou un entretien."
+    },
+    {
+     "n": 4,
+     "titre": "Clarifier ce qui compte pour vous",
+     "essentiel": [
+      {
+       "p": "Un bon choix d'orientation tient compte de **vos envies**, mais aussi de **votre situation** : ce qui est important pour vous, et les contraintes avec lesquelles vous devez composer."
+      },
+      {
+       "p": "Posez-vous ces questions :"
+      },
+      {
+       "ul": [
+        "Qu'est-ce qui compte le plus pour moi : la stabilité, l'indépendance, le contact humain, le revenu, être utile, rester près de ma famille ?",
+        "Quelles sont mes contraintes : temps, argent pour me former, lieu, responsabilités familiales ?",
+        "Combien de temps suis-je prêt ou prête à me former avant de gagner ma vie ?"
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple d'Ibrahima",
+     "exemple": [
+      {
+       "p": "Ibrahima veut gagner un revenu assez vite pour aider sa mère. Il souhaite rester en Casamance. Il aimerait un jour avoir son propre atelier. Il ne peut pas financer de longues études."
+      }
+     ],
+     "exercice": "Mes priorités et mes contraintes",
+     "champs": [
+      {
+       "id": "s4_1",
+       "type": "cases",
+       "label": "Ce qui compte le plus pour moi (3 choix maximum)",
+       "options": [
+        "stabilité",
+        "indépendance",
+        "revenu",
+        "contact humain",
+        "être utile",
+        "créativité",
+        "apprendre sans cesse",
+        "rester près de ma famille"
+       ],
+       "max": 3
+      },
+      {
+       "id": "s4_2",
+       "type": "texte",
+       "label": "Mes contraintes actuelles"
+      },
+      {
+       "id": "s4_3",
+       "type": "texte",
+       "label": "Le temps que je peux consacrer à une formation"
+      },
+      {
+       "id": "s4_4",
+       "type": "texte",
+       "label": "Où je veux vivre et travailler"
+      }
+     ],
+     "action": "Parlez de vos priorités avec votre famille, pour qu'ils comprennent ce qui compte pour vous."
+    },
+    {
+     "n": 5,
+     "titre": "Explorer des possibilités professionnelles",
+     "essentiel": [
+      {
+       "p": "Maintenant que vous connaissez mieux vos intérêts, vos aptitudes, vos compétences et vos priorités, cherchez des **pistes qui réunissent le tout**."
+      },
+      {
+       "p": "Pensez large. Il existe plusieurs chemins possibles :"
+      },
+      {
+       "ul": [
+        "**un emploi salarié** dans une entreprise, une administration ou une organisation ;",
+        "**une formation professionnelle ou un apprentissage**, pour apprendre un métier en pratiquant ;",
+        "**des études** plus longues ;",
+        "**créer votre propre activité**, seul ou avec d'autres."
+       ]
+      },
+      {
+       "p": "Pour chaque piste, le meilleur moyen d'en savoir plus est de **rencontrer quelqu'un qui exerce ce métier**. Demandez-lui comment se passe une journée, ce qu'il aime, ce qui est difficile, et comment il a appris."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Ibrahima",
+     "exemple": [
+      {
+       "p": "Trois pistes ressortent pour Ibrahima : mécanicien automobile qualifié, technicien en maintenance de motos et de tricycles, ou vendeur-conseiller en pièces détachées. Il rencontre un mécanicien formé dans un centre de formation professionnelle et le responsable d'une boutique de pièces. Le métier de mécanicien qualifié, avec à terme son propre atelier, lui semble le plus proche de ce qu'il veut."
+      }
+     ],
+     "exercice": "Mes pistes",
+     "champs": [
+      {
+       "id": "s5_1",
+       "type": "texte",
+       "label": "Piste 1 — pourquoi elle me correspond, et ce que je dois encore vérifier"
+      },
+      {
+       "id": "s5_2",
+       "type": "texte",
+       "label": "Piste 2 — pourquoi elle me correspond, et ce que je dois encore vérifier"
+      },
+      {
+       "id": "s5_3",
+       "type": "texte",
+       "label": "Piste 3 (facultatif)"
+      },
+      {
+       "id": "s5_4",
+       "type": "texte",
+       "label": "Une personne qui exerce l'un de ces métiers et que je pourrais rencontrer"
+      },
+      {
+       "id": "s5_5",
+       "type": "texte",
+       "label": "Les questions que je vais lui poser"
+      }
+     ],
+     "action": "Contactez une personne qui exerce l'un de ces métiers, et demandez-lui 20 minutes pour en parler."
+    },
+    {
+     "n": 6,
+     "titre": "Construire votre premier plan d'action",
+     "essentiel": [
+      {
+       "p": "Vous n'avez pas besoin de tout décider aujourd'hui. Choisissez **une direction à tester en priorité**, puis fixez-vous **trois actions précises**, avec une date, pour les prochaines semaines."
+      },
+      {
+       "p": "Pour les formations, les concours, les bourses ou les inscriptions, **renseignez-vous directement auprès des établissements et des structures officielles** : les conditions et les dates changent d'une année à l'autre."
+      }
+     ],
+     "exempleTitre": "L'exemple d'Ibrahima",
+     "exemple": [
+      {
+       "p": "La direction d'Ibrahima : devenir mécanicien automobile qualifié. Ses trois actions :"
+      },
+      {
+       "ol": [
+        "se renseigner auprès de deux centres de formation professionnelle de Ziguinchor sur les conditions d'entrée, d'ici deux semaines ;",
+        "demander à son oncle de lui confier plus de diagnostics au garage, dès ce week-end ;",
+        "préparer une courte présentation de lui-même pour les entretiens d'entrée, d'ici un mois."
+       ]
+      }
+     ],
+     "exercice": "Mon plan",
+     "champs": [
+      {
+       "id": "s6_1",
+       "type": "texte",
+       "label": "La direction que je choisis de tester en priorité"
+      },
+      {
+       "id": "s6_2",
+       "type": "texte",
+       "label": "Pourquoi ce choix"
+      },
+      {
+       "id": "s6_3",
+       "type": "texte",
+       "label": "Action 1 — d'ici le (date)"
+      },
+      {
+       "id": "s6_4",
+       "type": "texte",
+       "label": "Action 2 — d'ici le (date)"
+      },
+      {
+       "id": "s6_5",
+       "type": "texte",
+       "label": "Action 3 — d'ici le (date)"
+      },
+      {
+       "id": "s6_6",
+       "type": "texte",
+       "label": "De quoi ou de qui ai-je besoin pour y arriver ?"
+      }
+     ],
+     "action": "Faites l'action n° 1 dans les 7 jours."
+    }
+   ],
+   "seoTitre": "Je cherche mon orientation · Parcours gratuit en 6 étapes | Entrepreneuriat Sénégal",
+   "seoDescription": "Vous ne savez pas quel métier ou quelle voie choisir ? Identifiez vos intérêts, vos aptitudes et vos compétences, explorez des pistes et construisez votre premier plan d'action.",
+   "titre": "Je cherche mon orientation",
+   "sousTitre": "Mieux vous connaître pour choisir votre voie, en 6 étapes.",
+   "texte": [
+    "Vous terminez vos études, vous cherchez un emploi, ou vous avez envie de changer de direction, mais vous ne savez pas vers quoi aller ? C'est normal, et c'est le bon moment pour faire le point.",
+    "Ce parcours ne vous dira pas quel métier faire. Il vous aide à **mieux vous connaître**, à **explorer des pistes réalistes** et à **choisir une première direction à tester**."
+   ],
+   "reperes": [
+    "6 étapes",
+    "Environ 15 à 20 minutes par étape. Prenez le temps de réfléchir : il n'y a pas de bonne ou de mauvaise réponse.",
+    "Gratuit, sans inscription. Vos réponses restent sur votre appareil."
+   ],
+   "persoTitre": "Présentation d'Ibrahima",
+   "perso": "Ibrahima a 20 ans et vit à Ziguinchor. Il a obtenu son baccalauréat l'an dernier. Il aide son oncle au garage le week-end, mais ne sait pas s'il doit reprendre des études, apprendre un métier ou chercher un emploi. Sa famille lui conseille des voies différentes, et il se sent perdu. Ibrahima est un personnage fictif.",
+   "persoNote": null,
+   "commencer": "Commencer l'étape 1",
+   "fin": {
+    "titre": "Bravo, vous avez terminé le parcours !",
+    "texte": "Voici votre fiche personnelle. Elle reprend vos réponses : relisez-la, complétez-la si besoin, puis imprimez-la ou enregistrez-la en PDF. Vous pourrez la montrer à votre famille, à un conseiller ou lors d'un entretien.",
+    "pied": "Parcours Je cherche mon orientation — entrepreneuriat.sn",
+    "boutons": [
+     "Imprimer ou enregistrer en PDF",
+     "Modifier mes réponses"
+    ],
+    "suite": [
+     {
+      "texte": "Pour vous préparer : **Fiche pratique**",
+      "liens": [
+       {
+        "label": "Réussir sa présentation en entretien",
+        "ref": "fiche:entretien"
+       }
+      ]
+     },
+     {
+      "texte": "Vous avez envie de créer votre activité ? Suivez le parcours **Je veux entreprendre**.",
+      "ref": "route:entreprendre"
+     },
+     {
+      "texte": "Envie de gagner en confiance et en aisance ? Suivez le parcours **Je veux développer mes compétences**.",
+      "ref": "route:competences"
+     },
+     {
+      "texte": "Une question ? **Écrivez-nous sur WhatsApp.**",
+      "ref": "whatsapp"
+     }
+    ],
+    "rappel": "Ce parcours vous aide à réfléchir à votre orientation. Il ne remplace pas un conseiller d'orientation, et ne donne pas d'informations officielles sur les formations, les concours ou les inscriptions : renseignez-vous auprès des établissements concernés."
+   }
+  },
+  "competences": {
+   "id": "competences",
+   "etapes": [
+    {
+     "n": 1,
+     "titre": "Confiance en soi",
+     "essentiel": [
+      {
+       "p": "La confiance en soi ne veut pas dire ne jamais douter. C'est **oser agir malgré ses doutes**. Elle se construit pas à pas, en accumulant de petites réussites."
+      },
+      {
+       "p": "Trois leviers :"
+      },
+      {
+       "ul": [
+        "**reconnaître ses réussites**, même petites, au lieu de ne voir que ses erreurs ;",
+        "**remplacer les pensées qui bloquent** (« je n'y arriverai jamais ») par des pensées réalistes (« je ne sais pas encore, mais je peux apprendre ») ;",
+        "**sortir un peu de sa zone de confort**, régulièrement, par petits pas."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple de Khady",
+     "exemple": [
+      {
+       "p": "Khady pense qu'elle n'a « rien d'intéressant à dire ». Pendant une semaine, elle note chaque soir une chose qu'elle a bien faite. Elle se rend compte que sa responsable lui confie de plus en plus de dossiers, signe qu'on lui fait confiance."
+      }
+     ],
+     "exercice": "Mes réussites et mes pensées",
+     "champs": [
+      {
+       "id": "s1_1",
+       "type": "texte",
+       "label": "Trois choses que j'ai réussies cette année, même petites"
+      },
+      {
+       "id": "s1_2",
+       "type": "texte",
+       "label": "Une pensée qui me bloque souvent"
+      },
+      {
+       "id": "s1_3",
+       "type": "texte",
+       "label": "La même pensée, reformulée de façon plus juste et encourageante"
+      },
+      {
+       "id": "s1_4",
+       "type": "texte",
+       "label": "Un petit défi que je vais relever cette semaine"
+      }
+     ],
+     "action": "Chaque soir pendant 7 jours, notez une chose que vous avez bien faite dans la journée."
+    },
+    {
+     "n": 2,
+     "titre": "Communication et prise de parole",
+     "essentiel": [
+      {
+       "p": "Bien communiquer, c'est **se faire comprendre** et **comprendre l'autre**. Cela commence par l'écoute."
+      },
+      {
+       "p": "Pour mieux communiquer :"
+      },
+      {
+       "ul": [
+        "**écoutez vraiment** : laissez l'autre finir, reformulez ce que vous avez compris ;",
+        "**soyez clair et bref** : une idée principale, un exemple, une demande précise ;",
+        "**parlez de vous** plutôt que d'accuser : « je me sens dépassée quand… » plutôt que « tu ne fais jamais… »."
+       ]
+      },
+      {
+       "p": "Pour prendre la parole devant un groupe :"
+      },
+      {
+       "ul": [
+        "**préparez trois idées**, pas plus, et une phrase pour commencer et une pour finir ;",
+        "**entraînez-vous à voix haute**, devant un miroir ou une personne de confiance ;",
+        "le trac est normal : **respirez lentement** avant de commencer, et regardez quelques visages bienveillants."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple de Khady",
+     "exemple": [
+      {
+       "p": "Avant chaque réunion d'équipe, Khady prépare une idée qu'elle veut partager, en deux phrases. La première fois, sa voix tremble, mais sa proposition est retenue. Un mois plus tard, elle présente seule le bilan d'une activité devant les présidentes des groupements."
+      }
+     ],
+     "exercice": "Mes 2 premières minutes",
+     "champs": [
+      {
+       "type": "consigne",
+       "t": "Choisissez un sujet que vous connaissez bien (votre activité, votre parcours, un projet)."
+      },
+      {
+       "id": "s2_1",
+       "type": "texte",
+       "label": "Ma phrase d'ouverture"
+      },
+      {
+       "id": "s2_2",
+       "type": "texte",
+       "label": "Mes 3 idées principales"
+      },
+      {
+       "id": "s2_3",
+       "type": "texte",
+       "label": "Ma phrase de conclusion"
+      },
+      {
+       "id": "s2_4",
+       "type": "texte",
+       "label": "Une situation où je vais m'exprimer cette semaine (réunion, famille, association)"
+      }
+     ],
+     "action": "Présentez ces deux minutes à voix haute devant une personne de confiance, et demandez-lui un point fort et un conseil."
+    },
+    {
+     "n": 3,
+     "titre": "Travail d'équipe",
+     "essentiel": [
+      {
+       "p": "Une équipe réussit quand chacun **connaît son rôle**, **partage l'information** et **respecte les autres**, même en cas de désaccord."
+      },
+      {
+       "p": "Quelques bonnes pratiques :"
+      },
+      {
+       "ul": [
+        "clarifier dès le départ **qui fait quoi, et pour quand** ;",
+        "**proposer son aide** et oser demander celle des autres ;",
+        "en cas de conflit, parler **du problème, pas de la personne**, en privé et au bon moment ;",
+        "reconnaître le travail des autres."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple de Khady",
+     "exemple": [
+      {
+       "p": "Deux collègues de Khady ne se parlent plus depuis un malentendu sur une tâche. Khady propose qu'à chaque réunion, on note au tableau qui fait quoi et pour quand. Les malentendus diminuent, et l'ambiance s'améliore."
+      }
+     ],
+     "exercice": "Moi dans une équipe",
+     "champs": [
+      {
+       "id": "s3_1",
+       "type": "texte",
+       "label": "Une équipe dont je fais partie (travail, famille, association, sport)"
+      },
+      {
+       "id": "s3_2",
+       "type": "texte",
+       "label": "Mon rôle habituel dans ce groupe"
+      },
+      {
+       "id": "s3_3",
+       "type": "texte",
+       "label": "Ce qui fonctionne bien, et ce qui crée des tensions"
+      },
+      {
+       "id": "s3_4",
+       "type": "texte",
+       "label": "Une chose que je peux faire pour améliorer le travail en commun"
+      }
+     ],
+     "action": "Lors de votre prochaine activité de groupe, proposez de récapituler à la fin qui fait quoi et pour quand."
+    },
+    {
+     "n": 4,
+     "titre": "Leadership",
+     "essentiel": [
+      {
+       "p": "Le leadership n'est pas réservé aux chefs. C'est la capacité à **prendre une initiative**, à **donner une direction** et à **entraîner les autres**, quelle que soit sa place."
+      },
+      {
+       "p": "Un bon leader :"
+      },
+      {
+       "ul": [
+        "**montre l'exemple** ;",
+        "**écoute** avant de décider ;",
+        "**fait confiance** et confie des responsabilités ;",
+        "**assume** ses décisions et ses erreurs."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple de Khady",
+     "exemple": [
+      {
+       "p": "Khady remarque que les femmes des groupements ont du mal à suivre les dates des formations. Sans attendre qu'on le lui demande, elle propose de créer un groupe WhatsApp de rappels et s'en occupe. Sa responsable la charge ensuite de coordonner l'information auprès des groupements."
+      }
+     ],
+     "exercice": "Mon initiative",
+     "champs": [
+      {
+       "id": "s4_1",
+       "type": "texte",
+       "label": "Un problème ou un besoin que je remarque autour de moi"
+      },
+      {
+       "id": "s4_2",
+       "type": "texte",
+       "label": "Une initiative que je pourrais prendre"
+      },
+      {
+       "id": "s4_3",
+       "type": "texte",
+       "label": "Les personnes que je devrais convaincre ou associer"
+      },
+      {
+       "id": "s4_4",
+       "type": "texte",
+       "label": "Ma première étape"
+      }
+     ],
+     "action": "Présentez votre idée d'initiative à une personne concernée cette semaine."
+    },
+    {
+     "n": 5,
+     "titre": "Gestion du temps et des priorités",
+     "essentiel": [
+      {
+       "p": "On ne peut pas tout faire. Bien gérer son temps, c'est **choisir ce qui est important** et **le protéger**."
+      },
+      {
+       "p": "Méthodes simples :"
+      },
+      {
+       "ul": [
+        "chaque matin, choisissez **3 priorités du jour** ;",
+        "distinguez **l'urgent** (à faire vite) de **l'important** (ce qui fait avancer vos objectifs) : les deux ne se confondent pas ;",
+        "**regroupez les tâches semblables** (appels, messages, courses) ;",
+        "**apprenez à dire non**, ou « pas maintenant », poliment."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple de Khady",
+     "exemple": [
+      {
+       "p": "Khady acceptait toutes les demandes de ses collègues et terminait ses propres dossiers le soir. Elle commence à fixer trois priorités chaque matin, et répond : « Je peux m'en occuper jeudi, est-ce que ça te convient ? » Elle termine désormais ses journées à l'heure."
+      }
+     ],
+     "exercice": "Ma journée sous contrôle",
+     "champs": [
+      {
+       "id": "s5_1",
+       "type": "texte",
+       "label": "Ce qui me fait perdre le plus de temps"
+      },
+      {
+       "id": "s5_2",
+       "type": "texte",
+       "label": "Mes 3 priorités pour demain"
+      },
+      {
+       "id": "s5_3",
+       "type": "texte",
+       "label": "Une demande à laquelle je devrais apprendre à dire « non » ou « pas maintenant »"
+      },
+      {
+       "id": "s5_4",
+       "type": "texte",
+       "label": "Une phrase polie que je vais utiliser pour le faire"
+      }
+     ],
+     "action": "Pendant 5 jours, écrivez chaque matin vos 3 priorités et cochez-les le soir."
+    },
+    {
+     "n": 6,
+     "titre": "Résolution de problèmes",
+     "essentiel": [
+      {
+       "p": "Face à un problème, on a souvent envie d'agir tout de suite. Une méthode simple en 4 temps donne de meilleurs résultats :"
+      },
+      {
+       "ol": [
+        "**décrire le problème** précisément : que se passe-t-il, depuis quand, qui est concerné ?",
+        "**chercher les causes**, pas seulement les symptômes ;",
+        "**imaginer plusieurs solutions**, puis choisir la plus réaliste ;",
+        "**tester**, puis vérifier si le problème est réglé."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple de Khady",
+     "exemple": [
+      {
+       "p": "Peu de femmes viennent aux formations du samedi. Plutôt que de multiplier les rappels, Khady pose la question à quelques-unes : le samedi est jour de marché. L'association teste le mercredi après-midi, et la participation augmente."
+      }
+     ],
+     "exercice": "Mon problème en 4 temps",
+     "champs": [
+      {
+       "id": "s6_1",
+       "type": "texte",
+       "label": "Le problème, décrit précisément"
+      },
+      {
+       "id": "s6_2",
+       "type": "texte",
+       "label": "Ses causes possibles"
+      },
+      {
+       "id": "s6_3",
+       "type": "texte",
+       "label": "Trois solutions envisageables"
+      },
+      {
+       "id": "s6_4",
+       "type": "texte",
+       "label": "La solution que je vais tester, et comment je saurai si elle marche"
+      }
+     ],
+     "action": "Testez votre solution pendant deux semaines, puis faites le point."
+    },
+    {
+     "n": 7,
+     "titre": "Préparation à la vie professionnelle",
+     "essentiel": [
+      {
+       "p": "Dans le monde du travail, on attend des compétences, mais aussi **une posture** : la façon dont vous vous comportez, vous présentez et respectez vos engagements."
+      },
+      {
+       "p": "Les attitudes les plus appréciées :"
+      },
+      {
+       "ul": [
+        "**la ponctualité** et le respect des délais ;",
+        "**la fiabilité** : faire ce qu'on a dit, et prévenir en cas d'empêchement ;",
+        "**une présentation soignée**, adaptée au lieu ;",
+        "**une communication professionnelle** : saluer, rester courtois, écrire des messages clairs ;",
+        "**l'envie d'apprendre** : poser des questions, accepter les remarques."
+       ]
+      }
+     ],
+     "exempleTitre": "L'exemple de Khady",
+     "exemple": [
+      {
+       "p": "Lors de son entretien d'embauche, Khady était arrivée en avance et avait préparé des exemples concrets de ce qu'elle avait fait dans son association de quartier. Aujourd'hui, elle demande à sa responsable un point chaque mois pour savoir ce qu'elle peut améliorer."
+      }
+     ],
+     "exercice": "Ma posture professionnelle",
+     "champs": [
+      {
+       "id": "s7_1",
+       "type": "texte",
+       "label": "Mes points forts dans le monde du travail"
+      },
+      {
+       "id": "s7_2",
+       "type": "texte",
+       "label": "Une attitude que je dois encore améliorer"
+      },
+      {
+       "id": "s7_3",
+       "type": "texte",
+       "label": "Un message professionnel que je dois écrire (candidature, demande, relance), rédigé ici en 3 lignes"
+      },
+      {
+       "id": "s7_4",
+       "type": "texte",
+       "label": "Une personne à qui je peux demander un avis sur ma posture"
+      }
+     ],
+     "action": "Demandez à une personne de confiance (responsable, enseignant, aîné) un retour honnête sur votre façon de vous présenter."
+    }
+   ],
+   "seoTitre": "Développer mes compétences · Parcours gratuit | Entrepreneuriat Sénégal",
+   "seoDescription": "Confiance en soi, prise de parole, travail d'équipe, gestion du temps : évaluez vos soft skills et progressez avec un parcours gratuit en 7 étapes, exercices pratiques inclus.",
+   "titre": "Je veux développer mes compétences",
+   "sousTitre": "Les compétences qui font la différence, dans la vie comme au travail.",
+   "texte": [
+    "Savoir communiquer, travailler en équipe, gérer son temps, oser prendre la parole : ces compétences ne s'apprennent pas toujours à l'école, et pourtant elles comptent autant que les diplômes.",
+    "Bonne nouvelle : elles se travaillent. Ce parcours vous propose de faire le point, puis de progresser avec des conseils simples et des exercices à pratiquer dans votre quotidien."
+   ],
+   "reperes": [
+    "Une auto-évaluation de 3 minutes, puis 7 étapes",
+    "Environ 15 minutes par étape. Suivez-les dans l'ordre ou commencez par celles qui vous semblent prioritaires.",
+    "Gratuit, sans inscription. Vos réponses restent sur votre appareil."
+   ],
+   "persoTitre": "Présentation de Khady",
+   "perso": "Khady a 24 ans. Elle vient d'être recrutée comme assistante dans une association de Saint-Louis qui accompagne des groupements de femmes. Elle est sérieuse et appréciée, mais elle n'ose pas parler en réunion, elle a du mal à dire non, et elle se sent souvent débordée. Khady est un personnage fictif.",
+   "persoNote": null,
+   "commencer": null,
+   "autoDepart": {
+    "titre": "Où en êtes-vous aujourd'hui ?",
+    "texte": "Pour chaque compétence, donnez-vous une note de 1 à 5. Soyez honnête : personne d'autre ne verra vos réponses.",
+    "echelle": "1 = c'est très difficile pour moi · 5 = je suis à l'aise",
+    "competences": [
+     {
+      "nom": "Confiance en soi",
+      "desc": "je crois en mes capacités et j'ose me lancer"
+     },
+     {
+      "nom": "Communication et prise de parole",
+      "desc": "je m'exprime clairement, à l'oral comme à l'écrit, même devant un groupe"
+     },
+     {
+      "nom": "Travail d'équipe",
+      "desc": "je collabore facilement et je gère les désaccords"
+     },
+     {
+      "nom": "Leadership",
+      "desc": "je sais prendre une initiative et entraîner les autres"
+     },
+     {
+      "nom": "Gestion du temps",
+      "desc": "je m'organise et je tiens mes délais"
+     },
+     {
+      "nom": "Résolution de problèmes",
+      "desc": "face à une difficulté, je trouve des solutions"
+     },
+     {
+      "nom": "Vie professionnelle",
+      "desc": "je connais les attentes du monde du travail et j'adopte la bonne posture"
+     }
+    ],
+    "message": "Nous vous suggérons de commencer par : **[compétence la moins bien notée]** et **[deuxième compétence la moins bien notée]**. Vous pouvez aussi suivre toutes les étapes dans l'ordre.",
+    "boutons": [
+     "Commencer par ma priorité",
+     "Suivre le parcours dans l'ordre"
+    ]
+   },
+   "autoFin": {
+    "titre": "Et maintenant, où en êtes-vous ?",
+    "texte": "Refaites l'auto-évaluation. Les notes ne changeront peut-être pas tout de suite : les compétences progressent avec la pratique. Revenez dans un mois pour mesurer le chemin parcouru."
+   },
+   "fin": {
+    "titre": "Bravo, vous avez terminé le parcours !",
+    "texte": "Voici votre fiche personnelle. Elle reprend vos réponses : relisez-la, complétez-la si besoin, puis imprimez-la ou enregistrez-la en PDF. Gardez-la pour suivre vos progrès dans les semaines à venir.",
+    "pied": "Parcours Je veux développer mes compétences — entrepreneuriat.sn",
+    "boutons": [
+     "Imprimer ou enregistrer en PDF",
+     "Modifier mes réponses"
+    ],
+    "suite": [
+     {
+      "texte": "Pour pratiquer : **Fiches pratiques**",
+      "liens": [
+       {
+        "label": "Prendre la parole en public : préparer ses 2 premières minutes",
+        "ref": "fiche:prise-de-parole"
+       },
+       {
+        "label": "Réussir sa présentation en entretien",
+        "ref": "fiche:entretien"
+       }
+      ]
+     },
+     {
+      "texte": "Vous cherchez votre voie ? Suivez le parcours **Je cherche mon orientation**.",
+      "ref": "route:orientation"
+     },
+     {
+      "texte": "Votre organisation souhaite former un groupe à ces compétences ? **Découvrez nos services aux organisations.**",
+      "ref": "route:organisations"
+     },
+     {
+      "texte": "Une question ? **Écrivez-nous sur WhatsApp.**",
+      "ref": "whatsapp"
+     }
+    ],
+    "rappel": "Ce parcours vous aide à progresser par vous-même. Les compétences se développent avec la pratique, dans la durée."
+   }
+  }
+ },
+ "en": {
+  "entreprendre": {
+   "id": "entreprendre",
+   "etapes": [
+    {
+     "n": 1,
+     "titre": "Understand what starting a business means",
+     "essentiel": [
+      {
+       "p": "Starting a business doesn't necessarily mean creating a large company or having a lot of money at the start. It means **offering a useful solution to people who are willing to pay for it**, and organising it so that it lasts."
+      },
+      {
+       "p": "A small neighbourhood activity, a service offered from home, a product sold on social media: all of these are businesses."
+      },
+      {
+       "p": "Three common myths to forget:"
+      },
+      {
+       "ul": [
+        "\"You need a brilliant idea.\" Most of the time, a simple idea done well is enough.",
+        "\"You need to find funding first.\" Many businesses start small, with what is at hand, and grow afterwards.",
+        "\"Business is for other people.\" Everyone has skills, a network and a knowledge of their surroundings that can serve as a starting point."
+       ]
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa thought she needed premises and a loan to get started. She discovers that she can begin by testing a small activity from home, with what she already has."
+      }
+     ],
+     "exercice": "Why do you want to start a business?",
+     "champs": [
+      {
+       "id": "s1_1",
+       "type": "texte",
+       "label": "What makes me want to start a business",
+       "hint": "e.g. earn an income, be independent, help my community, do what I love"
+      },
+      {
+       "id": "s1_2",
+       "type": "texte",
+       "label": "What I would like my business to bring me in one year"
+      },
+      {
+       "id": "s1_3",
+       "type": "texte",
+       "label": "What worries me or holds me back today"
+      }
+     ],
+     "action": "Talk about your wish to start a business with someone you trust, and note their reaction."
+    },
+    {
+     "n": 2,
+     "titre": "Spot a problem around you",
+     "essentiel": [
+      {
+       "p": "The best ideas often come from a **real problem** you notice around you: something that is missing, takes too long, costs too much or is badly done."
+      },
+      {
+       "p": "To spot them, listen to everyday complaints: \"you can never find…\", \"it's too far…\", \"nobody does…\"."
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa notices that several working women in her neighbourhood no longer have time to prepare arraw and thiakry for their families. They sometimes buy them at the market, but complain about the uneven quality and the poor hygiene of some products."
+      }
+     ],
+     "exercice": "My list of problems",
+     "champs": [
+      {
+       "type": "consigne",
+       "t": "Over a few days, write down the problems you hear about or experience yourself:"
+      },
+      {
+       "id": "s2_1",
+       "type": "texte",
+       "label": "Problem 1 — who is affected?"
+      },
+      {
+       "id": "s2_2",
+       "type": "texte",
+       "label": "Problem 2 — who is affected?"
+      },
+      {
+       "id": "s2_3",
+       "type": "texte",
+       "label": "Problem 3 — who is affected?"
+      },
+      {
+       "type": "consigne",
+       "t": "Then circle the one that comes up most often or seems most annoying:"
+      },
+      {
+       "id": "s2_4",
+       "type": "texte",
+       "label": "The problem I choose"
+      }
+     ],
+     "action": "Ask three people around you which everyday problem annoys them the most."
+    },
+    {
+     "n": 3,
+     "titre": "Find or clarify your idea",
+     "essentiel": [
+      {
+       "p": "A good business idea sits where three things meet:"
+      },
+      {
+       "ol": [
+        "**a real problem** (step 2);",
+        "**what you know how to do**, or can learn;",
+        "**the resources you have access to**: equipment, a place, contacts, time, small savings."
+       ]
+      },
+      {
+       "p": "There is no need to look for ten ideas. Look for **one or two options** that bring all three together."
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa can cook; she learnt from her mother. Her aunt owns a grain mill in the neighbourhood. She has some free time. Her idea: **prepare good-quality arraw and thiakry, in clean, well-sealed bags, for the working women of her neighbourhood.**"
+      }
+     ],
+     "exercice": "My three circles",
+     "champs": [
+      {
+       "id": "s3_1",
+       "type": "texte",
+       "label": "The problem I chose (from step 2)"
+      },
+      {
+       "id": "s3_2",
+       "type": "texte",
+       "label": "What I know how to do, or can learn quickly"
+      },
+      {
+       "id": "s3_3",
+       "type": "texte",
+       "label": "The resources I have: equipment, place, contacts, time, savings"
+      },
+      {
+       "id": "s3_4",
+       "type": "texte",
+       "label": "My business idea, in one sentence"
+      }
+     ],
+     "action": "Write your idea in one simple sentence, then read it aloud. If it isn't clear to you, it won't be clear to your customers: rework it."
+    },
+    {
+     "n": 4,
+     "titre": "Identify your customers",
+     "essentiel": [
+      {
+       "p": "Your business is not for \"everyone\". The more precisely you know **who will buy**, the easier it is to find them and talk to them."
+      },
+      {
+       "p": "Ask yourself: who has this problem? Where do they live? How do they buy today? How much are they willing to pay?"
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa's customers: working women aged 25 to 50 who live in her neighbourhood and nearby areas, and who often buy by phone or WhatsApp from people they know."
+      }
+     ],
+     "exercice": "My customer profile",
+     "champs": [
+      {
+       "id": "s4_1",
+       "type": "texte",
+       "label": "Who are they? (age, situation, location)"
+      },
+      {
+       "id": "s4_2",
+       "type": "texte",
+       "label": "What exactly is their problem?"
+      },
+      {
+       "id": "s4_3",
+       "type": "texte",
+       "label": "How do they manage today?"
+      },
+      {
+       "id": "s4_4",
+       "type": "texte",
+       "label": "Where and how can I meet them?"
+      }
+     ],
+     "action": "Talk to **five potential customers**. Don't sell anything: ask questions about their problem and listen."
+    },
+    {
+     "n": 5,
+     "titre": "Study your market",
+     "essentiel": [
+      {
+       "p": "Studying your market doesn't have to mean a big study full of figures. It starts with **observing**:"
+      },
+      {
+       "ul": [
+        "who already sells something similar (your competitors);",
+        "at what price;",
+        "what customers like or dislike about them."
+       ]
+      },
+      {
+       "p": "These observations show you where you can do better or differently."
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa walks around the central market and visits two shops. She finds arraw sold loose, rarely in sealed bags. The women she asks say they would pay a little more for a product that is clean, consistent and delivered."
+      }
+     ],
+     "exercice": "My market walk",
+     "champs": [
+      {
+       "id": "s5_1",
+       "type": "texte",
+       "label": "Competitor 1 — what they sell, their price, strengths and weaknesses"
+      },
+      {
+       "id": "s5_2",
+       "type": "texte",
+       "label": "Competitor 2 — what they sell, their price, strengths and weaknesses"
+      },
+      {
+       "id": "s5_3",
+       "type": "texte",
+       "label": "What customers dislike about what exists today"
+      },
+      {
+       "id": "s5_4",
+       "type": "texte",
+       "label": "What I could do better or differently"
+      }
+     ],
+     "action": "Visit at least two places where your product or service is already sold, and write down the prices."
+    },
+    {
+     "n": 6,
+     "titre": "Define your value proposition and business model",
+     "essentiel": [
+      {
+       "p": "Your **value proposition** answers the customer's question in one sentence: \"Why should I buy from you rather than somewhere else?\""
+      },
+      {
+       "p": "Your **business model** explains how your business makes money. To begin with, three questions are enough:"
+      },
+      {
+       "ol": [
+        "**What am I selling, and at what price?**",
+        "**How much does each sale cost me?** (raw materials, packaging, transport…)",
+        "**How much is left?** The selling price minus the cost is your **margin**. It must cover your other expenses and your work."
+       ]
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "*Value proposition*: \"Carefully prepared arraw and thiakry, in clean bags, delivered to your door in the neighbourhood.\""
+      },
+      {
+       "p": "*Business model (illustrative figures)*: if a bag costs her 600 CFA francs to make and she sells it for 1,000 CFA francs, she has 400 CFA francs left per bag to pay for delivery, her time and everything else."
+      }
+     ],
+     "exercice": "My offer in figures",
+     "champs": [
+      {
+       "id": "s6_1",
+       "type": "texte",
+       "label": "My value proposition, in one sentence"
+      },
+      {
+       "id": "s6_2",
+       "type": "texte",
+       "label": "What I sell (product or service)"
+      },
+      {
+       "id": "s6_3",
+       "type": "texte",
+       "label": "My planned selling price"
+      },
+      {
+       "id": "s6_4",
+       "type": "texte",
+       "label": "My cost for one sale"
+      },
+      {
+       "id": "s6_5",
+       "type": "texte",
+       "label": "What is left per sale"
+      },
+      {
+       "type": "calcul",
+       "label": "Automatic calculation shown on screen: price − cost = margin.",
+       "apres": true
+      }
+     ],
+     "action": "Check your price with three potential customers: \"At this price, would you buy it?\""
+    },
+    {
+     "n": 7,
+     "titre": "Plan your first actions",
+     "essentiel": [
+      {
+       "p": "Before investing, **test on a small scale**. A small first batch, a few customers, a one-month trial: you will learn more from selling ten times than from weeks of thinking."
+      },
+      {
+       "p": "Set yourself **three precise actions**, each with a date, for the next four weeks."
+      },
+      {
+       "p": "If you wish to formalise your business (registration, legal status), ask the relevant official bodies: the procedures depend on your situation and your activity."
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa's three actions:"
+      },
+      {
+       "ol": [
+        "prepare 20 trial bags by the end of the week;",
+        "offer them to 10 neighbours and colleagues on WhatsApp;",
+        "record feedback and sales for one month, then adjust the price and the recipe."
+       ]
+      }
+     ],
+     "exercice": "My first 3 actions",
+     "champs": [
+      {
+       "id": "s7_1",
+       "type": "texte",
+       "label": "Action 1 — by (date)"
+      },
+      {
+       "id": "s7_2",
+       "type": "texte",
+       "label": "Action 2 — by (date)"
+      },
+      {
+       "id": "s7_3",
+       "type": "texte",
+       "label": "Action 3 — by (date)"
+      },
+      {
+       "id": "s7_4",
+       "type": "texte",
+       "label": "What or whom do I need to achieve them?"
+      }
+     ],
+     "action": "Pick action no. 1 and do it within 7 days."
+    }
+   ],
+   "seoTitre": "Start a business · Free 7-step pathway | Entrepreneuriat Sénégal",
+   "seoDescription": "Want to start your own business but don't know where to begin? A free 7-step pathway to find your idea, understand your customers and plan your first actions.",
+   "titre": "Start a business",
+   "sousTitre": "From the wish to the first action, in 7 steps.",
+   "texte": [
+    "You would like to start your own business, but you don't yet know what to do, or your idea is still vague? This pathway helps you think it through, rather than copy a ready-made idea.",
+    "At each step: an explanation, Awa's example, an exercise and a concrete action. At the end, you leave with your personal sheet and your next actions."
+   ],
+   "reperes": [
+    "7 steps",
+    "About 15 to 20 minutes per step. You can take a break between steps.",
+    "Free, no sign-up. Your answers stay on your device."
+   ],
+   "persoTitre": "Meet Awa",
+   "perso": "Awa is 26 and lives in Kaolack. She has a degree in management and has been looking for work for a year. She would like to earn her own living, but doesn't know where to start. Awa is a fictional character: her story illustrates the steps, it does not describe a real situation.",
+   "persoNote": null,
+   "commencer": "Start step 1",
+   "fin": {
+    "titre": "Well done, you have completed the pathway!",
+    "texte": "Here is your personal sheet. It brings together your answers: read it again, add to it if needed, then print it or save it as a PDF. Keep it close at hand to track your progress.",
+    "pied": "Pathway Start a business — entrepreneuriat.sn",
+    "boutons": [
+     "Print or save as PDF",
+     "Edit my answers"
+    ],
+    "suite": [
+     {
+      "texte": "To go further: **Practical guides**",
+      "liens": [
+       {
+        "label": "Find an idea from a problem around you",
+        "ref": "fiche:trouver-une-idee"
+       },
+       {
+        "label": "Who are my customers?",
+        "ref": "fiche:mes-clients"
+       },
+       {
+        "label": "My value proposition in one sentence",
+        "ref": "fiche:proposition-de-valeur"
+       },
+       {
+        "label": "Setting your price",
+        "ref": "fiche:fixer-son-prix"
+       }
+      ]
+     },
+     {
+      "texte": "Has your business started? Move on to the pathway **Grow my business**.",
+      "ref": "route:activite"
+     },
+     {
+      "texte": "Any questions? **Message us on WhatsApp.**",
+      "ref": "whatsapp"
+     }
+    ],
+    "rappel": "This pathway helps you clarify your project. It does not guarantee funding or the success of your business, and it does not replace the procedures with official bodies."
+   }
+  },
+  "activite": {
+   "id": "activite",
+   "etapes": [
+    {
+     "n": 1,
+     "titre": "Understand your sales and expenses",
+     "essentiel": [
+      {
+       "p": "To grow a business, you first need to know **where the money goes**. Many small businesses sell well but lose money without realising it."
+      },
+      {
+       "p": "Two simple habits change everything:"
+      },
+      {
+       "ol": [
+        "**Keep business money separate from household money.** A cash box, an envelope or a separate account is enough.",
+        "**Write down every day what comes in and what goes out.** A notebook or a note on your phone will do."
+       ]
+      },
+      {
+       "p": "At the end of the month: **sales − expenses = result**. If the result is positive, the business is making money."
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa used to take money from sales for household expenses, and bought millet with her own money. She starts a cash book and keeps the business money in a separate box. After one month, she discovers that deliveries cost her much more than she thought."
+      }
+     ],
+     "exercice": "My month in figures",
+     "exerciceNote": "estimate if you don't have precise notes",
+     "champs": [
+      {
+       "id": "s1_1",
+       "type": "texte",
+       "label": "My sales last month (CFA francs)"
+      },
+      {
+       "id": "s1_2",
+       "type": "texte",
+       "label": "My purchases of raw materials or goods (CFA francs)"
+      },
+      {
+       "id": "s1_3",
+       "type": "texte",
+       "label": "My other expenses: transport, packaging, rent, phone… (CFA francs)"
+      },
+      {
+       "type": "calcul",
+       "label": "Automatic calculation: sales − expenses = result for the month"
+      },
+      {
+       "id": "s1_4",
+       "type": "texte",
+       "label": "What surprises me about this result"
+      }
+     ],
+     "action": "Starting tomorrow, write down every sale and every expense for 30 days, and keep the business money separate."
+    },
+    {
+     "n": 2,
+     "titre": "Know your customers",
+     "essentiel": [
+      {
+       "p": "Not all your customers are alike. Some buy often, others rarely. Some recommend you to the people around them, others never do. Knowing **who your best customers are** helps you focus your efforts in the right place."
+      },
+      {
+       "p": "Ask yourself: who buys most often? Why? How did they hear about me? What could make them buy more, or recommend me to others?"
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Reading back through her notebook, Awa sees that half of her sales come from about ten customers, almost all office workers who order every week on WhatsApp. Several of them were sent by the same colleague."
+      }
+     ],
+     "exercice": "My best customers",
+     "champs": [
+      {
+       "id": "s2_1",
+       "type": "texte",
+       "label": "My 3 main types of customers"
+      },
+      {
+       "id": "s2_2",
+       "type": "texte",
+       "label": "Those who buy most often, and why"
+      },
+      {
+       "id": "s2_3",
+       "type": "texte",
+       "label": "How my customers find me (word of mouth, social media, passing by…)"
+      },
+      {
+       "id": "s2_4",
+       "type": "texte",
+       "label": "A type of customer I don't reach yet"
+      }
+     ],
+     "action": "Call or message three good customers and ask them what they like most about your business, and what you could improve."
+    },
+    {
+     "n": 3,
+     "titre": "Improve your relationship with customers",
+     "essentiel": [
+      {
+       "p": "Keeping a customer takes less effort than finding a new one. A satisfied customer comes back, and tells others."
+      },
+      {
+       "p": "A few things that matter:"
+      },
+      {
+       "ul": [
+        "**keep your promises**: deadlines, quality, the price you announced;",
+        "**reply quickly and politely**, even to a complaint;",
+        "**say thank you and stay in touch**: a message after a purchase, news of a new product;",
+        "**listen to feedback** and show that you act on it."
+       ]
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "A customer complains about a badly sealed bag. Awa replaces it the same day and apologises. She then creates a WhatsApp broadcast list to announce the delivery days each week. Orders become more regular."
+      }
+     ],
+     "exercice": "My customer service",
+     "champs": [
+      {
+       "id": "s3_1",
+       "type": "texte",
+       "label": "What my customers like most about my business"
+      },
+      {
+       "id": "s3_2",
+       "type": "texte",
+       "label": "The complaint or problem that comes up most often"
+      },
+      {
+       "id": "s3_3",
+       "type": "texte",
+       "label": "What I will change to address it"
+      },
+      {
+       "id": "s3_4",
+       "type": "texte",
+       "label": "One simple way to stay in touch with my customers"
+      }
+     ],
+     "action": "Put that simple idea in place this week (a thank-you message, a broadcast list, a loyalty card…)."
+    },
+    {
+     "n": 4,
+     "titre": "Organise your business",
+     "essentiel": [
+      {
+       "p": "When a business grows, time runs short. Getting organised means **knowing what you do, when, and what you can hand over to others**."
+      },
+      {
+       "p": "Three simple tools:"
+      },
+      {
+       "ul": [
+        "**a weekly schedule**: production, deliveries, purchases, accounts;",
+        "**a list of repetitive tasks**: the ones you could group together or hand over;",
+        "**a small, tracked stock**: knowing what is left so you never run out or buy too much."
+       ]
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa used to prepare a little every day and deliver on demand, at all hours. She now groups production on Mondays and Thursdays, and deliveries on Tuesdays and Fridays. A young cousin helps her with packaging and is paid per task. Awa gains two days a week."
+      }
+     ],
+     "exercice": "My typical week",
+     "champs": [
+      {
+       "id": "s4_1",
+       "type": "texte",
+       "label": "The tasks that take up most of my time"
+      },
+      {
+       "id": "s4_2",
+       "type": "texte",
+       "label": "What I could group on certain days"
+      },
+      {
+       "id": "s4_3",
+       "type": "texte",
+       "label": "What I could hand over to someone else"
+      },
+      {
+       "id": "s4_4",
+       "type": "texte",
+       "label": "My new weekly organisation"
+      }
+     ],
+     "action": "Try your new organisation for two weeks, then note what worked."
+    },
+    {
+     "n": 5,
+     "titre": "Set your prices",
+     "essentiel": [
+      {
+       "p": "A good price takes three things into account:"
+      },
+      {
+       "ol": [
+        "**your costs**: the price must cover everything each sale costs, including transport, packaging and your time;",
+        "**the market**: what others charge, and what your customers are willing to pay;",
+        "**perceived value**: what your product or service offers on top (quality, cleanliness, delivery, trust)."
+       ]
+      },
+      {
+       "p": "Selling cheaper than everyone else isn't always a good strategy: you can work very hard and earn nothing."
+      }
+     ],
+     "exempleTitre": "Awa's example (illustrative figures)",
+     "exemple": [
+      {
+       "p": "When she recalculates, Awa sees that each bag now costs her 700 CFA francs including delivery, not 600. Sold at 1,000 CFA francs, it leaves her only 300. She moves to 1,100 CFA francs with delivery included, and creates a larger family bag that is better value for her regular customers. No customer leaves."
+      }
+     ],
+     "exercice": "My fair price",
+     "champs": [
+      {
+       "id": "s5_1",
+       "type": "texte",
+       "label": "My main product or service"
+      },
+      {
+       "id": "s5_2",
+       "type": "texte",
+       "label": "Its full cost for one sale, including transport and packaging (CFA francs)"
+      },
+      {
+       "id": "s5_3",
+       "type": "texte",
+       "label": "My current price (CFA francs)"
+      },
+      {
+       "type": "calcul",
+       "label": "Automatic calculation: price − full cost = margin per sale"
+      },
+      {
+       "id": "s5_4",
+       "type": "texte",
+       "label": "The prices others charge"
+      },
+      {
+       "id": "s5_5",
+       "type": "texte",
+       "label": "What justifies my price in my customers' eyes"
+      },
+      {
+       "id": "s5_6",
+       "type": "texte",
+       "label": "My new price, if I decide to change it"
+      }
+     ],
+     "action": "Recalculate the full cost of your three main products or services, and check that each one leaves you a margin."
+    },
+    {
+     "n": 6,
+     "titre": "Become more visible",
+     "essentiel": [
+      {
+       "p": "To sell more, **the right people need to know about you**. You don't need a big budget: being regular matters more than spending a lot."
+      },
+      {
+       "p": "A few easy levers:"
+      },
+      {
+       "ul": [
+        "**word of mouth**: ask satisfied customers to recommend you;",
+        "**WhatsApp**: status, broadcast list, WhatsApp Business catalogue;",
+        "**social media**: a few good photos of your products, posted regularly;",
+        "**your physical presence**: a sign, packaging with your name and number, being at markets and fairs."
+       ]
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa has labels printed with her name and number for every bag. Each week she posts a photo of her products on her WhatsApp status and on Facebook. She gives a free bag to any customer who brings her a new customer."
+      }
+     ],
+     "exercice": "My visibility plan",
+     "champs": [
+      {
+       "id": "s6_1",
+       "type": "texte",
+       "label": "How people find me today"
+      },
+      {
+       "id": "s6_2",
+       "type": "texte",
+       "label": "The 2 channels I will focus on"
+      },
+      {
+       "id": "s6_3",
+       "type": "texte",
+       "label": "What I will post or do, and how often"
+      },
+      {
+       "id": "s6_4",
+       "type": "texte",
+       "label": "An idea to encourage word of mouth"
+      }
+     ],
+     "action": "Post a first photo of your product or service this week, with your number and a sentence that makes people want it."
+    },
+    {
+     "n": 7,
+     "titre": "Identify ways to grow",
+     "essentiel": [
+      {
+       "p": "Growing doesn't have to mean changing everything. There are several ways to develop:"
+      },
+      {
+       "ol": [
+        "**sell more to your current customers**: new sizes, regular orders;",
+        "**find new customers**: a new neighbourhood, a new town, companies or shops;",
+        "**offer a new product or service**, close to what you already know how to do;",
+        "**team up** with others: group purchases, share premises, sell together."
+       ]
+      },
+      {
+       "p": "Choose **one option** to test first, then set yourself three precise actions, each with a date."
+      }
+     ],
+     "exempleTitre": "Awa's example",
+     "exemple": [
+      {
+       "p": "Awa chooses option no. 2: offering her bags to two neighbourhood shops and a company canteen. Her three actions: prepare a simple price list for resellers, visit the shops with samples, then review the orders after one month."
+      },
+      {
+       "p": "*If you need funding, ask official bodies and financial institutions: the conditions depend on your situation.*"
+      }
+     ],
+     "exercice": "My way to grow",
+     "champs": [
+      {
+       "id": "s7_1",
+       "type": "texte",
+       "label": "The option I choose to test first"
+      },
+      {
+       "id": "s7_2",
+       "type": "texte",
+       "label": "Why this one"
+      },
+      {
+       "id": "s7_3",
+       "type": "texte",
+       "label": "Action 1 — by (date)"
+      },
+      {
+       "id": "s7_4",
+       "type": "texte",
+       "label": "Action 2 — by (date)"
+      },
+      {
+       "id": "s7_5",
+       "type": "texte",
+       "label": "Action 3 — by (date)"
+      },
+      {
+       "id": "s7_6",
+       "type": "texte",
+       "label": "What or whom do I need to achieve them?"
+      }
+     ],
+     "action": "Start action no. 1 within 7 days."
+    }
+   ],
+   "seoTitre": "Grow my business · Free 7-step pathway | Entrepreneuriat Sénégal",
+   "seoDescription": "Already running a business? Track your sales and expenses, keep your customers, set your prices and find ways to grow, with a free 7-step pathway.",
+   "titre": "Grow my business",
+   "sousTitre": "Manage your business better so it can grow, in 7 steps.",
+   "texte": [
+    "Your business has started, even if it is small or informal? This pathway helps you step back: know what you really earn, understand your customers better, save time and choose how to grow.",
+    "At each step: an explanation, Awa's example, an exercise and a concrete action. At the end, you leave with your personal sheet and your action plan."
+   ],
+   "reperes": [
+    "7 steps",
+    "About 15 to 20 minutes per step. Keep your notes on sales and expenses at hand, even if they are incomplete.",
+    "Free, no sign-up. Your answers stay on your device."
+   ],
+   "persoTitre": "Where is Awa now?",
+   "perso": "Eight months after starting, Awa sells arraw and thiakry in bags to about thirty regular customers in Kaolack. She works hard, but at the end of the month she never really knows how much she has earned. Awa is a fictional character.",
+   "persoNote": "Haven't followed the pathway \"Start a business\"? No problem: this pathway works on its own.",
+   "commencer": "Start step 1",
+   "fin": {
+    "titre": "Well done, you have completed the pathway!",
+    "texte": "Here is your personal sheet. It brings together your answers: read it again, add to it if needed, then print it or save it as a PDF. Review it again in three months to measure your progress.",
+    "pied": "Pathway Grow my business — entrepreneuriat.sn",
+    "boutons": [
+     "Print or save as PDF",
+     "Edit my answers"
+    ],
+    "suite": [
+     {
+      "texte": "To go further: **Practical guides**",
+      "liens": [
+       {
+        "label": "Keeping business money and household money separate",
+        "ref": "fiche:separer-argent"
+       },
+       {
+        "label": "Setting your price: costs, market, value",
+        "ref": "fiche:proposition-de-valeur"
+       }
+      ]
+     },
+     {
+      "texte": "Want to become more confident speaking in public or better organised? Follow the pathway **Build my skills**.",
+      "ref": "route:competences"
+     },
+     {
+      "texte": "Any questions? **Message us on WhatsApp.**",
+      "ref": "whatsapp"
+     }
+    ],
+    "rappel": "This pathway helps you manage your business better. It does not guarantee results, and it does not replace accounting, tax or legal advice, or the procedures with official bodies."
+   }
+  },
+  "orientation": {
+   "id": "orientation",
+   "etapes": [
+    {
+     "n": 1,
+     "titre": "Identify what interests you",
+     "essentiel": [
+      {
+       "p": "Your **interests** are the activities, subjects and situations that attract you, give you energy and that you naturally come back to."
+      },
+      {
+       "p": "They often point to jobs in which you will feel at ease. They can be grouped into broad families:"
+      },
+      {
+       "ul": [
+        "**working with your hands**: making, repairing, farming, cooking;",
+        "**understanding and analysing**: researching, calculating, solving problems;",
+        "**creating**: drawing, writing, imagining, decorating;",
+        "**helping others**: caring, teaching, advising, supporting;",
+        "**persuading and leading**: selling, organising, negotiating, launching projects;",
+        "**organising and managing**: filing, planning, keeping accounts."
+       ]
+      }
+     ],
+     "exempleTitre": "Ibrahima's example",
+     "exemple": [
+      {
+       "p": "Ibrahima realises that he loses track of time when he takes an engine apart with his uncle. He also enjoys explaining to customers what is wrong with their car. On the other hand, sitting in front of books for a long time bores him."
+      }
+     ],
+     "exercice": "What attracts me",
+     "champs": [
+      {
+       "id": "s1_1",
+       "type": "cases",
+       "label": "The families most like me (2 or 3)",
+       "options": [
+        "working with my hands",
+        "understanding and analysing",
+        "creating",
+        "helping others",
+        "persuading and leading",
+        "organising and managing"
+       ],
+       "max": 3
+      },
+      {
+       "id": "s1_2",
+       "type": "texte",
+       "label": "The activities during which I don't notice time passing"
+      },
+      {
+       "id": "s1_3",
+       "type": "texte",
+       "label": "The subjects I like talking about or reading about"
+      },
+      {
+       "id": "s1_4",
+       "type": "texte",
+       "label": "What I really don't like doing"
+      }
+     ],
+     "action": "For one week, note each evening the moment of the day when you felt most motivated, and why."
+    },
+    {
+     "n": 2,
+     "titre": "Discover your aptitudes",
+     "essentiel": [
+      {
+       "p": "Your **aptitudes** are your natural strengths: what you learn quickly, what you do well without much effort. They don't only come from school: you also show them at home, in your neighbourhood, in associations or in sport."
+      },
+      {
+       "p": "To spot them, notice **what others often ask you to do** and **the compliments you receive**."
+      }
+     ],
+     "exempleTitre": "Ibrahima's example",
+     "exemple": [
+      {
+       "p": "His friends call him as soon as a phone or a motorbike breaks down. His uncle says he spots problems quickly. At secondary school he was good at physics, and he was the one who organised his class's outings."
+      }
+     ],
+     "exercice": "My strengths",
+     "champs": [
+      {
+       "id": "s2_1",
+       "type": "texte",
+       "label": "What others often ask me to do"
+      },
+      {
+       "id": "s2_2",
+       "type": "texte",
+       "label": "The compliments I hear most often"
+      },
+      {
+       "id": "s2_3",
+       "type": "texte",
+       "label": "What I learn faster than others"
+      },
+      {
+       "id": "s2_4",
+       "type": "texte",
+       "label": "Someone I trust whom I will ask: \"What do you think I'm good at?\""
+      }
+     ],
+     "action": "Ask two people who know you well, and compare their answers with your own."
+    },
+    {
+     "n": 3,
+     "titre": "Recognise your skills",
+     "essentiel": [
+      {
+       "p": "A **skill** is something you know how to do thanks to experience or learning. You probably have more than you think: a small job, a family business, a role in an association, helping your neighbours — all of these develop skills."
+      },
+      {
+       "p": "There are two kinds:"
+      },
+      {
+       "ul": [
+        "**technical skills**: repairing, cooking, sewing, using software, speaking a language;",
+        "**soft skills**: being on time, working in a team, communicating, dealing with the unexpected, taking initiative."
+       ]
+      },
+      {
+       "p": "Employers and customers often value the second kind as much as the first."
+      }
+     ],
+     "exempleTitre": "Ibrahima's example",
+     "exemple": [
+      {
+       "p": "Listing what he does at the garage, Ibrahima discovers that he can diagnose a simple fault, change parts, welcome a customer, explain a quote and keep the repair log. He realises he already has real experience."
+      }
+     ],
+     "exercice": "My skills review",
+     "champs": [
+      {
+       "id": "s3_1",
+       "type": "texte",
+       "label": "My experiences: studies, internships, small jobs, helping my family, associations, volunteering"
+      },
+      {
+       "id": "s3_2",
+       "type": "texte",
+       "label": "The technical skills I gained from them"
+      },
+      {
+       "id": "s3_3",
+       "type": "texte",
+       "label": "The soft skills I gained from them"
+      },
+      {
+       "id": "s3_4",
+       "type": "texte",
+       "label": "A situation I am proud of, and what it shows about me"
+      }
+     ],
+     "action": "Write one sentence that introduces you through your three best skills. You can reuse it in a CV or an interview."
+    },
+    {
+     "n": 4,
+     "titre": "Clarify what matters to you",
+     "essentiel": [
+      {
+       "p": "A good career choice takes into account **what you want**, but also **your situation**: what is important to you, and the constraints you have to work with."
+      },
+      {
+       "p": "Ask yourself:"
+      },
+      {
+       "ul": [
+        "What matters most to me: stability, independence, contact with people, income, being useful, staying close to my family?",
+        "What are my constraints: time, money for training, location, family responsibilities?",
+        "How long am I prepared to train before earning a living?"
+       ]
+      }
+     ],
+     "exempleTitre": "Ibrahima's example",
+     "exemple": [
+      {
+       "p": "Ibrahima wants to earn an income fairly quickly to help his mother. He wants to stay in Casamance. One day he would like to have his own workshop. He cannot pay for long studies."
+      }
+     ],
+     "exercice": "My priorities and constraints",
+     "champs": [
+      {
+       "id": "s4_1",
+       "type": "cases",
+       "label": "What matters most to me (3 choices maximum)",
+       "options": [
+        "stability",
+        "independence",
+        "income",
+        "contact with people",
+        "being useful",
+        "creativity",
+        "always learning",
+        "staying close to my family"
+       ],
+       "max": 3
+      },
+      {
+       "id": "s4_2",
+       "type": "texte",
+       "label": "My current constraints"
+      },
+      {
+       "id": "s4_3",
+       "type": "texte",
+       "label": "The time I can give to training"
+      },
+      {
+       "id": "s4_4",
+       "type": "texte",
+       "label": "Where I want to live and work"
+      }
+     ],
+     "action": "Talk about your priorities with your family, so that they understand what matters to you."
+    },
+    {
+     "n": 5,
+     "titre": "Explore career options",
+     "essentiel": [
+      {
+       "p": "Now that you know your interests, aptitudes, skills and priorities better, look for **options that bring them all together**."
+      },
+      {
+       "p": "Think broadly. There are several possible paths:"
+      },
+      {
+       "ul": [
+        "**a salaried job** in a company, a public body or an organisation;",
+        "**vocational training or an apprenticeship**, to learn a trade by doing it;",
+        "**longer studies**;",
+        "**starting your own business**, alone or with others."
+       ]
+      },
+      {
+       "p": "For each option, the best way to find out more is to **meet someone who does that job**. Ask them what a typical day looks like, what they enjoy, what is difficult and how they learnt."
+      }
+     ],
+     "exempleTitre": "Ibrahima's example",
+     "exemple": [
+      {
+       "p": "Three options stand out for Ibrahima: qualified car mechanic, technician for motorbikes and three-wheelers, or sales adviser in spare parts. He meets a mechanic who trained at a vocational training centre and the manager of a spare-parts shop. Becoming a qualified mechanic, and eventually having his own workshop, seems closest to what he wants."
+      }
+     ],
+     "exercice": "My options",
+     "champs": [
+      {
+       "id": "s5_1",
+       "type": "texte",
+       "label": "Option 1 — why it suits me, and what I still need to check"
+      },
+      {
+       "id": "s5_2",
+       "type": "texte",
+       "label": "Option 2 — why it suits me, and what I still need to check"
+      },
+      {
+       "id": "s5_3",
+       "type": "texte",
+       "label": "Option 3 (optional)"
+      },
+      {
+       "id": "s5_4",
+       "type": "texte",
+       "label": "Someone who does one of these jobs and whom I could meet"
+      },
+      {
+       "id": "s5_5",
+       "type": "texte",
+       "label": "The questions I will ask them"
+      }
+     ],
+     "action": "Contact someone who does one of these jobs, and ask them for 20 minutes to talk about it."
+    },
+    {
+     "n": 6,
+     "titre": "Build your first action plan",
+     "essentiel": [
+      {
+       "p": "You don't need to decide everything today. Choose **one direction to test first**, then set yourself **three precise actions**, each with a date, for the coming weeks."
+      },
+      {
+       "p": "For training courses, competitive exams, scholarships or enrolment, **ask the institutions and official bodies directly**: conditions and dates change from year to year."
+      }
+     ],
+     "exempleTitre": "Ibrahima's example",
+     "exemple": [
+      {
+       "p": "Ibrahima's direction: becoming a qualified car mechanic. His three actions:"
+      },
+      {
+       "ol": [
+        "ask two vocational training centres in Ziguinchor about their entry requirements, within two weeks;",
+        "ask his uncle to let him do more diagnostics at the garage, starting this weekend;",
+        "prepare a short introduction of himself for entry interviews, within one month."
+       ]
+      }
+     ],
+     "exercice": "My plan",
+     "champs": [
+      {
+       "id": "s6_1",
+       "type": "texte",
+       "label": "The direction I choose to test first"
+      },
+      {
+       "id": "s6_2",
+       "type": "texte",
+       "label": "Why I made this choice"
+      },
+      {
+       "id": "s6_3",
+       "type": "texte",
+       "label": "Action 1 — by (date)"
+      },
+      {
+       "id": "s6_4",
+       "type": "texte",
+       "label": "Action 2 — by (date)"
+      },
+      {
+       "id": "s6_5",
+       "type": "texte",
+       "label": "Action 3 — by (date)"
+      },
+      {
+       "id": "s6_6",
+       "type": "texte",
+       "label": "What or whom do I need to achieve them?"
+      }
+     ],
+     "action": "Do action no. 1 within 7 days."
+    }
+   ],
+   "seoTitre": "Find my direction · Free 6-step pathway | Entrepreneuriat Sénégal",
+   "seoDescription": "Not sure which career or path to choose? Identify your interests, aptitudes and skills, explore options and build your first action plan.",
+   "titre": "Find my direction",
+   "sousTitre": "Know yourself better to choose your path, in 6 steps.",
+   "texte": [
+    "You are finishing your studies, looking for a job or thinking about changing direction, but you don't know where to go? That's normal, and it's the right time to take stock.",
+    "This pathway won't tell you which job to do. It helps you **know yourself better**, **explore realistic options** and **choose a first direction to test**."
+   ],
+   "reperes": [
+    "6 steps",
+    "About 15 to 20 minutes per step. Take time to think: there are no right or wrong answers.",
+    "Free, no sign-up. Your answers stay on your device."
+   ],
+   "persoTitre": "Meet Ibrahima",
+   "perso": "Ibrahima is 20 and lives in Ziguinchor. He passed his baccalaureate last year. He helps his uncle at the garage at weekends, but doesn't know whether he should go back to studying, learn a trade or look for a job. His family advises him to take different paths, and he feels lost. Ibrahima is a fictional character.",
+   "persoNote": null,
+   "commencer": "Start step 1",
+   "fin": {
+    "titre": "Well done, you have completed the pathway!",
+    "texte": "Here is your personal sheet. It brings together your answers: read it again, add to it if needed, then print it or save it as a PDF. You can show it to your family, to an adviser or at an interview.",
+    "pied": "Pathway Find my direction — entrepreneuriat.sn",
+    "boutons": [
+     "Print or save as PDF",
+     "Edit my answers"
+    ],
+    "suite": [
+     {
+      "texte": "To prepare: **Practical guide**",
+      "liens": [
+       {
+        "label": "Introducing yourself well in an interview",
+        "ref": "fiche:entretien"
+       }
+      ]
+     },
+     {
+      "texte": "Want to start your own business? Follow the pathway **Start a business**.",
+      "ref": "route:entreprendre"
+     },
+     {
+      "texte": "Want to gain confidence and ease? Follow the pathway **Build my skills**.",
+      "ref": "route:competences"
+     },
+     {
+      "texte": "Any questions? **Message us on WhatsApp.**",
+      "ref": "whatsapp"
+     }
+    ],
+    "rappel": "This pathway helps you think about your career direction. It does not replace a careers adviser, and it does not give official information about training courses, competitive exams or enrolment: ask the institutions concerned."
+   }
+  },
+  "competences": {
+   "id": "competences",
+   "etapes": [
+    {
+     "n": 1,
+     "titre": "Self-confidence",
+     "essentiel": [
+      {
+       "p": "Self-confidence doesn't mean never having doubts. It means **daring to act despite your doubts**. It builds up step by step, through small successes."
+      },
+      {
+       "p": "Three levers:"
+      },
+      {
+       "ul": [
+        "**recognise your successes**, even small ones, instead of seeing only your mistakes;",
+        "**replace thoughts that hold you back** (\"I'll never manage\") with realistic ones (\"I don't know how yet, but I can learn\");",
+        "**step a little outside your comfort zone**, regularly, in small steps."
+       ]
+      }
+     ],
+     "exempleTitre": "Khady's example",
+     "exemple": [
+      {
+       "p": "Khady thinks she has \"nothing interesting to say\". For a week, she writes down each evening one thing she did well. She realises that her manager is giving her more and more files to handle, a sign that she is trusted."
+      }
+     ],
+     "exercice": "My successes and my thoughts",
+     "champs": [
+      {
+       "id": "s1_1",
+       "type": "texte",
+       "label": "Three things I succeeded at this year, even small ones"
+      },
+      {
+       "id": "s1_2",
+       "type": "texte",
+       "label": "A thought that often holds me back"
+      },
+      {
+       "id": "s1_3",
+       "type": "texte",
+       "label": "The same thought, rephrased in a fairer and more encouraging way"
+      },
+      {
+       "id": "s1_4",
+       "type": "texte",
+       "label": "A small challenge I will take on this week"
+      }
+     ],
+     "action": "Every evening for 7 days, write down one thing you did well that day."
+    },
+    {
+     "n": 2,
+     "titre": "Communication and public speaking",
+     "essentiel": [
+      {
+       "p": "Communicating well means **being understood** and **understanding others**. It starts with listening."
+      },
+      {
+       "p": "To communicate better:"
+      },
+      {
+       "ul": [
+        "**really listen**: let the other person finish, and repeat back what you understood;",
+        "**be clear and brief**: one main idea, one example, one precise request;",
+        "**talk about yourself** rather than blaming: \"I feel overwhelmed when…\" rather than \"you never…\"."
+       ]
+      },
+      {
+       "p": "To speak in front of a group:"
+      },
+      {
+       "ul": [
+        "**prepare three ideas**, no more, plus one sentence to open and one to close;",
+        "**practise out loud**, in front of a mirror or someone you trust;",
+        "stage fright is normal: **breathe slowly** before you start, and look at a few friendly faces."
+       ]
+      }
+     ],
+     "exempleTitre": "Khady's example",
+     "exemple": [
+      {
+       "p": "Before each team meeting, Khady prepares one idea she wants to share, in two sentences. The first time, her voice shakes, but her suggestion is adopted. A month later, she presents the review of an activity on her own, in front of the presidents of the women's groups."
+      }
+     ],
+     "exercice": "My first 2 minutes",
+     "champs": [
+      {
+       "type": "consigne",
+       "t": "Choose a subject you know well (your work, your background, a project)."
+      },
+      {
+       "id": "s2_1",
+       "type": "texte",
+       "label": "My opening sentence"
+      },
+      {
+       "id": "s2_2",
+       "type": "texte",
+       "label": "My 3 main ideas"
+      },
+      {
+       "id": "s2_3",
+       "type": "texte",
+       "label": "My closing sentence"
+      },
+      {
+       "id": "s2_4",
+       "type": "texte",
+       "label": "A situation where I will speak up this week (meeting, family, association)"
+      }
+     ],
+     "action": "Present these two minutes out loud to someone you trust, and ask them for one strength and one tip."
+    },
+    {
+     "n": 3,
+     "titre": "Teamwork",
+     "essentiel": [
+      {
+       "p": "A team succeeds when everyone **knows their role**, **shares information** and **respects others**, even when they disagree."
+      },
+      {
+       "p": "A few good practices:"
+      },
+      {
+       "ul": [
+        "agree from the start **who does what, and by when**;",
+        "**offer your help** and dare to ask for others' help;",
+        "in a conflict, talk about **the problem, not the person**, in private and at the right time;",
+        "acknowledge other people's work."
+       ]
+      }
+     ],
+     "exempleTitre": "Khady's example",
+     "exemple": [
+      {
+       "p": "Two of Khady's colleagues have stopped speaking to each other after a misunderstanding about a task. Khady suggests that at each meeting, they write on the board who does what and by when. Misunderstandings become rarer, and the atmosphere improves."
+      }
+     ],
+     "exercice": "Me in a team",
+     "champs": [
+      {
+       "id": "s3_1",
+       "type": "texte",
+       "label": "A team I belong to (work, family, association, sport)"
+      },
+      {
+       "id": "s3_2",
+       "type": "texte",
+       "label": "My usual role in this group"
+      },
+      {
+       "id": "s3_3",
+       "type": "texte",
+       "label": "What works well, and what creates tension"
+      },
+      {
+       "id": "s3_4",
+       "type": "texte",
+       "label": "One thing I can do to improve how we work together"
+      }
+     ],
+     "action": "At your next group activity, offer to sum up at the end who does what and by when."
+    },
+    {
+     "n": 4,
+     "titre": "Leadership",
+     "essentiel": [
+      {
+       "p": "Leadership isn't only for bosses. It is the ability to **take the initiative**, **set a direction** and **bring others along**, whatever your position."
+      },
+      {
+       "p": "A good leader:"
+      },
+      {
+       "ul": [
+        "**leads by example**;",
+        "**listens** before deciding;",
+        "**trusts others** and gives them responsibility;",
+        "**owns** their decisions and mistakes."
+       ]
+      }
+     ],
+     "exempleTitre": "Khady's example",
+     "exemple": [
+      {
+       "p": "Khady notices that the women in the groups find it hard to keep track of training dates. Without waiting to be asked, she suggests creating a WhatsApp reminder group and runs it. Her manager then puts her in charge of coordinating information for the groups."
+      }
+     ],
+     "exercice": "My initiative",
+     "champs": [
+      {
+       "id": "s4_1",
+       "type": "texte",
+       "label": "A problem or need I notice around me"
+      },
+      {
+       "id": "s4_2",
+       "type": "texte",
+       "label": "An initiative I could take"
+      },
+      {
+       "id": "s4_3",
+       "type": "texte",
+       "label": "The people I would need to convince or involve"
+      },
+      {
+       "id": "s4_4",
+       "type": "texte",
+       "label": "My first step"
+      }
+     ],
+     "action": "Present your initiative to someone concerned this week."
+    },
+    {
+     "n": 5,
+     "titre": "Managing time and priorities",
+     "essentiel": [
+      {
+       "p": "You can't do everything. Managing your time well means **choosing what is important** and **protecting it**."
+      },
+      {
+       "p": "Simple methods:"
+      },
+      {
+       "ul": [
+        "every morning, choose **3 priorities for the day**;",
+        "tell **urgent** things (to do quickly) apart from **important** things (those that move your goals forward): they are not the same;",
+        "**group similar tasks** together (calls, messages, errands);",
+        "**learn to say no**, or \"not now\", politely."
+       ]
+      }
+     ],
+     "exempleTitre": "Khady's example",
+     "exemple": [
+      {
+       "p": "Khady used to accept every request from her colleagues and finish her own work in the evening. She starts setting three priorities each morning, and replies: \"I can do it on Thursday, does that work for you?\" She now finishes her days on time."
+      }
+     ],
+     "exercice": "My day under control",
+     "champs": [
+      {
+       "id": "s5_1",
+       "type": "texte",
+       "label": "What makes me waste the most time"
+      },
+      {
+       "id": "s5_2",
+       "type": "texte",
+       "label": "My 3 priorities for tomorrow"
+      },
+      {
+       "id": "s5_3",
+       "type": "texte",
+       "label": "A request I should learn to answer with \"no\" or \"not now\""
+      },
+      {
+       "id": "s5_4",
+       "type": "texte",
+       "label": "A polite sentence I will use to do so"
+      }
+     ],
+     "action": "For 5 days, write down your 3 priorities every morning and tick them off in the evening."
+    },
+    {
+     "n": 6,
+     "titre": "Problem solving",
+     "essentiel": [
+      {
+       "p": "Faced with a problem, we often want to act straight away. A simple 4-step method gives better results:"
+      },
+      {
+       "ol": [
+        "**describe the problem** precisely: what is happening, since when, who is affected?",
+        "**look for the causes**, not just the symptoms;",
+        "**come up with several solutions**, then choose the most realistic one;",
+        "**test it**, then check whether the problem is solved."
+       ]
+      }
+     ],
+     "exempleTitre": "Khady's example",
+     "exemple": [
+      {
+       "p": "Few women come to the Saturday training sessions. Rather than sending more reminders, Khady asks some of them why: Saturday is market day. The association tries Wednesday afternoons instead, and attendance rises."
+      }
+     ],
+     "exercice": "My problem in 4 steps",
+     "champs": [
+      {
+       "id": "s6_1",
+       "type": "texte",
+       "label": "The problem, described precisely"
+      },
+      {
+       "id": "s6_2",
+       "type": "texte",
+       "label": "Its possible causes"
+      },
+      {
+       "id": "s6_3",
+       "type": "texte",
+       "label": "Three possible solutions"
+      },
+      {
+       "id": "s6_4",
+       "type": "texte",
+       "label": "The solution I will test, and how I will know if it works"
+      }
+     ],
+     "action": "Test your solution for two weeks, then review it."
+    },
+    {
+     "n": 7,
+     "titre": "Preparing for working life",
+     "essentiel": [
+      {
+       "p": "The world of work expects skills, but also **the right attitude**: how you behave, present yourself and keep your commitments."
+      },
+      {
+       "p": "The most valued attitudes:"
+      },
+      {
+       "ul": [
+        "**punctuality** and meeting deadlines;",
+        "**reliability**: doing what you said, and letting people know if you can't;",
+        "**a neat appearance**, suited to the place;",
+        "**professional communication**: greeting people, staying courteous, writing clear messages;",
+        "**a willingness to learn**: asking questions, accepting feedback."
+       ]
+      }
+     ],
+     "exempleTitre": "Khady's example",
+     "exemple": [
+      {
+       "p": "At her job interview, Khady arrived early and had prepared concrete examples of what she had done in her neighbourhood association. Today, she asks her manager for a monthly check-in to find out what she can improve."
+      }
+     ],
+     "exercice": "My professional attitude",
+     "champs": [
+      {
+       "id": "s7_1",
+       "type": "texte",
+       "label": "My strengths in the world of work"
+      },
+      {
+       "id": "s7_2",
+       "type": "texte",
+       "label": "An attitude I still need to improve"
+      },
+      {
+       "id": "s7_3",
+       "type": "texte",
+       "label": "A professional message I need to write (application, request, follow-up), drafted here in 3 lines"
+      },
+      {
+       "id": "s7_4",
+       "type": "texte",
+       "label": "Someone I can ask for feedback on my attitude"
+      }
+     ],
+     "action": "Ask someone you trust (a manager, a teacher, an elder) for honest feedback on the way you present yourself."
+    }
+   ],
+   "seoTitre": "Build my skills · Free pathway | Entrepreneuriat Sénégal",
+   "seoDescription": "Self-confidence, public speaking, teamwork, time management: assess your soft skills and improve with a free 7-step pathway, practical exercises included.",
+   "titre": "Build my skills",
+   "sousTitre": "The skills that make a difference, in life and at work.",
+   "texte": [
+    "Communicating well, working in a team, managing your time, daring to speak up: these skills aren't always taught at school, yet they matter as much as qualifications.",
+    "The good news: they can be developed. This pathway helps you take stock, then improve with simple advice and exercises to practise in your daily life."
+   ],
+   "reperes": [
+    "A 3-minute self-assessment, then 7 steps",
+    "About 15 minutes per step. Follow them in order, or start with the ones that seem most important to you.",
+    "Free, no sign-up. Your answers stay on your device."
+   ],
+   "persoTitre": "Meet Khady",
+   "perso": "Khady is 24. She has just been hired as an assistant at an association in Saint-Louis that supports women's groups. She is conscientious and well liked, but she doesn't dare speak in meetings, finds it hard to say no and often feels overwhelmed. Khady is a fictional character.",
+   "persoNote": null,
+   "commencer": null,
+   "autoDepart": {
+    "titre": "Where are you today?",
+    "texte": "For each skill, give yourself a rating from 1 to 5. Be honest: nobody else will see your answers.",
+    "echelle": "1 = this is very hard for me · 5 = I am comfortable with this",
+    "competences": [
+     {
+      "nom": "Self-confidence",
+      "desc": "I believe in my abilities and dare to have a go"
+     },
+     {
+      "nom": "Communication and public speaking",
+      "desc": "I express myself clearly, orally and in writing, even in front of a group"
+     },
+     {
+      "nom": "Teamwork",
+      "desc": "I work easily with others and handle disagreements"
+     },
+     {
+      "nom": "Leadership",
+      "desc": "I can take the initiative and bring others along"
+     },
+     {
+      "nom": "Time management",
+      "desc": "I organise myself and meet my deadlines"
+     },
+     {
+      "nom": "Problem solving",
+      "desc": "when facing a difficulty, I find solutions"
+     },
+     {
+      "nom": "Working life",
+      "desc": "I know what the world of work expects and I adopt the right attitude"
+     }
+    ],
+    "message": "We suggest you start with: **[lowest-rated skill]** and **[second lowest-rated skill]**. You can also follow all the steps in order.",
+    "boutons": [
+     "Start with my priority",
+     "Follow the steps in order"
+    ]
+   },
+   "autoFin": {
+    "titre": "And now, where are you?",
+    "texte": "Take the self-assessment again. Your ratings may not change straight away: skills improve with practice. Come back in a month to see how far you have come."
+   },
+   "fin": {
+    "titre": "Well done, you have completed the pathway!",
+    "texte": "Here is your personal sheet. It brings together your answers: read it again, add to it if needed, then print it or save it as a PDF. Keep it to track your progress over the coming weeks.",
+    "pied": "Pathway Build my skills — entrepreneuriat.sn",
+    "boutons": [
+     "Print or save as PDF",
+     "Edit my answers"
+    ],
+    "suite": [
+     {
+      "texte": "To practise: **Practical guides**",
+      "liens": [
+       {
+        "label": "Speaking in public: preparing your first 2 minutes",
+        "ref": "fiche:prise-de-parole"
+       },
+       {
+        "label": "Introducing yourself well in an interview",
+        "ref": "fiche:entretien"
+       }
+      ]
+     },
+     {
+      "texte": "Looking for your path? Follow the pathway **Find my direction**.",
+      "ref": "route:orientation"
+     },
+     {
+      "texte": "Would your organisation like to train a group in these skills? **Discover our services for organisations.**",
+      "ref": "route:organisations"
+     },
+     {
+      "texte": "Any questions? **Message us on WhatsApp.**",
+      "ref": "whatsapp"
+     }
+    ],
+    "rappel": "This pathway helps you improve on your own. Skills develop with practice, over time."
+   }
+  }
+ }
+}

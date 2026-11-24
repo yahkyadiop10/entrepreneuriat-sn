@@ -1,6 +1,10 @@
 ---
-// Affiche un texte où **…** marque le gras (format des fichiers 02-CONTENUS).
+// Affiche un texte où **…** marque le gras et *…* l'italique (format des fichiers 02-CONTENUS).
 interface Props { t: string }
-const morceaux = Astro.props.t.split(/\*\*(.+?)\*\*/g);
+const morceaux = Astro.props.t.split(/(\*\*.+?\*\*|\*[^*\s][^*]*?\*)/g);
 ---
-{morceaux.map((m, i) => (i % 2 ? <strong>{m}</strong> : m))}
+{morceaux.map((m) =>
+  m.startsWith('**') && m.endsWith('**') && m.length > 4 ? <strong>{m.slice(2, -2)}</strong>
+  : m.startsWith('*') && m.endsWith('*') && m.length > 2 ? <em>{m.slice(1, -1)}</em>
+  : m
+)}

@@ -1,0 +1,85 @@
+---
+// Introduction d'un parcours (prototype « Page Parcours », et « Page Auto-evaluation » pour Compétences).
+import Page from '../layouts/Page.astro';
+import EnTetePage from '../components/EnTetePage.astro';
+import Icone from '../components/Icone.astro';
+import Photo from '../components/Photo.astro';
+import TexteGras from '../components/TexteGras.astro';
+import AutoEvaluation from '../components/AutoEvaluation.astro';
+import '../styles/exercices.css';
+import { PARCOURS, PERSO, UI, type ParcoursId } from '../content/parcours';
+import { r, url, type Lang } from '../i18n/routes';
+
+interface Props { lang: Lang; id: ParcoursId }
+const { lang, id } = Astro.props;
+const P = PARCOURS[lang][id];
+const U = UI[lang];
+const icones = ['ui-valide', 'ui-fleche', 'ui-valide'];
+const icone = { entreprendre: 'parcours-entreprendre', activite: 'parcours-developper-activite', orientation: 'parcours-orientation', competences: 'parcours-competences' }[id];
+---
+<Page lang={lang} id={id}>
+  <EnTetePage lang={lang} ariane={[U.accueil, U.etreAccompagne, P.titre]} liens={[r('etre-accompagne', lang)]} titre={P.titre}>
+    <p class="sous-titre">{P.sousTitre}</p>
+  </EnTetePage>
+
+  <section class="bloc intro">
+    <div class="bloc__in intro__grille">
+      <div class="colonne" style="gap:20px">
+        {P.texte.map((t) => <p class="t18"><TexteGras t={t} /></p>)}
+        <ul class="reperes">
+          {P.reperes.map((t, i) => <li><span class="pastille-icone"><Icone nom={i === 0 ? icone : icones[i]} taille={22} /></span><span>{t}</span></li>)}
+        </ul>
+        {P.commencer && (
+          <p><a class="bouton bouton--principal" href={url({ kind: 'etape', parcours: id, n: 1 }, lang)}><span>{P.commencer}</span><span aria-hidden="true">→</span></a></p>
+        )}
+      </div>
+      <aside class="perso">
+        <Photo lang={lang} type="illustration" fichier={`perso-${PERSO[id].toLowerCase()}.jpg`} ratio="4/3" alt="" legende={U.illustration(PERSO[id])} />
+        <div class="perso__texte">
+          <h2>{P.persoTitre}</h2>
+          <p><em>{P.perso}</em></p>
+          {P.persoNote && <p class="perso__note"><em>{P.persoNote}</em></p>}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {P.autoDepart && (
+    <section class="bloc bloc--blanc" id="auto-evaluation">
+      <div class="bloc__in bloc__in--pile" style="gap:16px; max-width:900px">
+        <h2>{P.autoDepart.titre}</h2>
+        <p class="t18">{P.autoDepart.texte}</p>
+        <AutoEvaluation lang={lang} moment="depart" />
+      </div>
+    </section>
+  )}
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile" style="gap:12px">
+      <h2 class="filet-titre">{U.sommaire}</h2>
+      <ol class="sommaire-intro">
+        {P.etapes.map((e) => (
+          <li><a href={url({ kind: 'etape', parcours: id, n: e.n }, lang)}><span class="chiffre">{e.n}</span><span>{e.titre}</span><span aria-hidden="true">→</span></a></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .sous-titre { font-family: var(--f-titre); font-weight: 600; font-size: clamp(20px, 1.8vw, 24px); color: var(--vert); line-height: 1.3; }
+  .intro { padding-top: 0; }
+  .intro__grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(28px, 4vw, 64px); align-items: start; }
+  .reperes { list-style: none; margin: 0; padding: 0; border-top: var(--filet-fin); }
+  .reperes li { display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: var(--filet-fin); font-size: 17px; line-height: 1.4; }
+  .perso { background: var(--vert-clair); display: flex; flex-direction: column; }
+  .perso__texte { padding: 18px 16px; display: flex; flex-direction: column; gap: 8px; }
+  .perso h2 { font-size: 20px; letter-spacing: 0; }
+  .perso p { font-size: 17px; line-height: 1.55; }
+  .perso__note { color: var(--secondaire); font-size: 16px !important; }
+  .bloc--blanc { background: var(--blanc); }
+  .sommaire-intro { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 0 32px; }
+  .sommaire-intro a { display: grid; grid-template-columns: 44px 1fr auto; gap: 12px; align-items: center; padding: 12px 0; border-bottom: var(--filet-fin); color: var(--encre); text-decoration: none; font-weight: 600; font-size: 17px; }
+  .sommaire-intro a:hover span:nth-child(2) { text-decoration: underline; color: var(--vert); }
+  .sommaire-intro .chiffre { font-size: 28px; }
+</style>

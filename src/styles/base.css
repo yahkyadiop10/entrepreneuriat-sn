@@ -1,4 +1,5 @@
 /* Polices auto-hébergées (aucun appel à Google en production). */
+[hidden] { display: none !important; }
 @font-face {
   font-family: 'Noto Sans';
   src: local('Noto Sans');
