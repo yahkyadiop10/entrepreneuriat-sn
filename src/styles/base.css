@@ -89,3 +89,7 @@ a.carte:hover { background: var(--vert-clair); color: var(--encre); }
 .encadre { padding: 14px 16px; font-size: 16px; line-height: 1.5; display: flex; gap: 12px; align-items: flex-start; }
 .encadre--jaune { background: var(--jaune-clair); }
 .encadre--vert { background: var(--vert-clair); }
+
+/* Une page qui finit sur un bloc foncé ou jaune se colle au pied de page. */
+main:has(> .bloc--encre:last-child, > .bloc--jaune:last-child) + footer { margin-top: 0; }
+main > .bloc--encre:last-child { border-bottom: 1px solid var(--secondaire); }

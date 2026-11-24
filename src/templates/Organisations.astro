@@ -1,0 +1,159 @@
+---
+import Page from '../layouts/Page.astro';
+import Bouton from '../components/Bouton.astro';
+import Icone from '../components/Icone.astro';
+import ORG from '../content/organisations.js';
+import EXP from '../content/expertises.js';
+import { COMMUN, CONTACT } from '../i18n/commun';
+import { r, type Lang } from '../i18n/routes';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const T = ORG[lang];
+const ancres = EXP[lang].poles.map((p: any) => `${r('expertises', lang)}#${p.ancre}`);
+const majuscule = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
+---
+<Page lang={lang} id="organisations">
+  <section class="bloc">
+    <div class="bloc__in entete">
+      <div class="colonne" style="gap:20px">
+        <nav aria-label={COMMUN[lang].filAriane} class="ariane">
+          <ol><li><a href={r('accueil', lang)}>{T.ariane[0]}</a></li><li><span aria-current="page">{T.ariane[1]}</span></li></ol>
+        </nav>
+        <h1>{T.titre}</h1>
+      </div>
+      <div class="colonne entete__droite" style="gap:12px">
+        {T.texte.map((p: string) => <p class="texte-moyen">{p}</p>)}
+        <div class="boutons-flex">
+          <Bouton href={r('partenariat', lang)}>{T.b1}</Bouton>
+          <a class="bouton bouton--secondaire" href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noopener">
+            <span>{T.b2}</span><Icone nom="reseau-whatsapp" taille={20} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--pile" style="gap:24px">
+      <h2>{T.servicesTitre}</h2>
+      <ul class="services">
+        {T.services.map((s: any, i: number) => (
+          <li>
+            <span class="chiffre">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{s.titre}</h3>
+            <p class="services__accroche">{s.accroche}</p>
+            <ul>{s.liste.map((x: string) => <li>{x}</li>)}</ul>
+          </li>
+        ))}
+      </ul>
+      <p class="note">{T.servicesNote}</p>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--2 large-gap">
+      <div class="colonne" style="gap:12px">
+        <h2 class="h2-moyen">{T.publicsTitre}</h2>
+        <p class="t17">{T.publicsIntro}</p>
+        <ul class="liste-filets publics">{T.publics.map((x: string) => <li>{x}</li>)}</ul>
+        <p class="t16">{T.publicsNote}</p>
+      </div>
+      <div class="colonne" style="gap:12px">
+        <h2 class="h2-moyen">{T.themesTitre}</h2>
+        <ul class="themes">{T.themes.map((x: string, i: number) => <li><a href={ancres[i]}>{x}</a></li>)}</ul>
+        <Bouton href={r('expertises', lang)} variante="lien" class="debut">{T.themesLien}</Bouton>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc bloc--vert">
+    <div class="bloc__in bloc__in--pile" style="gap:40px">
+      <div class="colonne" style="gap:20px">
+        <h2>{T.approcheTitre}</h2>
+        <ol class="approche">
+          {T.approche.map((e: any, i: number) => (
+            <li><span class="chiffre" style="font-size:36px">{i + 1}</span><span class="approche__t">{e.t}</span><span>{majuscule(e.d)}</span></li>
+          ))}
+        </ol>
+      </div>
+      <div class="bloc__in--2" style="display:grid">
+        <div class="colonne" style="gap:12px">
+          <h2 class="h2-moyen">{T.formatsTitre}</h2>
+          <ul class="formats">{T.formats.map((f: any) => <li><strong>{f.t}</strong>, {f.d}</li>)}</ul>
+        </div>
+        <div class="zones">
+          <h3 class="zones__titre"><Icone nom="ui-lieu" taille={22} />{T.zonesTitre}</h3>
+          <p>{T.zones}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc__in bloc__in--2">
+      <h2>{T.plateformeTitre}</h2>
+      <div class="colonne">
+        <p class="texte-moyen">{T.plateformeTexte}</p>
+        <Bouton href={r('etre-accompagne', lang)} variante="lien" class="debut">{T.plateformeLien}</Bouton>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc bloc--encre bloc--sans-filet">
+    <div class="bloc__in bloc__in--2" style="align-items:end">
+      <div class="colonne">
+        <h2 class="fin__titre">{T.finTitre}</h2>
+        <p class="t17">{T.finTexte}</p>
+      </div>
+      <div class="colonne" style="gap:12px">
+        <Bouton href={r('partenariat', lang)} variante="sur-encre">{T.finBouton}</Bouton>
+        <p class="autres">
+          <a href={CONTACT.telLien}>{CONTACT.telAffiche}</a> {lang === 'fr' ? '(téléphone et WhatsApp)' : '(phone and WhatsApp)'} · <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Page>
+
+<style>
+  .entete { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: clamp(20px, 4vw, 64px); padding-top: clamp(24px, 3.4vw, 48px); padding-bottom: clamp(40px, 5.5vw, 80px); }
+  .entete h1 { text-wrap: balance; }
+  .entete__droite { align-self: end; }
+  .ariane ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 15px; color: var(--secondaire); }
+  .ariane li + li::before { content: '/'; margin-right: 8px; }
+  .ariane a { color: var(--vert); text-decoration: underline; text-underline-offset: 3px; }
+  .texte-moyen { font-size: clamp(17px, 1.25vw, 18px); line-height: 1.55; }
+  .boutons-flex { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .boutons-flex > :global(.bouton) { flex: 1 1 240px; }
+  .t16 { font-size: 16px; line-height: 1.5; }
+  .t17 { font-size: 17px; line-height: 1.55; }
+  .h2-moyen { font-size: clamp(26px, 2.4vw, 34px); }
+  .large-gap { gap: clamp(32px, 4vw, 64px); }
+
+  .services { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); border-top: var(--filet); }
+  .services > li { padding: 18px 20px 18px 0; border-bottom: var(--filet-fin); display: flex; flex-direction: column; gap: 10px; }
+  .services h3 { font-size: 22px; line-height: 1.15; }
+  .services__accroche { font-size: 16px; font-weight: 600; }
+  .services ul { margin: 0; padding-left: 18px; font-size: 16px; line-height: 1.5; display: flex; flex-direction: column; gap: 3px; }
+  .note { font-size: 16px; font-style: italic; }
+
+  .publics li { padding: 10px 0; font-size: 17px; }
+  .themes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .themes a { display: block; padding: 9px 12px; background: var(--vert-clair); color: var(--vert); text-decoration: none; font-family: var(--f-titre); font-weight: 700; font-size: 15px; }
+  .themes a:hover { background: var(--vert); color: var(--blanc); }
+
+  .approche { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); border-top: var(--filet); }
+  .approche li { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--encre); display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.5; }
+  .approche__t { font-family: var(--f-titre); font-weight: 700; font-size: 20px; }
+  .formats { margin: 0; padding: 0; list-style: none; border-top: var(--filet); }
+  .formats li { padding: 12px 0; border-bottom: 1px solid var(--encre); font-size: 17px; line-height: 1.45; }
+  .zones { align-self: end; background: var(--sable); padding: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.5; }
+  .zones__titre { display: flex; gap: 10px; align-items: center; font-size: 20px; }
+  .zones__titre :global(svg) { color: var(--vert); }
+
+  .bloc--sans-filet { border-bottom: 0; }
+  .fin__titre { font-size: clamp(28px, 2.9vw, 42px); text-wrap: balance; }
+  .autres { font-size: 15px; }
+  .autres a { color: inherit; }
+</style>
